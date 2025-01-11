@@ -7,13 +7,15 @@ __pycache__/
 *.so
 *.c
 *.s
-tests/tester
 tests/*.f90.*
 tests/*.gz.*
 tests/*.gz
 *.smod
+*/mod
 tests/kinds
 *.core
+*.anc
+tests/build
 
 # Distribution / packaging
 .Python

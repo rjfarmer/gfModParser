@@ -22,3 +22,11 @@ or install via pypi
 python -m pip install --upgrade --user gfModParser
 ````
 
+
+
+## License
+
+gfModParser is distributed under the GPLv2 or later.
+
+
+``tests/src/Makefile`` and ``tests/src/makedepf08.awk`` are from https://aoterodelaroza.github.io/devnotes/modern-fortran-makefiles/  and distributed under GPLv3.
