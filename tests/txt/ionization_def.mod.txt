@@ -1,0 +1,363 @@
+GFORTRAN module version '15' created from ionization_def.f90
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+(('ionization_info' 'ionization_def' 2))
+
+()
+
+()
+
+()
+
+(2 'Ionization_info' 'ionization_def' '' 1 ((DERIVED UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 POINTER_COMP) ((3 'num_log_ne' (
+INTEGER 4 0 0 0 INTEGER ()) () () () (UNKNOWN-FL UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) UNKNOWN-ACCESS ()) (4 'num_logt' (
+INTEGER 4 0 0 0 INTEGER ()) () () () (UNKNOWN-FL UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) UNKNOWN-ACCESS ()) (5 'log_ne' (REAL 8
+0 0 0 REAL ()) (1 0 DEFERRED () ()) () () (UNKNOWN-FL UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DIMENSION POINTER) UNKNOWN-ACCESS ()) (
+6 'logt' (REAL 8 0 0 0 REAL ()) (1 0 DEFERRED () ()) () () (UNKNOWN-FL
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DIMENSION POINTER)
+UNKNOWN-ACCESS ()) (7 'f1' (REAL 8 0 0 0 REAL ()) (1 0 DEFERRED () ()) ()
+() (UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DIMENSION
+POINTER) UNKNOWN-ACCESS ()) (8 'have_interpolation_info' (LOGICAL 4 0 0
+0 LOGICAL ()) () () () (UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0) UNKNOWN-ACCESS ()) (9 'ilinx' (INTEGER 4 0 0 0 INTEGER ())
+() () () (UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0)
+UNKNOWN-ACCESS ()) (10 'iliny' (INTEGER 4 0 0 0 INTEGER ()) () () () (
+UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0)
+UNKNOWN-ACCESS ())) PUBLIC (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 (()
+() () ()) () () 0 0 27390708)
+11 '__def_init_ionization_def_Ionization_info' 'ionization_def' '' 1 ((
+VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0
+ARTIFICIAL TARGET) () (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () ()
+0 0)
+12 '__vtab_ionization_def_Ionization_info' 'ionization_def' '' 1 ((
+VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 TARGET
+VTAB) () (DERIVED 13 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0 0)
+13 '__vtype_ionization_def_Ionization_info' 'ionization_def' '' 1 ((
+DERIVED UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 VTYPE) ((14
+'_hash' (INTEGER 4 0 0 0 INTEGER ()) () () () (UNKNOWN-FL UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) PRIVATE (CONSTANT (INTEGER 4 0 0 0
+INTEGER ()) 0 '27390708' ())) (15 '_size' (INTEGER 8 0 0 0 INTEGER ()) ()
+() () (UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0)
+PRIVATE) (16 '_extends' (DERIVED 13 0 0 0 DERIVED ()) () () () (
+UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 POINTER)
+PRIVATE) (17 '_def_init' (DERIVED 2 0 0 0 DERIVED ()) () () () (
+UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 ARTIFICIAL
+POINTER) PRIVATE) (18 '_copy' (UNKNOWN 0 19 0 0 UNKNOWN ()) () () () (
+UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 SUBROUTINE
+ELEMENTAL PURE ALWAYS_EXPLICIT PROC_POINTER) PRIVATE (UNKNOWN-ACCESS
+OVERRIDABLE PASS SPECIFIC PPC '' 0)) (20 '_final' (UNKNOWN 0 0 0 0
+UNKNOWN ()) () () () (UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 ARTIFICIAL PROC_POINTER) PRIVATE (NULL (UNKNOWN 0 0 0 0
+UNKNOWN ()) 0 ()) (UNKNOWN-ACCESS OVERRIDABLE PASS SPECIFIC PPC '' 0)) (
+21 '_deallocate' (UNKNOWN 0 0 0 0 UNKNOWN ()) () () () (PROCEDURE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 SUBROUTINE PROC_POINTER)
+PRIVATE (UNKNOWN-ACCESS OVERRIDABLE PASS SPECIFIC PPC '' 0)))
+UNKNOWN-ACCESS (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0 0 0)
+22 'const_def' 'const_def' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () ()
+0 0)
+23 'dp' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '8' ()) () 0 () () () 0 0)
+24 'fe_he_info' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 TARGET) () (DERIVED 2 0 0 0
+DERIVED ()) 0 0 () () 0 () () () 0 0)
+25 'fe_he_ptr' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 POINTER) () (DERIVED 2 0 0 0
+DERIVED ()) 0 0 () () 0 () () () 0 0)
+26 'ion_def_init' 'ionization_def' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE ARRAY_OUTER_DEPENDENCY) () (
+UNKNOWN 0 0 0 0 UNKNOWN ()) 27 0 (28) () 0 () () () 0 0)
+29 'ion_del_logq' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+() 0 () () () 0 0)
+30 'ion_del_logt' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+() 0 () () () 0 0)
+31 'ion_file_prefix' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (CHARACTER 1 0 0 0 CHARACTER
+((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '32' ()))) 0 0 () () 0 () () ()
+0 0)
+32 'ion_ifneut_c' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '22' ()) () 0 () () () 0
+0)
+33 'ion_ifneut_fe' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '28' ()) () 0 () () () 0
+0)
+34 'ion_ifneut_h' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '20' ()) () 0 () () () 0
+0)
+35 'ion_ifneut_he' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '21' ()) () 0 () () () 0
+0)
+36 'ion_ifneut_mg' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '26' ()) () 0 () () () 0
+0)
+37 'ion_ifneut_n' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '23' ()) () 0 () () () 0
+0)
+38 'ion_ifneut_ne' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '25' ()) () 0 () () () 0
+0)
+39 'ion_ifneut_o' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '24' ()) () 0 () () () 0
+0)
+40 'ion_ifneut_si' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '27' ()) () 0 () () () 0
+0)
+41 'ion_ilogpgas' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) () 0 () () () 0
+0)
+42 'ion_ilogpp_c' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0
+0)
+43 'ion_ilogpp_fe' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '10' ()) () 0 () () () 0
+0)
+44 'ion_ilogpp_h' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2' ()) () 0 () () () 0
+0)
+45 'ion_ilogpp_he' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '3' ()) () 0 () () () 0
+0)
+46 'ion_ilogpp_mg' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8' ()) () 0 () () () 0
+0)
+47 'ion_ilogpp_n' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0
+0)
+48 'ion_ilogpp_ne' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '7' ()) () 0 () () () 0
+0)
+49 'ion_ilogpp_o' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6' ()) () 0 () () () 0
+0)
+50 'ion_ilogpp_si' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '9' ()) () 0 () () () 0
+0)
+51 'ion_is_initialized' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (LOGICAL 4 0 0 0 LOGICAL ())
+0 0 () () 0 () () () 0 0)
+52 'ion_iz_c' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '13' ()) () 0 () () () 0
+0)
+53 'ion_iz_fe' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '19' ()) () 0 () () () 0
+0)
+54 'ion_iz_h' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '11' ()) () 0 () () () 0
+0)
+55 'ion_iz_he' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '12' ()) () 0 () () () 0
+0)
+56 'ion_iz_mg' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '17' ()) () 0 () () () 0
+0)
+57 'ion_iz_n' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '14' ()) () 0 () () () 0
+0)
+58 'ion_iz_ne' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '16' ()) () 0 () () () 0
+0)
+59 'ion_iz_o' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '15' ()) () 0 () () () 0
+0)
+60 'ion_iz_si' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '18' ()) () 0 () () () 0
+0)
+61 'ion_logq_max' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+() 0 () () () 0 0)
+62 'ion_logq_min' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+() 0 () () () 0 0)
+63 'ion_logqs' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION POINTER) () (REAL 8 0 0
+0 REAL ()) 0 0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+64 'ion_logt_max' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+() 0 () () () 0 0)
+65 'ion_logt_min' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+() 0 () () () 0 0)
+66 'ion_logts' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION POINTER) () (REAL 8 0 0
+0 REAL ()) 0 0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+67 'ion_num_logqs' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () () 0 () () () 0 0)
+68 'ion_num_logts' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () () 0 () () () 0 0)
+69 'ion_result_names' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION) () (CHARACTER 1 0 0 0
+CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '20' ()))) 0 0 () (
+1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) (CONSTANT
+(INTEGER 4 0 0 0 INTEGER ()) 0 '28' ())) 0 () () () 0 0)
+70 'ion_root_is_initialized' 'ionization_def' '' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (LOGICAL 4 0 0
+0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+71 'ion_tbl' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION POINTER) () (REAL 8 0 0
+0 REAL ()) 0 0 () (6 0 DEFERRED () () () () () () () () () () () ()) 0 ()
+() () 0 0)
+72 'ion_tbl1' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION POINTER) () (REAL 8 0 0
+0 REAL ()) 0 0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+73 'ion_version' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () () 0 () () () 0 0)
+74 'ion_xs' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION) () (REAL 8 0 0 0 REAL
+()) 0 0 () (ARRAY (REAL 8 0 0 0 REAL ()) 1 (((CONSTANT (REAL 8 0 0 0
+REAL ()) 0 '0.00000000000000@0' ()) ()) ((CONSTANT (REAL 8 0 0 0 REAL ())
+0 '0.33333333333334@0' ()) ()) ((CONSTANT (REAL 8 0 0 0 REAL ()) 0
+'0.66666666666668@0' ()) ()) ((CONSTANT (REAL 8 0 0 0 REAL ()) 0
+'0.99999999999998@0' ()) ()) ((CONSTANT (REAL 8 0 0 0 REAL ()) 0
+'0.ccccccccccccd0@0' ()) ()) ((CONSTANT (REAL 8 0 0 0 REAL ()) 0
+'0.10000000000000@1' ()) ())) ('6') ()) (1 0 EXPLICIT (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) (CONSTANT (INTEGER 4 0 0 0 INTEGER
+()) 0 '6' ())) 0 () () () 0 0)
+75 'ion_z1_suffix' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (CHARACTER 1 0 0 0 CHARACTER
+((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '32' ()))) 0 0 () () 0 () () ()
+0 0)
+76 'ion_zs' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION) () (REAL 8 0 0 0 REAL
+()) 0 0 () (ARRAY (REAL 8 0 0 0 REAL ()) 1 (((CONSTANT (REAL 8 0 0 0
+REAL ()) 0 '0.00000000000000@0' ()) ()) ((CONSTANT (REAL 8 0 0 0 REAL ())
+0 '0.51eb851eb851ec@-1' ()) ()) ((CONSTANT (REAL 8 0 0 0 REAL ()) 0
+'0.a3d70a3d70a3d8@-1' ()) ()) ((CONSTANT (REAL 8 0 0 0 REAL ()) 0
+'0.33333333333334@0' ()) ()) ((CONSTANT (REAL 8 0 0 0 REAL ()) 0
+'0.10000000000000@1' ()) ())) ('5') ()) (1 0 EXPLICIT (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) (CONSTANT (INTEGER 4 0 0 0 INTEGER
+()) 0 '5' ())) 0 () () () 0 0)
+77 'ionization_cache_dir' 'ionization_def' '' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (CHARACTER 1 0
+0 0 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1000' ()))) 0 0
+() () 0 () () () 0 0)
+78 'ionization_def' 'ionization_def' '' 1 ((MODULE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 ()
+() 0 () () () 0 0)
+79 'ionization_info' 'ionization_def' '' 1 ((PROCEDURE UNKNOWN-INTENT
+UNKNOWN-PROC DECL UNKNOWN 0 0 FUNCTION GENERIC) () (UNKNOWN 0 0 0 0
+UNKNOWN ()) 0 0 () () 0 () () () 0 0)
+80 'ionization_temp_cache_dir' 'ionization_def' '' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (CHARACTER 1 0
+0 0 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1000' ()))) 0 0
+() () 0 () () () 0 0)
+81 'min_version' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '49' ()) () 0 () () () 0
+0)
+82 'num_ion_vals' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '28' ()) () 0 () () () 0
+0)
+83 'num_ion_xs' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6' ()) () 0 () () () 0
+0)
+84 'num_ion_xs_for_z' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 DIMENSION) () (INTEGER 4 0 0 0
+INTEGER ()) 0 0 () (ARRAY (INTEGER 4 0 0 0 INTEGER ()) 1 (((CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '6' ()) ()) ((CONSTANT (INTEGER 4 0 0 0
+INTEGER ()) 0 '5' ()) ()) ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5'
+()) ()) ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) ()) ((
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) ())) ('5') ()) (1 0
+EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '5' ())) 0 () () () 0 0)
+85 'num_ion_zs' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0
+0)
+86 'sz_per_ion_point' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0
+0)
+87 'table_is_initialized' 'ionization_def' '' 1 ((VARIABLE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (LOGICAL 4 0 0
+0 LOGICAL ()) 0 0 () () 0 () () () 0 0)
+88 'table_version' 'ionization_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) () 0 () () () 0
+0)
+89 'use_cache_for_ion' 'ionization_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (LOGICAL 4 0 0 0 LOGICAL ())
+0 0 () () 0 () () () 0 0)
+90 'use_mesa_temp_cache' 'const_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (LOGICAL 4 0 0 0 LOGICAL ())
+0 0 () () 0 () () () 0 0)
+19 '__copy_ionization_def_Ionization_info' 'ionization_def' '' 91 ((
+PROCEDURE UNKNOWN-INTENT UNKNOWN-PROC DECL UNKNOWN 0 0 ARTIFICIAL
+SUBROUTINE ELEMENTAL PURE ALWAYS_EXPLICIT) () (UNKNOWN 0 0 0 0 UNKNOWN ())
+0 0 (92 93) () 0 () () () 0 0)
+28 'ionization_cache_dir_in' '' '' 27 ((VARIABLE IN UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 DUMMY) () (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 ()
+() () 0 0)
+92 'src' '' '' 91 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+ARTIFICIAL DUMMY) () (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0
+0)
+93 'dst' '' '' 91 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+ARTIFICIAL DUMMY) () (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0
+0)
+)
+
+('Ionization_info' 0 2 '__def_init_ionization_def_Ionization_info' 0 11
+'__vtab_ionization_def_Ionization_info' 0 12
+'__vtype_ionization_def_Ionization_info' 0 13 'const_def' 0 22 'dp' 0 23
+'fe_he_info' 0 24 'fe_he_ptr' 0 25 'ion_def_init' 0 26 'ion_del_logq' 0
+29 'ion_del_logt' 0 30 'ion_file_prefix' 0 31 'ion_ifneut_c' 0 32
+'ion_ifneut_fe' 0 33 'ion_ifneut_h' 0 34 'ion_ifneut_he' 0 35
+'ion_ifneut_mg' 0 36 'ion_ifneut_n' 0 37 'ion_ifneut_ne' 0 38
+'ion_ifneut_o' 0 39 'ion_ifneut_si' 0 40 'ion_ilogpgas' 0 41
+'ion_ilogpp_c' 0 42 'ion_ilogpp_fe' 0 43 'ion_ilogpp_h' 0 44
+'ion_ilogpp_he' 0 45 'ion_ilogpp_mg' 0 46 'ion_ilogpp_n' 0 47
+'ion_ilogpp_ne' 0 48 'ion_ilogpp_o' 0 49 'ion_ilogpp_si' 0 50
+'ion_is_initialized' 0 51 'ion_iz_c' 0 52 'ion_iz_fe' 0 53 'ion_iz_h' 0
+54 'ion_iz_he' 0 55 'ion_iz_mg' 0 56 'ion_iz_n' 0 57 'ion_iz_ne' 0 58
+'ion_iz_o' 0 59 'ion_iz_si' 0 60 'ion_logq_max' 0 61 'ion_logq_min' 0 62
+'ion_logqs' 0 63 'ion_logt_max' 0 64 'ion_logt_min' 0 65 'ion_logts' 0
+66 'ion_num_logqs' 0 67 'ion_num_logts' 0 68 'ion_result_names' 0 69
+'ion_root_is_initialized' 0 70 'ion_tbl' 0 71 'ion_tbl1' 0 72
+'ion_version' 0 73 'ion_xs' 0 74 'ion_z1_suffix' 0 75 'ion_zs' 0 76
+'ionization_cache_dir' 0 77 'ionization_def' 0 78 'ionization_info' 0 79
+'ionization_temp_cache_dir' 0 80 'min_version' 0 81 'num_ion_vals' 0 82
+'num_ion_xs' 0 83 'num_ion_xs_for_z' 0 84 'num_ion_zs' 0 85
+'sz_per_ion_point' 0 86 'table_is_initialized' 0 87 'table_version' 0 88
+'use_cache_for_ion' 0 89 'use_mesa_temp_cache' 0 90)

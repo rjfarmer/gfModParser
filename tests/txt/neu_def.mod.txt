@@ -1,0 +1,436 @@
+GFORTRAN module version '15' created from neu_def.f90
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 'a2rad' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.477d1a894a74e4@-1' ()) () 0 () () () 0 0)
+3 'agesun' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.11064aa8000000@9' ()) () 0 () () () 0 0)
+4 'amu' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0
+0 0 REAL ()) 0 '0.201e97585f60bc@-19' ()) () 0 () () () 0 0)
+5 'anonymous_mixing' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8' ()) () 0 () () () 0
+0)
+6 'arg_not_provided' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '-0.1075823b6c498a@84' ()) () 0 () ()
+() 0 0)
+7 'au' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0
+0 0 REAL ()) 0 '0.d9b18cb5230000@11' ()) () 0 () () () 0 0)
+8 'avo' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0
+0 0 REAL ()) 0 '0.7f8617295f145c@20' ()) () 0 () () () 0 0)
+9 'boltz_sigma' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.3b754ba13ce6d8@-3' ()) () 0 () () () 0 0)
+10 'boltzm' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.9f2d90e647ba78@-13' ()) () 0 () () () 0 0)
+11 'brem_neu_type' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0
+0)
+12 'cgas' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.4f4afb22e78e84@7' ()) () 0 () () () 0 0)
+13 'clight' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.6fae6fce800000@9' ()) () 0 () () () 0 0)
+14 'const_def' 'const_def' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () ()
+0 0)
+15 'convective_mixing' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) () 0 () () () 0
+0)
+16 'crad' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.2212b251e94952@-11' ()) () 0 () () () 0 0)
+17 'crystallized' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-1' ()) () 0 () () () 0
+0)
+18 'dayyer' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.16d40000000000@3' ()) () 0 () () () 0 0)
+19 'do_const_init' 'const_def' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE ARRAY_OUTER_DEPENDENCY) () (
+UNKNOWN 0 0 0 0 UNKNOWN ()) 20 0 (21 22) () 0 () () () 0 0)
+23 'dp' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '8' ()) () 0 () () () 0 0)
+24 'eulercon' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.93c467e37db0c8@0' ()) () 0 () () () 0 0)
+25 'eulernum' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.2b7e151628aed2@1' ()) () 0 () () () 0 0)
+26 'ev2erg' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.1c2f8fe5409db9@-9' ()) () 0 () () () 0 0)
+27 'fine' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.1de3d42a1ed29d@-1' ()) () 0 () () () 0 0)
+28 'five_thirds' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.1aaaaaaaaaaaab@1' ()) () 0 () () ()
+0 0)
+29 'four_13' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.1965fea53d6e3c@1' ()) () 0 () () () 0 0)
+30 'four_thirds' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.15555555555555@1' ()) () 0 () () ()
+0 0)
+31 'four_thirds_pi' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.430548e0b5cd94@1' ()) () 0 () () ()
+0 0)
+32 'hbar' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.538d41ef94c01c@-22' ()) () 0 () () () 0 0)
+33 'hion' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.d9b0eb45aabdc8@1' ()) () 0 () () () 0 0)
+34 'i4' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0 0)
+35 'i8' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '8' ()) () 0 () () () 0 0)
+36 'idneu_dabar' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0 0)
+37 'idneu_drho' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '3' ()) () 0 () () () 0 0)
+38 'idneu_dt' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2' ()) () 0 () () () 0 0)
+39 'idneu_dzbar' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0 0)
+40 'iln10' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.6f2dec549b943c@0' ()) () 0 () () () 0 0)
+41 'ineu' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) () 0 () () () 0 0)
+42 'kerg' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.9f2d90e647ba78@-13' ()) () 0 () () () 0 0)
+43 'kev' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.5a5bfa538b3e78@-3' ()) () 0 () () () 0 0)
+44 'leftover_convective_mixing' 'const_def' '' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0
+0 INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '9' ()) ()
+0 () () () 0 0)
+45 'ln10' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.24d763776aaa2a@1' ()) () 0 () () () 0 0)
+46 'ln2' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.b17217f7d1cf78@0' ()) () 0 () () () 0 0)
+47 'ln3' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.1193ea7aad030a@1' ()) () 0 () () () 0 0)
+48 'ln4pi3' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.16eb28cd34d8a1@1' ()) () 0 () () () 0 0)
+49 'lnpi' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.1250d048e7a1bd@1' ()) () 0 () () () 0 0)
+50 'log10tmin_neu' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.70000000000000@1' ()) () 0 () () ()
+0 0)
+51 'loggsun' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.470253334b409c@1' ()) () 0 () () () 0 0)
+52 'lsun' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.bcbc2718da5d90@28' ()) () 0 () () () 0 0)
+53 'ly' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0
+0 0 REAL ()) 0 '0.d21206c8963a30@15' ()) () 0 () () () 0 0)
+54 'm_earth' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.134c0fbcd5db41@24' ()) () 0 () () () 0 0)
+55 'm_jupiter' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.17f52bddfbfef6@26' ()) () 0 () () () 0 0)
+56 'max_extra_inlists' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0
+0)
+57 'mbolsun' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.4bd70a3d70a3d8@1' ()) () 0 () () () 0 0)
+58 'me' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0
+0 0 REAL ()) 0 '0.482c067009be74@-22' ()) () 0 () () () 0 0)
+59 'mesa_caches_dir' 'const_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (CHARACTER 1 0 0 0 CHARACTER
+((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '256' ()))) 0 0 () () 0 () ()
+() 0 0)
+60 'mesa_data_dir' 'const_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (CHARACTER 1 0 0 0 CHARACTER
+((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '256' ()))) 0 0 () () 0 () ()
+() 0 0)
+61 'mesa_dir' 'const_def' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (CHARACTER 1 0 0 0 CHARACTER ((CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '256' ()))) 0 0 () () 0 () () () 0 0)
+62 'mesa_temp_caches_dir' 'const_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (CHARACTER 1 0 0 0 CHARACTER
+((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '256' ()))) 0 0 () () 0 () ()
+() 0 0)
+63 'mev2gr' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.8d3cade53f5e98@-22' ()) () 0 () () () 0 0)
+64 'mev_amu' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.d63d8fbd0746e0@15' ()) () 0 () () () 0 0)
+65 'mev_to_ergs' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.1ae14bd6bdd36b@-4' ()) () 0 () ()
+() 0 0)
+66 'minimum_mixing' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '7' ()) () 0 () () () 0
+0)
+67 'missing_value' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '-0.1075823b6c498a@84' ()) () 0 () ()
+() 0 0)
+68 'mn' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0
+0 0 REAL ()) 0 '0.2065d6d9258c0c@-19' ()) () 0 () () () 0 0)
+69 'mp' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0
+0 0 REAL ()) 0 '0.205a6c2f7e45e8@-19' ()) () 0 () () () 0 0)
+70 'msun' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.620942ced9ba5c@28' ()) () 0 () () () 0 0)
+71 'mu_earth' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.159bb117ecb09d@18' ()) () 0 () () () 0 0)
+72 'mu_jupiter' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.1ad3b0c80cff44@20' ()) () 0 () () () 0 0)
+73 'mu_sun' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.6dc6f3c9c6fda0@22' ()) () 0 () () () 0 0)
+74 'neu_def' 'neu_def' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0 0)
+75 'no_mixing' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0' ()) () 0 () () () 0 0)
+76 'num_neu_fam' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.30000000000000@1' ()) () 0 () () ()
+0 0)
+77 'num_neu_rvs' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0 0)
+78 'num_neu_types' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0
+0)
+79 'number_of_mixing_types' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '11' ()) () 0 () () () 0
+0)
+80 'one_sixth' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.2aaaaaaaaaaaaa@0' ()) () 0 () () () 0 0)
+81 'one_third' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.55555555555554@0' ()) () 0 () () () 0 0)
+82 'overshoot_mixing' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2' ()) () 0 () () () 0
+0)
+83 'pair_neu_type' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) () 0 () () () 0
+0)
+84 'pc' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0
+0 0 REAL ()) 0 '0.2ad28769682dee@16' ()) () 0 () () () 0 0)
+85 'phase_separation_mixing' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '10' ()) () 0 () () () 0
+0)
+86 'phot_neu_type' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '3' ()) () 0 () () () 0
+0)
+87 'pi' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0
+0 0 REAL ()) 0 '0.3243f6a8885a30@1' ()) () 0 () () () 0 0)
+88 'pi2' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.9de9e64df22ef0@1' ()) () 0 () () () 0 0)
+89 'pi4' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.c90fdaa22168c0@1' ()) () 0 () () () 0 0)
+90 'planck_h' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.20cf8ab396a2d8@-21' ()) () 0 () () () 0 0)
+91 'plas_neu_type' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2' ()) () 0 () () () 0
+0)
+92 'qconv' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.d63d8fbd0746d8@15' ()) () 0 () () () 0 0)
+93 'qe' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0
+0 0 REAL ()) 0 '0.2101e3186a4558@-7' ()) () 0 () () () 0 0)
+94 'qp' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '16' ()) () 0 () () () 0 0)
+95 'r_earth' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.26043550000000@8' ()) () 0 () () () 0 0)
+96 'r_earth_polar' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.25e3b500000000@8' ()) () 0 () () ()
+0 0)
+97 'r_jupiter' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.1aa20228000000@9' ()) () 0 () () () 0 0)
+98 'r_jupiter_polar' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.18e7b1bc000000@9' ()) () 0 () () ()
+0 0)
+99 'rad2a' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.394bb834c783f0@2' ()) () 0 () () () 0 0)
+100 'rayleigh_taylor_mixing' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6' ()) () 0 () () () 0
+0)
+101 'rbohr' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.16ba5d6e5fabb0@-6' ()) () 0 () () () 0 0)
+102 'reco_neu_type' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0
+0)
+103 'rotation_mixing' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0
+0)
+104 'rsun' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.1032b1f4800000@10' ()) () 0 () () () 0 0)
+105 'secday' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.15180000000000@5' ()) () 0 () () () 0 0)
+106 'secyer' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.1e187e00000000@7' ()) () 0 () () () 0 0)
+107 'semiconvective_mixing' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '3' ()) () 0 () () () 0
+0)
+108 'semimajor_axis_jupiter' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.46cf7ed40a0000@12' ()) () 0 () ()
+() 0 0)
+109 'sige' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.cde235499f1d50@-20' ()) () 0 () () () 0 0)
+110 'sp' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0 0)
+111 'sqrt2' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.16a09e667f3bcc@1' ()) () 0 () () () 0 0)
+112 'sqrt_2_div_3' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.d105eb806161f0@0' ()) () 0 () () ()
+0 0)
+113 'standard_cgrav' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.11ea8b45edf98c@-5' ()) () 0 () ()
+() 0 0)
+114 'strlen' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '256' ()) () 0 () () () 0 0)
+115 'teffsun' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.168c0000000000@4' ()) () 0 () () () 0 0)
+116 'thermohaline_mixing' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0
+0)
+117 'tmin_neu' 'neu_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.98968000000000@6' ()) () 0 () () () 0 0)
+118 'two_13' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 () (CONSTANT (
+REAL 8 0 0 0 REAL ()) 0 '0.1428a2f98d728a@1' ()) () 0 () () () 0 0)
+119 'two_thirds' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.aaaaaaaaaaaaa8@0' ()) () 0 () () ()
+0 0)
+120 'use_mesa_temp_cache' 'const_def' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (LOGICAL 4 0 0 0 LOGICAL ())
+0 0 () () 0 () () () 0 0)
+121 'weinberg_theta' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (REAL 8 0 0 0 REAL ()) 0 0 ()
+(CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.390ff972474538@0' ()) () 0 () () ()
+0 0)
+21 'mesa_dir_init' '' '' 20 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0
+0 DUMMY) () (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+22 'ierr' '' '' 20 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+() (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+)
+
+('a2rad' 0 2 'agesun' 0 3 'amu' 0 4 'anonymous_mixing' 0 5
+'arg_not_provided' 0 6 'au' 0 7 'avo' 0 8 'boltz_sigma' 0 9 'boltzm' 0
+10 'brem_neu_type' 0 11 'cgas' 0 12 'clight' 0 13 'const_def' 0 14
+'convective_mixing' 0 15 'crad' 0 16 'crystallized' 0 17 'dayyer' 0 18
+'do_const_init' 0 19 'dp' 0 23 'eulercon' 0 24 'eulernum' 0 25 'ev2erg'
+0 26 'fine' 0 27 'five_thirds' 0 28 'four_13' 0 29 'four_thirds' 0 30
+'four_thirds_pi' 0 31 'hbar' 0 32 'hion' 0 33 'i4' 0 34 'i8' 0 35
+'idneu_dabar' 0 36 'idneu_drho' 0 37 'idneu_dt' 0 38 'idneu_dzbar' 0 39
+'iln10' 0 40 'ineu' 0 41 'kerg' 0 42 'kev' 0 43
+'leftover_convective_mixing' 0 44 'ln10' 0 45 'ln2' 0 46 'ln3' 0 47
+'ln4pi3' 0 48 'lnpi' 0 49 'log10tmin_neu' 0 50 'loggsun' 0 51 'lsun' 0
+52 'ly' 0 53 'm_earth' 0 54 'm_jupiter' 0 55 'max_extra_inlists' 0 56
+'mbolsun' 0 57 'me' 0 58 'mesa_caches_dir' 0 59 'mesa_data_dir' 0 60
+'mesa_dir' 0 61 'mesa_temp_caches_dir' 0 62 'mev2gr' 0 63 'mev_amu' 0 64
+'mev_to_ergs' 0 65 'minimum_mixing' 0 66 'missing_value' 0 67 'mn' 0 68
+'mp' 0 69 'msun' 0 70 'mu_earth' 0 71 'mu_jupiter' 0 72 'mu_sun' 0 73
+'neu_def' 0 74 'no_mixing' 0 75 'num_neu_fam' 0 76 'num_neu_rvs' 0 77
+'num_neu_types' 0 78 'number_of_mixing_types' 0 79 'one_sixth' 0 80
+'one_third' 0 81 'overshoot_mixing' 0 82 'pair_neu_type' 0 83 'pc' 0 84
+'phase_separation_mixing' 0 85 'phot_neu_type' 0 86 'pi' 0 87 'pi2' 0 88
+'pi4' 0 89 'planck_h' 0 90 'plas_neu_type' 0 91 'qconv' 0 92 'qe' 0 93
+'qp' 0 94 'r_earth' 0 95 'r_earth_polar' 0 96 'r_jupiter' 0 97
+'r_jupiter_polar' 0 98 'rad2a' 0 99 'rayleigh_taylor_mixing' 0 100 'rbohr'
+0 101 'reco_neu_type' 0 102 'rotation_mixing' 0 103 'rsun' 0 104 'secday'
+0 105 'secyer' 0 106 'semiconvective_mixing' 0 107
+'semimajor_axis_jupiter' 0 108 'sige' 0 109 'sp' 0 110 'sqrt2' 0 111
+'sqrt_2_div_3' 0 112 'standard_cgrav' 0 113 'strlen' 0 114 'teffsun' 0
+115 'thermohaline_mixing' 0 116 'tmin_neu' 0 117 'two_13' 0 118
+'two_thirds' 0 119 'use_mesa_temp_cache' 0 120 'weinberg_theta' 0 121)

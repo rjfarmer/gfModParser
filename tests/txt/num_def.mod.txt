@@ -1,0 +1,316 @@
+GFORTRAN module version '15' created from num_def.f
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 'banded_matrix_type' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2' ()) () 0 () () () 0
+0)
+3 'block_tridiag_dble_matrix_type' 'num_def' '' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0
+0 INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '3' ()) ()
+0 () () () 0 0)
+4 'block_tridiag_quad_matrix_type' 'num_def' '' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0
+0 INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) ()
+0 () () () 0 0)
+5 'const_def' 'const_def' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () ()
+0 0)
+6 'dp' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '8' ()) () 0 () () () 0 0)
+7 'i_caller_id' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '19' ()) () 0 () () () 0 0)
+8 'i_debug' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0 0)
+9 'i_do_core_dump' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6' ()) () 0 () () () 0
+0)
+10 'i_itermin' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2' ()) () 0 () () () 0 0)
+11 'i_lsvar_hi' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '11' ()) () 0 () () () 0 0)
+12 'i_lsvar_lo' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '10' ()) () 0 () () () 0 0)
+13 'i_max_iter_for_enforce_resid_tol' 'num_def' '' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0
+0 INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '12' ()) ()
+0 () () () 0 0)
+14 'i_max_iter_for_resid_tol2' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '13' ()) () 0 () () () 0
+0)
+15 'i_max_iter_for_resid_tol3' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '14' ()) () 0 () () () 0
+0)
+16 'i_max_iterations_for_jacobian' 'num_def' '' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0
+0 INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '15' ()) ()
+0 () () () 0 0)
+17 'i_max_tries' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '3' ()) () 0 () () () 0 0)
+18 'i_min_for_check_d_norm_converging' 'num_def' '' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0
+0 INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '18' ()) ()
+0 () () () 0 0)
+19 'i_model_number' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '7' ()) () 0 () () () 0
+0)
+20 'i_num_jacobians' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '9' ()) () 0 () () () 0
+0)
+21 'i_num_solves' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8' ()) () 0 () () () 0 0)
+22 'i_refine_mtx_solution' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '17' ()) () 0 () () () 0
+0)
+23 'i_refine_solution' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '16' ()) () 0 () () () 0
+0)
+24 'i_tiny_min_corr_coeff' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0
+0)
+25 'i_try_really_hard' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) () 0 () () () 0
+0)
+26 'integrand' 'num_def' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+BODY UNKNOWN 0 0 FUNCTION ABSTRACT ALWAYS_EXPLICIT
+ARRAY_OUTER_DEPENDENCY) () (REAL 8 0 0 0 REAL ()) 27 0 (28 29 30) () 26
+() () () 0 0)
+31 'num_def' 'num_def' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0 0)
+32 'num_iwork_params' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '19' ()) () 0 () () () 0
+0)
+33 'num_solvers' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '7' ()) () 0 () () () 0 0)
+34 'num_work_params' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '27' ()) () 0 () () () 0
+0)
+35 'r_corr_norm_jump_limit' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '14' ()) () 0 () () () 0
+0)
+36 'r_corr_param_factor' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '12' ()) () 0 () () () 0
+0)
+37 'r_d_norm_err_est' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '27' ()) () 0 () () () 0
+0)
+38 'r_d_norm_kappa' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '26' ()) () 0 () () () 0
+0)
+39 'r_dt' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '22' ()) () 0 () () () 0 0)
+40 'r_max_corr_jump_limit' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '15' ()) () 0 () () () 0
+0)
+41 'r_max_resid_jump_limit' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '17' ()) () 0 () () () 0
+0)
+42 'r_min_corr_coeff' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '18' ()) () 0 () () () 0
+0)
+43 'r_mtx_time' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '24' ()) () 0 () () () 0 0)
+44 'r_resid_norm_jump_limit' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '16' ()) () 0 () () () 0
+0)
+45 'r_scale_correction_norm' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '11' ()) () 0 () () () 0
+0)
+46 'r_scale_max_correction' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '13' ()) () 0 () () () 0
+0)
+47 'r_slope_alert_level' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '19' ()) () 0 () () () 0
+0)
+48 'r_slope_crisis_level' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '20' ()) () 0 () () () 0
+0)
+49 'r_sparse_non_zero_max_factor' 'num_def' '' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0
+0 INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '23' ()) ()
+0 () () () 0 0)
+50 'r_target_corr_factor' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8' ()) () 0 () () () 0
+0)
+51 'r_test_time' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '25' ()) () 0 () () () 0 0)
+52 'r_tiny_corr_factor' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '21' ()) () 0 () () () 0
+0)
+53 'r_tol_abs_slope_min' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '9' ()) () 0 () () () 0
+0)
+54 'r_tol_corr_resid_product' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '10' ()) () 0 () () () 0
+0)
+55 'r_tol_max_correction' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '7' ()) () 0 () () () 0
+0)
+56 'r_tol_max_residual' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2' ()) () 0 () () () 0
+0)
+57 'r_tol_max_residual2' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0
+0)
+58 'r_tol_max_residual3' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6' ()) () 0 () () () 0
+0)
+59 'r_tol_residual_norm' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) () 0 () () () 0
+0)
+60 'r_tol_residual_norm2' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '3' ()) () 0 () () () 0
+0)
+61 'r_tol_residual_norm3' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0
+0)
+62 'rodas3_solver' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0
+0)
+63 'rodas4_solver' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6' ()) () 0 () () () 0
+0)
+64 'rodasp_solver' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '7' ()) () 0 () () () 0
+0)
+65 'ros2_solver' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) () 0 () () () 0 0)
+66 'ros3p_solver' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '3' ()) () 0 () () () 0 0)
+67 'ros3pl_solver' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0
+0)
+68 'rose2_solver' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2' ()) () 0 () () () 0 0)
+69 'simplex_expand' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '3' ()) () 0 () () () 0
+0)
+70 'simplex_initial' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) () 0 () () () 0
+0)
+71 'simplex_inside' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4' ()) () 0 () () () 0
+0)
+72 'simplex_outside' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ()) () 0 () () () 0
+0)
+73 'simplex_random' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6' ()) () 0 () () () 0
+0)
+74 'simplex_reflect' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2' ()) () 0 () () () 0
+0)
+75 'simplex_shrink' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '7' ()) () 0 () () () 0
+0)
+76 'square_matrix_type' 'num_def' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) () 0 () () () 0
+0)
+28 'x' '' '' 27 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) ()
+(REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+29 'args' '' '' 27 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) () (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 ASSUMED_SHAPE (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) ()) 0 () () () 0 0)
+30 'ierr' '' '' 27 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+)
+
+('banded_matrix_type' 0 2 'block_tridiag_dble_matrix_type' 0 3
+'block_tridiag_quad_matrix_type' 0 4 'const_def' 0 5 'dp' 0 6
+'i_caller_id' 0 7 'i_debug' 0 8 'i_do_core_dump' 0 9 'i_itermin' 0 10
+'i_lsvar_hi' 0 11 'i_lsvar_lo' 0 12 'i_max_iter_for_enforce_resid_tol' 0
+13 'i_max_iter_for_resid_tol2' 0 14 'i_max_iter_for_resid_tol3' 0 15
+'i_max_iterations_for_jacobian' 0 16 'i_max_tries' 0 17
+'i_min_for_check_d_norm_converging' 0 18 'i_model_number' 0 19
+'i_num_jacobians' 0 20 'i_num_solves' 0 21 'i_refine_mtx_solution' 0 22
+'i_refine_solution' 0 23 'i_tiny_min_corr_coeff' 0 24 'i_try_really_hard'
+0 25 'integrand' 0 26 'num_def' 0 31 'num_iwork_params' 0 32 'num_solvers'
+0 33 'num_work_params' 0 34 'r_corr_norm_jump_limit' 0 35
+'r_corr_param_factor' 0 36 'r_d_norm_err_est' 0 37 'r_d_norm_kappa' 0 38
+'r_dt' 0 39 'r_max_corr_jump_limit' 0 40 'r_max_resid_jump_limit' 0 41
+'r_min_corr_coeff' 0 42 'r_mtx_time' 0 43 'r_resid_norm_jump_limit' 0 44
+'r_scale_correction_norm' 0 45 'r_scale_max_correction' 0 46
+'r_slope_alert_level' 0 47 'r_slope_crisis_level' 0 48
+'r_sparse_non_zero_max_factor' 0 49 'r_target_corr_factor' 0 50
+'r_test_time' 0 51 'r_tiny_corr_factor' 0 52 'r_tol_abs_slope_min' 0 53
+'r_tol_corr_resid_product' 0 54 'r_tol_max_correction' 0 55
+'r_tol_max_residual' 0 56 'r_tol_max_residual2' 0 57 'r_tol_max_residual3'
+0 58 'r_tol_residual_norm' 0 59 'r_tol_residual_norm2' 0 60
+'r_tol_residual_norm3' 0 61 'rodas3_solver' 0 62 'rodas4_solver' 0 63
+'rodasp_solver' 0 64 'ros2_solver' 0 65 'ros3p_solver' 0 66
+'ros3pl_solver' 0 67 'rose2_solver' 0 68 'simplex_expand' 0 69
+'simplex_initial' 0 70 'simplex_inside' 0 71 'simplex_outside' 0 72
+'simplex_random' 0 73 'simplex_reflect' 0 74 'simplex_shrink' 0 75
+'square_matrix_type' 0 76)

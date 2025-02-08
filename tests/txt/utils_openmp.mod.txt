@@ -1,0 +1,38 @@
+GFORTRAN module version '15' created from utils_openmp.f90
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 'eval_omp_get_max_threads' 'utils_openmp' '' 1 ((PROCEDURE
+UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 FUNCTION
+ARRAY_OUTER_DEPENDENCY) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 2 () ()
+() 0 0)
+3 'eval_omp_get_thread_num' 'utils_openmp' '' 1 ((PROCEDURE
+UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 FUNCTION
+ARRAY_OUTER_DEPENDENCY) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 3 () ()
+() 0 0)
+4 'eval_omp_set_num_threads' 'utils_openmp' '' 1 ((PROCEDURE
+UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE
+ARRAY_OUTER_DEPENDENCY) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 5 0 (6) () 0 ()
+() () 0 0)
+7 'omp_max_threads' 'utils_openmp' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ())
+0 0 () () 0 () () () 0 0)
+8 'utils_openmp' 'utils_openmp' '' 1 ((MODULE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 ()
+() 0 () () () 0 0)
+6 'threads' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+() (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+)
+
+('eval_omp_get_max_threads' 0 2 'eval_omp_get_thread_num' 0 3
+'eval_omp_set_num_threads' 0 4 'omp_max_threads' 0 7 'utils_openmp' 0 8)

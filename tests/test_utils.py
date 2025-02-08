@@ -6,7 +6,8 @@ from pprint import pprint
 
 import gfModParser as gf
 
+
 class TestUtils:
     def test_hex(self):
-        assert gf.hextofloat('0.12decde@9') == 5065465344.0
-        assert gf.hextofloat('-0.12decde@9') == -5065465344.0
+        assert gf.utils.hextofloat("0.12decde@9") == 5065465344.0
+        assert gf.utils.hextofloat("-0.12decde@9") == -5065465344.0

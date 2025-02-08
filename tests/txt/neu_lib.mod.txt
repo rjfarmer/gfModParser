@@ -1,0 +1,57 @@
+GFORTRAN module version '15' created from neu_lib.f90
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 'const_def' 'const_def' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () ()
+0 0)
+3 'dp' 'const_def' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+IMPLICIT-SAVE 0 0) () (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '8' ()) () 0 () () () 0 0)
+4 'neu_get' 'neu_lib' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC DECL
+UNKNOWN 0 0 SUBROUTINE ARRAY_OUTER_DEPENDENCY) () (UNKNOWN 0 0 0 0
+UNKNOWN ()) 5 0 (6 7 8 9 10 11 12 13 14 15 16) () 0 () () () 0 0)
+17 'neu_lib' 'neu_lib' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0 0)
+6 't' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) () (
+REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+7 'log10_t' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+() (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+8 'rho' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) ()
+(REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+9 'log10_rho' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) () (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+10 'abar' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+() (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+11 'zbar' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+() (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+12 'log10_tlim' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) () (REAL 8 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+13 'flags' '' '' 5 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) () (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () (1 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) (CONSTANT (INTEGER 4 0 0
+0 INTEGER ()) 0 '5' ())) 0 () () () 0 0)
+14 'loss' '' '' 5 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) () (REAL 8 0 0 0 REAL ()) 0 0 () (1 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) (CONSTANT (INTEGER 4 0 0
+0 INTEGER ()) 0 '5' ())) 0 () () () 0 0)
+15 'sources' '' '' 5 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) () (REAL 8 0 0 0 REAL ()) 0 0 () (2 0 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ()) (CONSTANT (INTEGER 4 0 0
+0 INTEGER ()) 0 '5' ()) (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1' ())
+(CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5' ())) 0 () () () 0 0)
+16 'info' '' '' 5 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+() (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+)
+
+('const_def' 0 2 'dp' 0 3 'neu_get' 0 4 'neu_lib' 0 17)

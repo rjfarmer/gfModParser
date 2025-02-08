@@ -1,4 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0+
+
 import numpy as np
+import itertools
+
 
 try:
     import pyquadp as pyq
@@ -6,7 +10,6 @@ try:
     PYQ_IMPORTED = True
 except ImportError:
     PYQ_IMPORTED = False
-
 
 
 def string_clean(string):
@@ -18,6 +21,7 @@ def string_clean(string):
         string = string[:-1]
 
     return string
+
 
 def hextofloat(s, kind=4):
     # Given hex like parameter '0.12decde@9' returns 5065465344.0

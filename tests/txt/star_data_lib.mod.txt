@@ -1,0 +1,27 @@
+GFORTRAN module version '15' created from star_data_lib.f90
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 'star_data_init' 'star_data_lib' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE ARRAY_OUTER_DEPENDENCY) () (
+UNKNOWN 0 0 0 0 UNKNOWN ()) 3 0 (4 5) () 0 () () () 0 0)
+6 'star_data_lib' 'star_data_lib' '' 1 ((MODULE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) () (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 ()
+() 0 () () () 0 0)
+4 'mesa_dir_init' '' '' 3 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) () (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+5 'ierr' '' '' 3 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+() (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+)
+
+('star_data_init' 0 2 'star_data_lib' 0 6)
