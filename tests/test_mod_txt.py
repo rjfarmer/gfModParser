@@ -59,3 +59,7 @@ class TestModTxt:
         for i in files:
             m = gf.module(pathlib.PurePath("tests").joinpath("txt", i))
             assert len(m.keys()) > 0
+
+    def test_missing(self):
+        with pytest.raises(FileNotFoundError):
+            m = gf.module("xxxxx.mod")
