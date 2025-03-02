@@ -63,9 +63,10 @@ class Symbol:
 
     @property
     def mangled_name(self):
-        if self._name is None:
-            self.load()
-        return f"__{self.module}_MOD_{self.name}"
+        if not self.bind_c:
+            return f"__{self.module}_MOD_{self.name}"
+        else:
+            return utils.string_clean(self._symbol[2])
 
     @property
     def name(self):
@@ -77,7 +78,7 @@ class Symbol:
 
     @property
     def bind_c(self):
-        return utils.string_clean(self._symbol[2])
+        return len(utils.string_clean(self._symbol[2])) > 0
 
     @property
     def parent_id(self):

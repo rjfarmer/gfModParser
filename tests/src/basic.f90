@@ -56,6 +56,8 @@ module basic
 		integer, public :: a_int_public
 		integer, private :: a_int_private
 		integer, protected :: a_int_protected
+
+		integer, bind(C,name='A_C_INT') :: bind_c_int
 		
 	contains
 
