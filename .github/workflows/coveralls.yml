@@ -33,5 +33,13 @@ jobs:
           compiler: ${{ matrix.toolchain.compiler }}
           version: ${{ matrix.toolchain.version }}
     
+      - name: Build
+        run: python -m pip install .
+  
+    
+      - name: Test
+        run: python -m pytest -cov=gfModParser
+
+
       - name: Coveralls
         uses: coverallsapp/github-action@v2
