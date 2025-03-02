@@ -9,7 +9,7 @@
 # gfModParser
 Parser for gfortran's Fortran module file format. 
 
-Requires gfortran>=8.0, Works with python >= 3.7
+Requires gfortran>=8.0, Works with python >= 3.9
 
 ## Build
 Installing locally:
@@ -22,11 +22,20 @@ or install via pypi
 python -m pip install --upgrade --user gfModParser
 ````
 
+## Development
+````bash
+python -m pip install .[dev]
+python -m pip install .[test]
+````
+
+
 
 
 ## License
 
 gfModParser is distributed under the GPLv2 or later.
 
-
-``tests/src/Makefile`` and ``tests/src/makedepf08.awk`` are from https://aoterodelaroza.github.io/devnotes/modern-fortran-makefiles/  and distributed under GPLv3.
+The following files are from https://aoterodelaroza.github.io/devnotes/modern-fortran-makefiles/ and distributed under GPLv3.
+- ``tests/Makefile``
+- ``tests/src/Makefile``
+- ``tests/src/makedepf08.awk``
