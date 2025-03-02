@@ -38,8 +38,10 @@ jobs:
             python -m pip install .[test]
     
       - name: Test
-        run: python -m pytest -cov=gfModParser --cov-report lcov
+        run: python -m pytest -cov=gfModParser --cov-report=xml
 
 
       - name: Coveralls
         uses: coverallsapp/github-action@v2
+        with:
+          format: cobertura
