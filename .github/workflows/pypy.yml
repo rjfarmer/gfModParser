@@ -24,8 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           pypy3 -m pip install --upgrade pip
-          pypy3 -m pip install build wheel 
-          pypy3 -m pip install pytest numpy platformdirs cpyparsing
+          pypy3 -m pip install build wheel pytest
 
       - uses: fortran-lang/setup-fortran@v1
         id: setup-fortran
