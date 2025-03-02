@@ -59,6 +59,11 @@ module ptrs
 	real(dp), target, dimension(5,5,5,5) :: e_real_dp_target_4d
 	real(dp), target, dimension(5,5,5,5,5) :: e_real_dp_target_5d
 	
+	! Cray pointers:
+	real cray_target(10)
+	real cray_pointee(10)
+	pointer (ipt, cray_pointee)
+
 	
 	contains
 	

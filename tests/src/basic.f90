@@ -53,6 +53,9 @@ module basic
 		integer :: a_int_MIXED
 		integer :: const_int_MIXED = 1
 
+		integer, public :: a_int_public
+		integer, private :: a_int_private
+		integer, protected :: a_int_protected
 		
 	contains
 

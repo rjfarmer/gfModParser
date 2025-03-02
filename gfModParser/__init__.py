@@ -16,11 +16,9 @@ class module:
             self.header = io.read_compressed_header(self.filename)
 
         self._version = None
-        self.checks()
+        self._checks()
 
-        self._mod
-
-    def checks(self):
+    def _checks(self):
         if self.version == 15:
             self._mod = mod15.module15(self.filename)
         else:
@@ -38,3 +36,17 @@ class module:
     def keys(self):
         return self._mod.keys()
 
+    def __contains__(self, key):
+        return key in self._mod.keys()
+    
+    def __getitem__(self, key):
+        return self._mod[key]
+    
+    def __dir__(self):
+        return self._mod.__dir__()
+    
+    def __str__(self):
+        return f"Module: {self.filename} Gfortran: {self.version}"
+    
+    def __repr__(self):
+        return f"module('{self.filename}')" 

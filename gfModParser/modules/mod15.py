@@ -6,8 +6,9 @@ import typing as t
 
 from .. import utils
 from .. import io
-from . import common
 
+from . import summary
+from . import symbols
 
 class VersionError(Exception):
     pass
@@ -50,11 +51,11 @@ class module15:
 
     def _load_summary(self):
         if self._summary is None:
-            self._summary = common.Summary(self._raw_summary)
+            self._summary = summary.Summary(self._raw_summary)
 
     def _load_symbols(self):
         if self._symbols is None:
-            self._symbols = common.Symbols(self._raw_symbols)
+            self._symbols = symbols.Symbols(self._raw_symbols)
 
     def keys(self):
         self._load_summary()
@@ -68,3 +69,6 @@ class module15:
         self._load_summary()
         self._load_symbols()
         return self._symbols[self._summary[key].id]
+
+    def __dir__(self):
+        return self.keys()

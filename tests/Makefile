@@ -9,7 +9,7 @@
 ## FCMODREADDIR=flag to set write-only .mod and .smod directory
 ## MODDIR=.mod and .smod directory (leave blank for root)
 FC:=gfortran
-FCOPTS:=-cpp 
+FCOPTS:=-cpp -fcray-pointer
 FCSYNTAX:=-fsyntax-only  $(FCOPTS)
 FCMODDIR:=-J
 MODDIR:=build
