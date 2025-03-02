@@ -41,7 +41,7 @@ quad = ['pyquadp']
 dev = ['pre-commit','black']
 
 [tool.pytest.ini_options]
-addopts = "-s --cov=gfModParser"
+addopts = "-s"
 testpaths = [
     "tests",
 ]
