@@ -1,7 +1,7 @@
 ## Copyright (c) 2019 alberto Otero de la Roza <aoterodelaroza@gmail.com>
 ## This file is frere software; distributed under GNU/GPL version 3.
 
-## Oringal URL https://aoterodelaroza.github.io/devnotes/modern-fortran-makefiles/
+## Originally URL https://aoterodelaroza.github.io/devnotes/modern-fortran-makefiles/
 
 ## no implicit rules
 .SUFFIXES: 
