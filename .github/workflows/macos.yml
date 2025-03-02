@@ -10,7 +10,6 @@ jobs:
         os: [macos-14]    
         python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']     
         toolchain:
-          - {compiler: gcc, version: 11}
           - {compiler: gcc, version: 12}
           - {compiler: gcc, version: 13}
           - {compiler: gcc, version: 14}

@@ -38,7 +38,7 @@ jobs:
   
     
       - name: Test
-        run: python -m pytest -cov=gfModParser
+        run: python -m pytest -cov=gfModParser --cov-report lcov
 
 
       - name: Coveralls

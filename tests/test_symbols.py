@@ -30,3 +30,8 @@ class TestSymbols:
 
     def test_parent_id(self):
         assert self.mod["a_int"].parent_id == 1
+
+    def test_properties(self):
+        assert isinstance(
+            self.mod["a_int"].properties, gf.modules.properties.Properties
+        )

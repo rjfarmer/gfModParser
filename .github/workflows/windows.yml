@@ -10,12 +10,8 @@ jobs:
         os: [windows-latest]    
         python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']   
         toolchain:
-          - {compiler: gcc, version: 9}
-          - {compiler: gcc, version: 10}
-          - {compiler: gcc, version: 11}
           - {compiler: gcc, version: 12}
           - {compiler: gcc, version: 13}
-          - {compiler: gcc, version: 14}
 
     steps:
       - uses: actions/checkout@v4
