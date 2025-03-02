@@ -36,7 +36,7 @@ dynamic = ["version"]
 
 
 [project.optional-dependencies]
-test = ['pytest','pytest-pycov']
+test = ['pytest','pytest-cov']
 quad = ['pyquadp']
 dev = ['pre-commit','black']
 
