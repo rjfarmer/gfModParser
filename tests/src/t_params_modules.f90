@@ -78,9 +78,11 @@ module params_modules
 
     integer(i8),parameter,dimension(2,3) :: int_i8_2d = reshape( (/ -10, -1, 0, 1, 10, 50/), shape(int_i8_2d)) 
 
-    real(r4),parameter,dimension(2,3) :: real_r4_2d = reshape( (/ -6.28000020980835_r4, -3.140000104904175_r4, 0.0_r4, 1.1111_r4, 3.140000104904175_r4, 6.28000020980835_r4/), shape(real_r4_2d)) 
+    real(r4),parameter,dimension(2,3) :: real_r4_2d = reshape( (/ -6.28000020980835_r4, -3.140000104904175_r4, 0.0_r4, 1.1111_r4, &
+        3.140000104904175_r4, 6.28000020980835_r4/), shape(real_r4_2d)) 
 
-    real(r8),parameter,dimension(2,3) :: real_r8_2d = reshape( (/ -6.28000020980835_r8, -3.140000104904175_r8, 0.0_r8, 1.1111_r8, 3.140000104904175_r8, 6.28000020980835_r8/), shape(real_r8_2d)) 
+    real(r8),parameter,dimension(2,3) :: real_r8_2d = reshape( (/ -6.28000020980835_r8, -3.140000104904175_r8, 0.0_r8, 1.1111_r8, &
+        3.140000104904175_r8, 6.28000020980835_r8/), shape(real_r8_2d)) 
 
     logical,parameter,dimension(2,3) :: logicals_0_2d = reshape( (/ .true., .false., .true., .false., .true., .false./), shape(logicals_0_2d)) 
 
@@ -96,13 +98,19 @@ module params_modules
 
     complex(r8),parameter :: complex_r8_2 = (3.140000104904175_r8,3.140000104904175_r8) 
 
-    complex(r4),parameter,dimension(3) :: complex_r4_1d = reshape( (/ (-3.140000104904175,-3.140000104904175), (0,0), (3.140000104904175,3.140000104904175)/), shape(complex_r4_1d)) 
+    complex(r4),parameter,dimension(3) :: complex_r4_1d = reshape( (/ (-3.140000104904175,-3.140000104904175), (0,0), &
+        (3.140000104904175,3.140000104904175)/), shape(complex_r4_1d)) 
 
-    complex(r8),parameter,dimension(3) :: complex_r8_1d = reshape( (/ (-3.140000104904175,-3.140000104904175), (0,0), (3.140000104904175,3.140000104904175)/), shape(complex_r8_1d)) 
+    complex(r8),parameter,dimension(3) :: complex_r8_1d = reshape( (/ (-3.140000104904175,-3.140000104904175), (0,0), &
+        (3.140000104904175,3.140000104904175)/), shape(complex_r8_1d)) 
 
-    complex(r4),parameter,dimension(2,3) :: complex_r4_2d = reshape( (/ (-6.28000020980835,-6.28000020980835), (-3.140000104904175,-3.140000104904175), (0,0),(0,-1), (3.140000104904175,3.140000104904175),(-6.28000020980835,-6.28000020980835)/), shape(complex_r4_2d)) 
+    complex(r4),parameter,dimension(2,3) :: complex_r4_2d = reshape( (/ (-6.28000020980835,-6.28000020980835), &
+        (-3.140000104904175,-3.140000104904175), (0,0),(0,-1), (3.140000104904175,3.140000104904175), &
+        (-6.28000020980835,-6.28000020980835)/), shape(complex_r4_2d)) 
 
-    complex(r8),parameter,dimension(2,3) :: complex_r8_2d = reshape( (/ (-6.28000020980835,-6.28000020980835), (-3.140000104904175,-3.140000104904175), (0,0),(0,-1), (3.140000104904175,3.140000104904175),(-6.28000020980835,-6.28000020980835)/), shape(complex_r8_2d)) 
+    complex(r8),parameter,dimension(2,3) :: complex_r8_2d = reshape( (/ (-6.28000020980835,-6.28000020980835), &
+        (-3.140000104904175,-3.140000104904175), (0,0),(0,-1), (3.140000104904175,3.140000104904175), &
+        (-6.28000020980835,-6.28000020980835)/), shape(complex_r8_2d)) 
 
 end module params_modules
  
