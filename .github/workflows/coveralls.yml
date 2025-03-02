@@ -4,13 +4,13 @@ name: Test Coveralls
 
 
 jobs:
-  pypy:
+  coveralls:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         toolchain:
-          - {compiler: gcc, version: 12}
+          - {compiler: gcc, version: 13}
 
     steps:
       - uses: actions/checkout@v4
