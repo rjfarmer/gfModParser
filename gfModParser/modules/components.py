@@ -5,6 +5,7 @@ from .. import utils
 
 from . import attributes
 
+
 class Components:
     def __init__(self, components):
         self._components = components
@@ -14,7 +15,7 @@ class Components:
 
     def __iter__(self):
         return iter(self._components)
-    
+
 
 class component:
     def __init__(self, component):

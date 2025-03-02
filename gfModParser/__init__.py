@@ -38,15 +38,15 @@ class module:
 
     def __contains__(self, key):
         return key in self._mod.keys()
-    
+
     def __getitem__(self, key):
         return self._mod[key]
-    
+
     def __dir__(self):
         return self._mod.__dir__()
-    
+
     def __str__(self):
         return f"Module: {self.filename} Gfortran: {self.version}"
-    
+
     def __repr__(self):
-        return f"module('{self.filename}')" 
+        return f"module('{self.filename}')"

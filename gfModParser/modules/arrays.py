@@ -1,6 +1,3 @@
-
-
-
 class arrayspec:
     def __init__(self, *args):
         self.raw = args

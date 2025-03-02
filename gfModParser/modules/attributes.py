@@ -15,4 +15,3 @@ class Attributes:
         self.external_attribute = int(self._attributes[5])
         self.extension = int(self._attributes[6])
         self.attributes = set([utils.string_clean(i) for i in self._attributes[7:]])
-    

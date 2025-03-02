@@ -1,6 +1,3 @@
-
-
-
 @dataclass_json
 @dataclass(init=False)
 class formal_arglist:
@@ -56,6 +53,7 @@ class actual_arglist:
     def __init__(self, *args, **kwargs):
         self.raw = args
         self.kwargs = kwargs
+
 
 @dataclass_json
 @dataclass(init=False)

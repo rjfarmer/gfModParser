@@ -82,7 +82,7 @@ class Symbol:
     @property
     def parent_id(self):
         return int(self._symbol[3])
-    
+
     @functools.cached_property
     def properties(self):
         return properties.Properties(self._symbol[4])

@@ -10,6 +10,7 @@ from .. import io
 from . import summary
 from . import symbols
 
+
 class VersionError(Exception):
     pass
 

@@ -1,6 +1,3 @@
-
-
-
 @dataclass_json
 @dataclass(init=False)
 class namelist:

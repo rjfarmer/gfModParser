@@ -1,5 +1,3 @@
-
-
 @dataclass_json
 @dataclass
 class namespace:
