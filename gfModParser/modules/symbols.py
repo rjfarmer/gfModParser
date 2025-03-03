@@ -8,7 +8,7 @@ from . import properties
 
 class Symbols:
     """
-    Holds all variables/procedures/arguements in module
+    Holds all variables/procedures/arguments in module
     """
 
     def __init__(self, symbols):

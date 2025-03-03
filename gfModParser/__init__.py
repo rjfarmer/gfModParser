@@ -37,7 +37,7 @@ class module:
         return self._mod.keys()
 
     def __contains__(self, key):
-        return key in self._mod.keys()
+        return key in self._mod
 
     def __getitem__(self, key):
         return self._mod[key]

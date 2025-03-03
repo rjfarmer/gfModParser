@@ -2,6 +2,8 @@
 import functools
 import pyparsing
 
+from . import attributes
+
 
 class Properties:
     """
@@ -18,12 +20,12 @@ class Properties:
         self._offset2 = 0
         if isinstance(self._properties[2], str):
             self._offset1 = 1
-        if any([i == "PARAMETER" for i in self.attributes]):
+        if self.attributes.is_parameter:
             self._offset2 = 1
 
     @functools.cached_property
     def attributes(self):
-        return self._properties[0]
+        return attributes.Attributes(self._properties[0])
 
     @functools.cached_property
     def components(self):
