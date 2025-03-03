@@ -37,65 +37,65 @@ class Properties:
 
     @functools.cached_property
     def typespec(self):
-        return self._properties[3 - self._offset1]
+        return self._properties[2 + self._offset1]
 
     @functools.cached_property
     def namespace(self):
-        return self._properties[4 - self._offset1]
+        return self._properties[3 + self._offset1]
 
     @functools.cached_property
     def common_symbol(self):
-        return self._properties[5 - self._offset1]
+        return self._properties[4 + self._offset1]
 
     @functools.cached_property
     def formal_argument(self):
-        return self._properties[6 - self._offset1]
+        return self._properties[5 + self._offset1]
 
     @functools.cached_property
     def parameter(self):
-        return self._properties[7 - self._offset1]
+        return self._properties[6 + self._offset1]
 
     @functools.cached_property
     def array_spec(self):
-        return self._properties[8 - self._offset1 - self._offset2]
+        return self._properties[7 + self._offset1 + self._offset2]
 
     @functools.cached_property
     def symbol_reference(self):
         if not any([i == "CRAY_POINTER" for i in self.attributes]):
-            return self._properties[9 - self._offset1 - self._offset2]
+            return self._properties[8 + self._offset1 + self._offset2]
 
     @functools.cached_property
     def cray_pointer_reference(self):
         if any([i == "CRAY_POINTER" for i in self.attributes]):
-            return self._properties[9 - self._offset1 - self._offset2]
+            return self._properties[9 + self._offset1 + self._offset2]
 
     @functools.cached_property
     def derived(self):
-        return self._properties[10 - self._offset1 - self._offset2]
+        return self._properties[10 + self._offset1 + self._offset2]
 
     @functools.cached_property
     def actual_argument(self):
-        return self._properties[11 - self._offset1 - self._offset2]
+        return self._properties[11 + self._offset1 + self._offset2]
 
     @functools.cached_property
     def namelist(self):
-        return self._properties[12 - self._offset1 - self._offset2]
+        return self._properties[12 + self._offset1 + self._offset2]
 
     @functools.cached_property
     def intrinsic(self):
-        return self._properties[13 - self._offset1 - self._offset2]
+        return self._properties[13 + self._offset1 + self._offset2]
 
     @functools.cached_property
     def intrinsic_symbol(self):
-        if len(self._properties) >= 14 - self._offset1 - self._offset2:
-            return self._properties[14 - self._offset1 - self._offset2]
+        if len(self._properties) >= 14 + self._offset1 + self._offset2:
+            return self._properties[14 + self._offset1 + self._offset2]
 
     @functools.cached_property
     def hash(self):
-        if len(self._properties) >= 15 - self._offset1 - self._offset2:
-            return self._properties[15 - self._offset1 - self._offset2]
+        if len(self._properties) >= 15 + self._offset1 + self._offset2:
+            return self._properties[15 + self._offset1 + self._offset2]
 
     @functools.cached_property
     def simd(self):
-        if len(self._properties) >= 16 - self._offset1 - self._offset2:
-            return self._properties[16 - self._offset1 - self._offset2]
+        if len(self._properties) >= 16 + self._offset1 + self._offset2:
+            return self._properties[16 + self._offset1 + self._offset2]
