@@ -18,8 +18,8 @@ class Attributes:
 
     @property
     def is_parameter(self):
-        return self.flavor == 'PARAMETER'
-    
+        return self.flavor == "PARAMETER"
+
     @property
     def is_variable(self):
-        return self.flavor == 'VARIABLE'
+        return self.flavor == "VARIABLE"

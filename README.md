@@ -28,7 +28,13 @@ python -m pip install .[dev]
 python -m pip install .[test]
 ````
 
+``black`` is used to lint the Python code, so before starting development install the pre-commit hook:
 
+````bash
+pre-commit install
+````
+
+This will then run ``black`` for the Python and ``zizmor`` for the workflows yml files.
 
 
 ## License
