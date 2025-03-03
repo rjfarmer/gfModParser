@@ -21,17 +21,6 @@ class Symbols:
 
         return self._split[key]
 
-    def keys(self):
-        if self._split is None:
-            self._split_symbols()
-
-        return self._split.keys()
-
-    def __contains__(self, key):
-        if self._split is None:
-            self._split_symbols()
-        return key in self._split
-
     def _split_symbols(self):
 
         # Remove initial '(' and final ')\n')
