@@ -14,10 +14,10 @@ class TestInit:
         self.mod = gf.module("tests/build/basic.mod")
 
     def test_in(self):
-        assert 'a_int' in self.mod
+        assert "a_int" in self.mod
 
     def test_str(self):
-        assert str(self.mod) == 'Module: tests/build/basic.mod Gfortran: 15'
+        assert str(self.mod) == "Module: tests/build/basic.mod Gfortran: 15"
 
     def test_repr(self):
         assert repr(self.mod) == "module('tests/build/basic.mod')"
@@ -31,10 +31,10 @@ class TestInit:
 
     def test_bad_compiler(self):
         m2 = copy.deepcopy(self.mod)
-        m2.header = m2.header.replace('GFORTRAN','A DIFFERENT COMPILER')
+        m2.header = m2.header.replace("GFORTRAN", "A DIFFERENT COMPILER")
 
         with pytest.raises(ValueError):
             m2._checks()
-        
+
     def test_dir(self):
         assert all([i for i in self.mod.keys() if i in dir(self.mod)])
