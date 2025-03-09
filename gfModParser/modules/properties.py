@@ -29,6 +29,8 @@ class Properties:
 
     @functools.cached_property
     def components(self):
+        if not len(self._properties[1]):
+            return None
         return self._properties[1]
 
     @functools.cached_property

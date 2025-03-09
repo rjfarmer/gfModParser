@@ -44,7 +44,7 @@ class TestAttributes:
         assert not self.mod["a_int"].properties.attributes.extension
 
     def test_attrs(self):
-        assert self.mod["a_int"].properties.attributes.attributes == None
+        assert self.mod["a_int"].properties.attributes.attributes is None
         assert "SUBROUTINE" in self.mod["sub_int_in"].properties.attributes.attributes
         assert (
             "FUNCTION" in self.mod["func_real_no_args"].properties.attributes.attributes
