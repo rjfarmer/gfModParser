@@ -19,6 +19,8 @@ class Symbols:
         if self._split is None:
             self._split_symbols()
 
+        if key not in self._split:
+            raise KeyError(f"Can't find symbol {key}")
         return self._split[key]
 
     def _split_symbols(self):

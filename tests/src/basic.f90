@@ -59,6 +59,8 @@ module basic
 
 		integer, bind(C,name='A_C_INT') :: bind_c_int
 		
+		integer, save :: a_int_save
+
 	contains
 
 

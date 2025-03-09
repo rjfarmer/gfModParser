@@ -13,7 +13,7 @@ class TestSymbols:
         self.mod = gf.module("tests/build/basic.mod")
 
     def test_keys(self):
-        assert len(self.mod.keys()) == 59
+        assert len(self.mod.keys()) == 60
 
     def test_in(self):
         assert "a_int" in self.mod

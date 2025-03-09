@@ -64,4 +64,15 @@ module elements
 	end subroutine call_ele
 
 
+    pure integer function pure_func(x)
+        integer, intent(in) :: x
+        pure_func = x
+	end function pure_func
+
+    impure integer function impure_func(x)
+	    integer, intent(in) :: x
+        impure_func = x
+	end function impure_func
+
+
 end module elements
