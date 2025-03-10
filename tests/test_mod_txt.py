@@ -55,10 +55,15 @@ files = [
 
 
 class TestModTxt:
-    def test_load(self):
-        for i in files:
-            m = gf.module(pathlib.PurePath("tests").joinpath("txt", i))
-            assert len(m.keys()) > 0
+    @pytest.mark.parametrize("filename", files)
+    def test_load(self, filename):
+        m = gf.module(pathlib.PurePath("tests").joinpath("txt", filename))
+        for key in m.keys():
+            try:
+                p = m[key].properties
+            except Exception as e:
+                e.add_note(f"Key: {key}")
+                raise
 
     def test_missing(self):
         with pytest.raises(FileNotFoundError):

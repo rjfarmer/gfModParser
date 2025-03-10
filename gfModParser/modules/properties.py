@@ -11,7 +11,7 @@ class Properties:
     """
 
     def __init__(self, properties):
-        p = properties.replace("\n", " ") + ")"
+        p = properties.replace("\n", " ")
         p = pyparsing.OneOrMore(pyparsing.nestedExpr()).parseString(p)
 
         self._properties = p[0]
