@@ -4,6 +4,7 @@ import os
 import pytest
 from pprint import pprint
 import pathlib
+import sys
 
 import gfModParser as gf
 
@@ -62,7 +63,8 @@ class TestModTxt:
             try:
                 p = m[key].properties
             except Exception as e:
-                e.add_note(f"Key: {key}")
+                if sys.version_info.major > 3 and sys.version_info.minor > 11:
+                    e.add_note(f"Key: {key}")
                 raise
 
     def test_missing(self):
