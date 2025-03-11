@@ -11,6 +11,7 @@ class TestAttributes:
     @pytest.fixture(autouse=True)
     def load(self):
         self.mod = gf.module("tests/build/basic.mod")
+        self.mod2 = gf.module("tests/build/dt.mod")
 
     def test_flavor(self):
         assert self.mod["a_int"].properties.attributes.is_variable
@@ -54,6 +55,22 @@ class TestAttributes:
 
         assert not self.mod["func_real_no_args"].properties.attributes.subroutine
         assert not self.mod["sub_int_in"].properties.attributes.function
+
+    def test_missing(self):
+        with pytest.raises(AttributeError):
+            self.mod["sub_int_in"].properties.attributes.XXXXXXXXX
+
+    def test_module(self):
+        assert self.mod["basic2"].properties.attributes.is_module
+        assert not self.mod["sub_int_in"].properties.attributes.is_module
+
+    def test_derived(self):
+        assert self.mod2["S_alloc_array"].properties.attributes.is_derived
+        assert not self.mod2["s_alloc_array"].properties.attributes.is_derived
+        assert not self.mod2["f_struct"].properties.attributes.is_derived
+
+    def test_dir(self):
+        assert "dimension" in dir(self.mod2["S_alloc_array"].properties.attributes)
 
 
 class TestAttrElemental:
