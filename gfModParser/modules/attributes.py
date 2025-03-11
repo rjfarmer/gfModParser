@@ -2,8 +2,44 @@
 
 from .. import utils
 
+_all = set(
+    [
+        i.lower()
+        for i in [
+            "ABSTRACT",
+            "ALLOCATABLE",
+            "ALLOC_COMP",
+            "ALWAYS_EXPLICIT",
+            "ARRAY_OUTER_DEPENDENCY",
+            "ARTIFICIAL",
+            "DIMENSION",
+            "ELEMENTAL",
+            "EXTERNAL",
+            "FUNCTION",
+            "GENERIC",
+            "IMPLICIT_PURE",
+            "IN_NAMELIST",
+            "IS_CLASS",
+            "POINTER",
+            "POINTER_COMP",
+            "PRIVATE_COMP",
+            "PROCEDURE",
+            "PROC_POINTER",
+            "PROC_POINTER_COMP",
+            "PROTECTED",
+            "PURE",
+            "RECURSIVE",
+            "SUBROUTINE",
+            "TARGET",
+            "VTAB",
+            "VTYPE",
+        ]
+    ]
+)
+
 
 class Attributes:
+
     def __init__(self, attributes):
         self._attributes = attributes
 
@@ -26,10 +62,7 @@ class Attributes:
 
     @property
     def attributes(self):
-        if len(self._attributes) == 0:
-            return None
-        else:
-            return self._attributes
+        return self._attributes
 
     @property
     def is_parameter(self):
@@ -44,21 +77,18 @@ class Attributes:
         return self.flavor == "PROCEDURE"
 
     @property
-    def is_subroutine(self):
-        return "SUBROUTINE" in self.attributes
+    def is_derived(self):
+        return self.flavor == "DERIVED"
 
     @property
-    def is_function(self):
-        return "FUNCTION" in self.attributes
+    def is_module(self):
+        return self.flavor == "MODULE"
 
-    @property
-    def is_elemental(self):
-        return "ELEMENTAL" in self.attributes
+    def __dir__(self):
+        return list(_all)
 
-    @property
-    def is_pure(self):
-        return "PURE" in self.attributes
-
-    @property
-    def is_impure(self):
-        return "IMPLICIT_PURE" in self.attributes
+    def __getattr__(self, key):
+        if key in _all:
+            return key.upper() in self._attributes
+        else:
+            raise AttributeError(f"Key not found {key}")

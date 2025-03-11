@@ -44,14 +44,16 @@ class TestAttributes:
         assert not self.mod["a_int"].properties.attributes.extension
 
     def test_attrs(self):
-        assert self.mod["a_int"].properties.attributes.attributes is None
         assert "SUBROUTINE" in self.mod["sub_int_in"].properties.attributes.attributes
         assert (
             "FUNCTION" in self.mod["func_real_no_args"].properties.attributes.attributes
         )
 
-        assert self.mod["sub_int_in"].properties.attributes.is_subroutine
-        assert self.mod["func_real_no_args"].properties.attributes.is_function
+        assert self.mod["sub_int_in"].properties.attributes.subroutine
+        assert self.mod["func_real_no_args"].properties.attributes.function
+
+        assert not self.mod["func_real_no_args"].properties.attributes.subroutine
+        assert not self.mod["sub_int_in"].properties.attributes.function
 
 
 class TestAttrElemental:
@@ -60,6 +62,6 @@ class TestAttrElemental:
         self.mod = gf.module("tests/build/elements.mod")
 
     def test_status(self):
-        assert self.mod["pure_func"].properties.attributes.is_pure
-        assert self.mod["impure_func"].properties.attributes.is_impure
-        assert self.mod["ele_func_1"].properties.attributes.is_elemental
+        assert self.mod["pure_func"].properties.attributes.pure
+        assert self.mod["impure_func"].properties.attributes.implicit_pure
+        assert self.mod["ele_func_1"].properties.attributes.elemental

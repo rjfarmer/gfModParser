@@ -29,11 +29,12 @@ class Symbols:
         # Remove initial '(' and final ')\n')
         self.symbols = self.symbols[1:-2]
 
-        # Make the first symbol look like the others
-        self.symbols = ")\n" + self.symbols
+        # Remove line breaks
+        self.symbols = self.symbols.replace("\n", " ")
 
         # Split data up into groups
-        matches = re.split(r"(\n\d+ '\w*' '\w*' '\w*' \d+ )", self.symbols)
+        # intrinsic procedures, have brackets in their module name
+        matches = re.split(r"(\d+ '\w*' '[\(\)\w]*' '\w*' \d+ )", self.symbols)
 
         self._split = {}
         # Ignore first match which is empty and take
@@ -55,16 +56,6 @@ class Symbol:
         # So replace any \n we find before we get to the first ((
         # dont use single ( as intrinsics use that in their module name
         self._raw = symbol
-
-        if "((" in symbol:
-            index = symbol.index("((")
-        else:
-            # We got (\n(
-            index = symbol.index("(\n(")
-
-        s1 = symbol[:index].replace("\n", " ")
-        s2 = symbol[index:]
-        symbol = s1 + s2
 
         self._symbol = symbol.split(" ", maxsplit=5)
 
