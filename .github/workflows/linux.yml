@@ -38,7 +38,7 @@ jobs:
           version: ${{ matrix.toolchain.version }}
     
       - name: Build
-        run: python -m pip install .
+        run: python -m pip install .[test]
 
   
       - name: Test
