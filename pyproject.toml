@@ -36,12 +36,12 @@ dynamic = ["version"]
 
 
 [project.optional-dependencies]
-test = ['pytest','pytest-cov']
+test = ['pytest','pytest-cov','pytest-xdist']
 quad = ['pyquadp']
 dev = ['pre-commit','black']
 
 [tool.pytest.ini_options]
-addopts = "-s"
+addopts = "-s -n auto"
 testpaths = [
     "tests",
 ]
