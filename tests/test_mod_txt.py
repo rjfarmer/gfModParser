@@ -61,7 +61,7 @@ class TestModTxt:
         m = gf.module(pathlib.PurePath("tests").joinpath("txt", filename))
         for key in m.keys():
             try:
-                p = m[key].properties
+                p = m[key].properties.attributes.is_variable
             except Exception as e:
                 if sys.version_info.major > 3 and sys.version_info.minor > 11:
                     e.add_note(f"Key: {key}")
