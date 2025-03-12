@@ -22,10 +22,12 @@ or install via pypi
 python -m pip install --upgrade --user gfModParser
 ````
 
+Package is not yet available on PyPi
+
 ## Development
 ````bash
-python -m pip install .[dev]
-python -m pip install .[test]
+python -m pip install .[dev] # Development tools
+python -m pip install .[test] # Tools needs for running pytest
 ````
 
 ``black`` is used to lint the Python code, so before starting development install the pre-commit hook:
@@ -35,6 +37,10 @@ pre-commit install
 ````
 
 This will then run ``black`` for the Python and ``zizmor`` for the workflows yml files.
+
+````bash
+python -m pytest --cov gfModParser --cov-report html # Generate coverage report
+````
 
 
 ## License
