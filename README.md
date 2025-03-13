@@ -11,6 +11,8 @@ Parser for gfortran's Fortran module file format.
 
 Requires gfortran>=8.0, Works with python >= 3.9
 
+GFortran module source code https://github.com/gcc-mirror/gcc/blob/master/gcc/fortran/module.cc
+
 ## Build
 Installing locally:
 ````bash
