@@ -4,36 +4,33 @@ from .. import utils
 
 _all = set(
     [
-        i.lower()
-        for i in [
-            "ABSTRACT",
-            "ALLOCATABLE",
-            "ALLOC_COMP",
-            "ALWAYS_EXPLICIT",
-            "ARRAY_OUTER_DEPENDENCY",
-            "ARTIFICIAL",
-            "DIMENSION",
-            "ELEMENTAL",
-            "EXTERNAL",
-            "FUNCTION",
-            "GENERIC",
-            "IMPLICIT_PURE",
-            "IN_NAMELIST",
-            "IS_CLASS",
-            "POINTER",
-            "POINTER_COMP",
-            "PRIVATE_COMP",
-            "PROCEDURE",
-            "PROC_POINTER",
-            "PROC_POINTER_COMP",
-            "PROTECTED",
-            "PURE",
-            "RECURSIVE",
-            "SUBROUTINE",
-            "TARGET",
-            "VTAB",
-            "VTYPE",
-        ]
+        "ABSTRACT",
+        "ALLOCATABLE",
+        "ALLOC_COMP",
+        "ALWAYS_EXPLICIT",
+        "ARRAY_OUTER_DEPENDENCY",
+        "ARTIFICIAL",
+        "DIMENSION",
+        "ELEMENTAL",
+        "EXTERNAL",
+        "FUNCTION",
+        "GENERIC",
+        "IMPLICIT_PURE",
+        "IN_NAMELIST",
+        "IS_CLASS",
+        "POINTER",
+        "POINTER_COMP",
+        "PRIVATE_COMP",
+        "PROCEDURE",
+        "PROC_POINTER",
+        "PROC_POINTER_COMP",
+        "PROTECTED",
+        "PURE",
+        "RECURSIVE",
+        "SUBROUTINE",
+        "TARGET",
+        "VTAB",
+        "VTYPE",
     ]
 )
 
@@ -42,27 +39,41 @@ class Attributes:
 
     def __init__(self, attributes):
         self._attributes = attributes
+        self._attr = None
 
-        self.flavor = utils.string_clean(self._attributes[0])
-        self.intent = utils.string_clean(self._attributes[1])
-        self.procedure = utils.string_clean(self._attributes[2])
-        self.if_source = utils.string_clean(self._attributes[3])
-        self.save = utils.string_clean(self._attributes[4])
-        self._external_attribute = int(self._attributes[5])
-        self._extension = int(self._attributes[6])
-        self._attributes = set([utils.string_clean(i) for i in self._attributes[7:]])
+    @property
+    def flavor(self):
+        return utils.string_clean(self._attributes[0])
+
+    @property
+    def intent(self):
+        return utils.string_clean(self._attributes[1])
+
+    @property
+    def procedure(self):
+        return utils.string_clean(self._attributes[2])
+
+    @property
+    def if_source(self):
+        return utils.string_clean(self._attributes[3])
+
+    @property
+    def save(self):
+        return utils.string_clean(self._attributes[4])
 
     @property
     def external_attribute(self):
-        return self._external_attribute == 1
+        return int(self._attributes[5]) == 1
 
     @property
     def extension(self):
-        return self._extension == 1
+        return int(self._attributes[6]) == 1
 
     @property
     def attributes(self):
-        return self._attributes
+        if self._attr is None:
+            self._attr = set([utils.string_clean(i) for i in self._attributes[7:]])
+        return self._attr
 
     @property
     def is_parameter(self):
@@ -85,10 +96,11 @@ class Attributes:
         return self.flavor == "MODULE"
 
     def __dir__(self):
-        return list(_all)
+        # Get things defined by the getattr plus the properties (needs to dir the class though)
+        return [i.lower() for i in _all] + dir(self.__class__)
 
     def __getattr__(self, key):
-        if key in _all:
-            return key.upper() in self._attributes
+        if key.upper() in _all:
+            return key.upper() in self.attributes
         else:
             raise AttributeError(f"Key not found {key}")

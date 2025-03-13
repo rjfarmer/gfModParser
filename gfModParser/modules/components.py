@@ -36,22 +36,42 @@ class component:
     def __init__(self, component):
         self._component = component
 
-        self.id = int(self._component[0])
-        self.name = utils.string_clean(self._component[1])
-        self.typespec = typespecs.typespec(self._component[2])
+    @property
+    def id(self):
+        return int(self._component[0])
 
-        self.array = arrays.arrayspec(self._component[3])
+    @property
+    def name(self):
+        return utils.string_clean(self._component[1])
+
+    @property
+    def typespec(self):
+        return typespecs.typespec(self._component[2])
+
+    @property
+    def array(self):
+        return arrays.arrayspec(self._component[3])
         # if len(self._component[4]):
         #     self.expr = expression(self._component[4])
         # if len(self._component[5]):
         #     self.actual_arg = actual_arglist(self._component[5])
-        self.attribute = attributes.Attributes(self._component[6])
-        self.access = utils.string_clean(self._component[7])
 
+    @property
+    def attribute(self):
+        return attributes.Attributes(self._component[6])
+
+    @property
+    def access(self):
+        return utils.string_clean(self._component[7])
+
+    @property
+    def initializer(self):
         if self.name == "_final" or self.name == "_hash":
-            # self.initializer = expression(self._component[8])
-            _ = self._component.pop(8)
+            pass
+            # return = expression(self._component[8])
 
+    @property
+    def procedure_pointer(self):
         if not self.attribute.procedure == "UNKNOWN-PROC":
             pass
             # self.proc_ptr = typebound_proc(self._component[8])
