@@ -6,6 +6,7 @@ from .. import utils
 from . import attributes
 from . import typespecs
 from . import arrays
+from . import procedures
 
 
 class Components:
@@ -51,10 +52,14 @@ class component:
     @property
     def array(self):
         return arrays.arrayspec(self._component[3])
-        # if len(self._component[4]):
-        #     self.expr = expression(self._component[4])
-        # if len(self._component[5]):
-        #     self.actual_arg = actual_arglist(self._component[5])
+
+    # PDT expression
+    # if len(self._component[4]):
+    #     self.expr = expression(self._component[4])
+
+    # PDT component specifictaion
+    # if len(self._component[5]):
+    #     self.actual_arg = actual_arglist(self._component[5])
 
     @property
     def attribute(self):
@@ -66,12 +71,13 @@ class component:
 
     @property
     def initializer(self):
+        # also check for vtype?
         if self.name == "_final" or self.name == "_hash":
             pass
             # return = expression(self._component[8])
 
     @property
-    def procedure_pointer(self):
-        if not self.attribute.procedure == "UNKNOWN-PROC":
-            pass
-            # self.proc_ptr = typebound_proc(self._component[8])
+    def proc_pointer(self):
+        if self.attribute.proc_pointer:
+            # The initialzer might be in slot 8 so instead of looking at 8 or 9 just look at the final one
+            return procedures.typebound_proc(self._component[-1])

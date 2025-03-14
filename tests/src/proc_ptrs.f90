@@ -16,6 +16,13 @@ module proc_ptrs
     
     procedure(func_func_run_dp), pointer:: p_func_func_run_dp_ptr => NULL()
 
+    type ppptr
+        procedure(func_func_run), pointer, nopass :: p_func_func_run_ptr 
+        procedure(func_func_pass), pointer, pass :: p_func_pass 
+        procedure(func_func_pass2), pointer, pass(self) :: p_func_pass2 
+    end type ppptr
+
+
 
     contains
     
@@ -95,6 +102,17 @@ module proc_ptrs
          proc_proc_func_arg = x(9)
     
     end function proc_proc_func_arg
+
+    integer function func_func_pass(this)
+        class(ppptr) :: this
+
+    end function func_func_pass
+
+    integer function func_func_pass2(x,self)
+        integer :: x
+        class(ppptr) :: self
+
+    end function func_func_pass2
 
 
 end module proc_ptrs

@@ -13,7 +13,7 @@ class TestComponents:
         self.mod = gf.module("tests/build/dt.mod")
 
     def test_no_comp(self):
-        assert self.mod["dp"].properties.components is None
+        assert not len(self.mod["dp"].properties.components)
 
     def test_entries(self):
         assert 9 == len(self.mod["S_struct_basic"].properties.components)

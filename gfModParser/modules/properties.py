@@ -38,8 +38,6 @@ class Properties:
     def components(self):
         if self._properties is None:
             self._load()
-        if not len(self._properties[1]):
-            return None
         if self._components is None:
             self._components = components.Components(self._properties[1])
 
