@@ -44,3 +44,6 @@ addopts = "-s"
 testpaths = [
     "tests",
 ]
+
+[tool.bandit]
+exclude_dirs = ["tests"]
