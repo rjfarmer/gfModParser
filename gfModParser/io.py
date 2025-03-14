@@ -1,10 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import gzip
-import hashlib
-import os
-import pickle
-import pathlib
 
 
 def read_compressed(filename):
