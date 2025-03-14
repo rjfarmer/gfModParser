@@ -10,5 +10,21 @@ jobs:
       # required for all workflows
       security-events: write
     steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: 'pip'
       - name: Perform Bandit Analysis
-        uses: PyCQA/bandit-action@v1
+        shell: bash
+        run: |
+            python -m pip install bandit[sarif]
+            bandit -c pyproject.toml -r . -f sarif -o results.sarif || true
+        
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
