@@ -1,5 +1,5 @@
 [![Continuous Integration](https://github.com/rjfarmer/gfmodparser/actions/workflows/linux.yml/badge.svg)](https://github.com/rjfarmer/gfmodparser/actions/workflows/linux.yml)
-[![Coverage Status](https://coveralls.io/repos/github/rjfarmer/gfmodparser/badge.svg?branch=main)](https://coveralls.io/github/rjfarmer/gfmodparser?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/rjfarmer/gfModParser/badge.svg)](https://coveralls.io/github/rjfarmer/gfModParser)
 [![PyPI version](https://badge.fury.io/py/gfmodparser.svg)](https://badge.fury.io/py/gfmodparser)
 [![Python versions](https://img.shields.io/pypi/pyversions/gfmodparser.svg)](https://img.shields.io/pypi/pyversions/gfmodparser.svg)
 [![gfortran versions](https://img.shields.io/badge/gfortran-8%7C9%7C10%7C11%7C12%7C13-blue)](https://img.shields.io/badge/gfortran-8%7C9%7C10%7C11%7C12%7C13-blue)
