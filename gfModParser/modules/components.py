@@ -10,8 +10,9 @@ from . import procedures
 
 
 class Components:
-    def __init__(self, components):
+    def __init__(self, components, version):
         self._components = {}
+        self.version = version
         for c in components:
             self._components[utils.string_clean(c[1])] = c
 
@@ -27,15 +28,18 @@ class Components:
     def __getitem__(self, key):
         if key in self._components:
             if isinstance(self._components[key], pyparsing.results.ParseResults):
-                self._components[key] = component(self._components[key])
+                self._components[key] = component(
+                    self._components[key], version=self.version
+                )
             return self._components[key]
         else:
             raise KeyError(f"No key {key} found")
 
 
 class component:
-    def __init__(self, component):
+    def __init__(self, component, version):
         self._component = component
+        self.version = version
 
     @property
     def id(self):
@@ -47,23 +51,23 @@ class component:
 
     @property
     def typespec(self):
-        return typespecs.typespec(self._component[2])
+        return typespecs.typespec(self._component[2], version=self.version)
 
     @property
     def array(self):
-        return arrays.arrayspec(self._component[3])
+        return arrays.arrayspec(self._component[3], version=self.version)
 
     # PDT expression
     # if len(self._component[4]):
-    #     self.expr = expression(self._component[4])
+    #     self.expr = expression(self._component[4], version=self.version)
 
     # PDT component specifictaion
     # if len(self._component[5]):
-    #     self.actual_arg = actual_arglist(self._component[5])
+    #     self.actual_arg = actual_arglist(self._component[5], version=self.version)
 
     @property
     def attribute(self):
-        return attributes.Attributes(self._component[6])
+        return attributes.Attributes(self._component[6], version=self.version)
 
     @property
     def access(self):
@@ -74,10 +78,10 @@ class component:
         # also check for vtype?
         if self.name == "_final" or self.name == "_hash":
             pass
-            # return = expression(self._component[8])
+            # return = expression(self._component[8], version=self.version)
 
     @property
     def proc_pointer(self):
         if self.attribute.proc_pointer:
             # The initialzer might be in slot 8 so instead of looking at 8 or 9 just look at the final one
-            return procedures.typebound_proc(self._component[-1])
+            return procedures.typebound_proc(self._component[-1], version=self.version)

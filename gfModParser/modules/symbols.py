@@ -11,8 +11,9 @@ class Symbols:
     Holds all variables/procedures/arguments in module
     """
 
-    def __init__(self, symbols):
+    def __init__(self, symbols, version):
         self._raw = symbols
+        self.version = version
         self.symbols = symbols
         self._split = None
 
@@ -43,7 +44,7 @@ class Symbols:
             id = int(matches[i].split(" ")[0].strip())
             data = matches[i] + matches[i + 1]
             # Remove starting \n and ending
-            self._split[id] = Symbol(data[1:])
+            self._split[id] = Symbol(data[1:], version=self.version)
 
 
 class Symbol:
@@ -51,7 +52,8 @@ class Symbol:
     Single object (variable, procedure, argument etc)
     """
 
-    def __init__(self, symbol):
+    def __init__(self, symbol, version):
+        self.version = version
         # For very long variable names we may get 'name'\n'module'
         # So replace any \n we find before we get to the first ((
         # dont use single ( as intrinsics use that in their module name
@@ -88,4 +90,4 @@ class Symbol:
 
     @functools.cached_property
     def properties(self):
-        return properties.Properties(self._symbol[5])
+        return properties.Properties(self._symbol[5], version=self.version)

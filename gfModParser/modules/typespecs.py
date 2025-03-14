@@ -4,8 +4,9 @@ from .. import utils
 
 
 class typespec:
-    def __init__(self, typespec):
+    def __init__(self, typespec, version):
         self._raw = typespec
+        self.version = version
 
     # type: str = ""
     # kind: int = -1  # If class symbol_ref else kind

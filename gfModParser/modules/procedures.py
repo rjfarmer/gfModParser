@@ -23,8 +23,9 @@ from .. import utils
 
 
 class typebound_proc:
-    def __init__(self, proc):
+    def __init__(self, proc, version):
         self._proc = proc
+        self.version = version
 
     @property
     def access(self):
@@ -50,7 +51,7 @@ class typebound_proc:
 
     @property
     def pass_arg(self):
-        # arguement name
+        # argument name
         return utils.string_clean(self._proc[5])
 
     @property

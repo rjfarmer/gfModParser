@@ -15,11 +15,10 @@ class VersionError(Exception):
     pass
 
 
-class module15:
-    version = 15
-
-    def __init__(self, filename):
+class module:
+    def __init__(self, filename, version):
         self.filename = filename
+        self.version = version
 
         self._interfaces = None
         self._operators = None
@@ -52,11 +51,11 @@ class module15:
 
     def _load_summary(self):
         if self._summary is None:
-            self._summary = summary.Summary(self._raw_summary)
+            self._summary = summary.Summary(self._raw_summary, version=self.version)
 
     def _load_symbols(self):
         if self._symbols is None:
-            self._symbols = symbols.Symbols(self._raw_symbols)
+            self._symbols = symbols.Symbols(self._raw_symbols, version=self.version)
 
     def keys(self):
         self._load_summary()

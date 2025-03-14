@@ -4,8 +4,9 @@ from .. import utils
 
 
 class arrayspec:
-    def __init__(self, array):
+    def __init__(self, array, version):
         self._raw = array
+        self.version = version
 
     #     if not len(args):
     #         return

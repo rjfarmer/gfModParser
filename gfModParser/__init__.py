@@ -3,7 +3,7 @@
 import pathlib
 
 from . import io
-from .modules import mod15
+from .modules import mod
 
 
 class module:
@@ -19,13 +19,13 @@ class module:
         self._checks()
 
     def _checks(self):
-        if self.version == 15:
-            self._mod = mod15.module15(self.filename)
-        else:
+        if not self.version == 15:
             raise ValueError(f"Unsupported module version {self.version}")
 
         if not "GFORTRAN" in self.header:
             raise ValueError("Only supports Gfortran modules")
+
+        self._mod = mod.module(self.filename, version=self.version)
 
     @property
     def version(self):

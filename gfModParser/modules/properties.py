@@ -11,8 +11,9 @@ class Properties:
     Stores properties of an object
     """
 
-    def __init__(self, properties):
+    def __init__(self, properties, version):
         self._raw = properties
+        self.version = version
         self._properties = None
         self._components = None
 
@@ -32,14 +33,16 @@ class Properties:
     def attributes(self):
         if self._properties is None:
             self._load()
-        return attributes.Attributes(self._properties[0])
+        return attributes.Attributes(self._properties[0], version=self.version)
 
     @property
     def components(self):
         if self._properties is None:
             self._load()
         if self._components is None:
-            self._components = components.Components(self._properties[1])
+            self._components = components.Components(
+                self._properties[1], version=self.version
+            )
 
         return self._components
 

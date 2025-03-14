@@ -93,9 +93,10 @@ _all = set(
 
 class Attributes:
 
-    def __init__(self, attributes):
+    def __init__(self, attributes, version):
         self._attributes = attributes
         self._attr = None
+        self.version = version
 
     @property
     def flavor(self):
