@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           pypy3 -m pip install --upgrade pip
-          pypy3 -m pip install build wheel pytest
+          pypy3 -m pip install build wheel
 
       - uses: fortran-lang/setup-fortran@v1
         id: setup-fortran
@@ -37,4 +37,4 @@ jobs:
         run: pypy3 -m pip install .[test]
 
       - name: Test
-        run: pypy3 -m pytest
+        run: pypy3 -m pytest -n auto
