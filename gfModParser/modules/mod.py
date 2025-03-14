@@ -69,6 +69,3 @@ class module:
         self._load_summary()
         self._load_symbols()
         return self._symbols[self._summary[key].id]
-
-    def __dir__(self):
-        return self.keys()

@@ -44,7 +44,7 @@ class Symbols:
             id = int(matches[i].split(" ")[0].strip())
             data = matches[i] + matches[i + 1]
             # Remove starting \n and ending
-            self._split[id] = Symbol(data[1:], version=self.version)
+            self._split[id] = Symbol(id, data[1:], version=self.version)
 
 
 class Symbol:
@@ -52,8 +52,9 @@ class Symbol:
     Single object (variable, procedure, argument etc)
     """
 
-    def __init__(self, symbol, version):
+    def __init__(self, id, symbol, version):
         self.version = version
+        self._id = id
         # For very long variable names we may get 'name'\n'module'
         # So replace any \n we find before we get to the first ((
         # dont use single ( as intrinsics use that in their module name
@@ -70,7 +71,7 @@ class Symbol:
 
     @property
     def id(self):
-        return int(utils.string_clean(self._symbol[0]))
+        return int(self._id)
 
     @property
     def name(self):

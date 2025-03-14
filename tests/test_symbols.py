@@ -20,6 +20,8 @@ class TestSymbols:
         assert "func_test_case" in self.mod
         assert "dp" in self.mod
 
+        assert "XXXX" not in self.mod
+
     def test_mangled_name(self):
         assert self.mod["a_int"].mangled_name == "__basic_MOD_a_int"
         assert self.mod["bind_c_int"].mangled_name == "A_C_INT"
@@ -35,3 +37,7 @@ class TestSymbols:
         assert isinstance(
             self.mod["a_int"].properties, gf.modules.properties.Properties
         )
+
+    def test_id(self):
+        assert self.mod["a_int"].id != self.mod["dp"].id
+        assert isinstance(self.mod["a_int"].id, int)
