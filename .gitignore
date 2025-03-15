@@ -57,6 +57,7 @@ coverage.xml
 .hypothesis/
 *.lcov
 *.sarif
+lcov.info
 
 # Translations
 *.mo

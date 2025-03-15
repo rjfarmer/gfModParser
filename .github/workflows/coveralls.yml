@@ -40,5 +40,10 @@ jobs:
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          coverage run -m pytest -n 1
-          coveralls --service=github
+          python -m pytest --cov=gfModParser --cov-report lcov:lcov.info
+
+      - name: Upload Coverage Results
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          path-to-lcov: lcov.info

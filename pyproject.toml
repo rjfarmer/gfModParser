@@ -35,7 +35,7 @@ dynamic = ["version"]
 
 [project.optional-dependencies]
 test = ['pytest','pytest-xdist']
-coverage = ['pytest', 'pytest-xdist', 'coveralls','coverage-enable-subprocess']
+coverage = ['pytest', 'pytest-xdist', 'pytest-cov']
 quad = ['pyquadp']
 dev = ['pre-commit','black', 'pytest','pytest-xdist']
 
