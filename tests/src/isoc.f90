@@ -14,6 +14,7 @@ module isoc
 	
 
 	integer, bind(C,name='a_int_bind_c') :: a_int = 1
+	integer(C_INT) :: a_c_int
 	
 	contains
 

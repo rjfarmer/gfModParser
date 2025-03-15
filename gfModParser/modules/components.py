@@ -4,7 +4,7 @@ import pyparsing
 
 from .. import utils
 from . import attributes
-from . import typespecs
+from . import expressions
 from . import arrays
 from . import procedures
 
@@ -51,7 +51,7 @@ class component:
 
     @property
     def typespec(self):
-        return typespecs.typespec(self._component[2], version=self.version)
+        return expressions.typespec(self._component[2], version=self.version)
 
     @property
     def array(self):

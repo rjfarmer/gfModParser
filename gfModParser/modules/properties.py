@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: GPL-2.0+
-import functools
 import pyparsing
 
 from . import attributes
 from . import components
+from . import expressions
 
 
 class Properties:
@@ -56,7 +56,9 @@ class Properties:
     def typespec(self):
         if self._properties is None:
             self._load()
-        return self._properties[2 + self._offset1]
+        return expressions.typespec(
+            self._properties[2 + self._offset1], version=self.version
+        )
 
     @property
     def namespace(self):
