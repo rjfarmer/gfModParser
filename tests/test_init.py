@@ -38,3 +38,9 @@ class TestInit:
 
     def test_dir(self):
         assert all([i for i in self.mod.keys() if i in dir(self.mod)])
+
+    def test_not_in(self):
+        with pytest.raises(KeyError):
+            self.mod["xxxx"]
+
+        assert not "xxx" in self.mod._mod._symbols

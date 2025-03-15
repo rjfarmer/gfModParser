@@ -16,12 +16,15 @@ class Symbols:
         self.symbols = symbols
         self._split = None
 
+    def __contains__(self, key):
+        if self._split is None:
+            self._split_symbols()
+        return key in self._split
+
     def __getitem__(self, key):
         if self._split is None:
             self._split_symbols()
 
-        if key not in self._split:
-            raise KeyError(f"Can't find symbol {key}")
         return self._split[key]
 
     def _split_symbols(self):

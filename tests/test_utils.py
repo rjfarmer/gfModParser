@@ -23,4 +23,5 @@ class TestUtils:
         assert gf.utils.string_clean("'abc'") == 'abc'
         assert gf.utils.string_clean("abc") == 'abc'
         assert gf.utils.string_clean("") == ''
+        assert gf.utils.string_clean(None) is None
         # fmt: on
