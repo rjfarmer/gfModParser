@@ -30,7 +30,9 @@ class TestISOC:
 
     def test_interop(self):
         assert self.mod["func_bind_c"].properties.typespec.is_c_interop
-
-    def test_is_iso_c(self):
         assert self.mod["a_c_int"].properties.typespec.is_c_interop
         assert not self.mod["a_int"].properties.typespec.is_c_interop
+
+    def test_is_iso_c(self):
+        assert not self.mod["a_c_int"].properties.typespec.is_iso_c
+        assert not self.mod["a_int"].properties.typespec.is_iso_c

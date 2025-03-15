@@ -30,3 +30,9 @@ class TestComponents:
         assert x.name == "a_int"
         assert x.access == "UNKNOWN-ACCESS"
         assert x.attribute.flavor == "UNKNOWN-FL"
+
+    def test_typespec(self):
+        ts = self.mod["S_alloc_array"].properties.components["a_int"].typespec
+
+        assert ts.type == "INTEGER"
+        assert ts.kind == 4

@@ -10,103 +10,128 @@ class expression:
 
     @property
     def type(self):
-        return self._expression[0]
+        t = self._expression[0]
+        return _map[t](t, self.typespec.kind, self._expression, version=self.version)
 
     @property
     def typespec(self):
-        return self._expression[1]
+        return typespec(self._expression[1], version=self.version)
 
     @property
     def rank(self):
         return int(self._expression[2])
 
+    @property
+    def arglist(self):
+        if len(self._args) == 7:
+            return self._args[6]  # actual_arglist
 
-# class expression:
-#     exp_type: str = ""
-#     ts: typespec = None
-#     rank: int = -1
-#     _saved_value: t.Any = None
-#     _value: t.Any = None
-#     _resolved_value: t.Any = (
-#         None  # value may by a symbol_ref, so this is the value after resolving the reference
-#     )
-#     arglist: actual_arglist = None  # PDT's?
-#     charlen: int = -1
-#     unary_op: str = ""
-#     unary_args: t.Any = None
-#     args: t.Any = None
 
-#     def __init__(self, *args):
-#         self.raw = args
-#         self._resolved_value = None
-#         if not len(args):
-#             return
-#         self.exp_type = args[0]
-#         self.ts = typespec(*args[1])
-#         self.rank = int(args[2])
+class ExpGeneric:
+    def __init__(self, type, kind, args, version):
+        self._args = args
+        self.version = version
+        self._type = type
+        self._kind = kind
 
-#         if self.exp_type == "OP":
-#             self._value = None
-#             self.unary_op = args[3]
-#             self.unary_args = [expression(*args[4]), expression(*args[5])]
-#         elif self.exp_type == "FUNCTION":
-#             self._value = symbol_ref(args[3])
-#             self.args = expression(*args[4][0][1])
-#         elif self.exp_type == "CONSTANT":
-#             if self.ts.type == "REAL":
-#                 self._value = hextofloat(string_clean(args[3]), self.ts.kind)
-#             elif self.ts.type == "INTEGER":
-#                 self._value = int(string_clean(args[3]))
-#             elif self.ts.type == "CHARACTER":
-#                 self.charlen = int(args[3])
-#                 self._value = string_clean(args[4])
-#             elif self.ts.type == "COMPLEX":
-#                 self._value = complex(
-#                     hextofloat(string_clean(args[3]), self.ts.kind),
-#                     hextofloat(string_clean(args[4]), self.ts.kind),
-#                 )
-#             elif self.ts.type == "LOGICAL":
-#                 self._value = int(args[3]) == 1
-#             else:
-#                 raise NotImplementedError(args)
-#         elif self.exp_type == "VARIABLE":
-#             self._value = symbol_ref(args[3])
-#         elif self.exp_type == "SUBSTRING":
-#             raise NotImplementedError(args)
-#         elif self.exp_type == "ARRAY" or self.exp_type == "STRUCTURE":
-#             self._value = []
-#             for i in args[3]:
-#                 self._value.append(
-#                     expression(*i[0]).value
-#                 )  # Wheres the extra component comming from?
-#         elif self.exp_type == "NULL":
-#             self._value = args[3]
-#         elif self.exp_type == "COMPCALL":
-#             raise NotImplementedError(args)
-#         elif self.exp_type == "PPC":
-#             raise NotImplementedError(args)
-#         elif self.exp_type == "UNKNOWN":
-#             raise NotImplementedError(args)
-#         else:
-#             raise AttributeError(f"Can't match {self.exp_type}")
+    def __str__(self):
+        return self._type
 
-#         try:
-#             self.arglist = actual_arglist(*args[6])
-#         except IndexError:
-#             self.arglist = []
+    def __repr__(self):
+        return self._type
 
-#         self._saved_value = self._value
+    @property
+    def value(self):
+        return None
 
-#     @property
-#     def value(self):
-#         if self._resolved_value is not None:
-#             return self._resolved_value
-#         else:
-#             return self._value
 
-#     @value.setter
-#     def value(self, value):
-#         self._resolved_value = value
+class ExpOp(ExpGeneric):
+
+    @property
+    def unary_op(self):
+        return self._args[3]
+
+    @property
+    def unary_args(self):
+        return expression(self._args[4], version=self.version), expression(
+            self._args[5], version=self.version
+        )
+
+
+class ExpNotImplemented(ExpGeneric):
+    @property
+    def value(self):
+        raise NotImplementedError
+
+
+class ExpFunction(ExpGeneric):
+    @property
+    def value(self):
+        return self._args[3]
+
+    @property
+    def args(self):
+        return expression(self._args[4], version=self.version)
+
+
+class ExpConstant(ExpGeneric):
+    @property
+    def value(self):
+        if self._type == "REAL":
+            return utils.hextofloat(utils.string_clean(self._args[3]), self._kind)
+        elif self._type == "INTEGER":
+            return int(utils.string_clean(self._args[3]))
+        elif self._type == "CHARACTER":
+            return utils.string_clean(self._args[4])
+        elif self._type == "COMPLEX":
+            return complex(
+                utils.hextofloat(utils.string_clean(self._args[3]), self._kind),
+                utils.hextofloat(utils.string_clean(self._args[4]), self._kind),
+            )
+        elif self._type == "LOGICAL":
+            return int(self._args[3]) == 1
+        else:
+            raise NotImplementedError(self._args)
+
+    def len(self):
+        if self._type == "CHARACTER":
+            return int(self._args[3])
+
+
+class ExpVariable(ExpGeneric):
+    @property
+    def value(self):
+        return self._args[3]
+
+
+class ExpArray(ExpGeneric):
+    @property
+    def value(self):
+        value = []
+        for i in self._args[3]:
+            value.append(expression(i, version=self.version))
+
+        return value
+
+
+class ExpSubString(ExpNotImplemented):
+    pass
+
+
+class ExpNull(ExpNotImplemented):
+    pass
+
+
+class ExpCompCall(ExpNotImplemented):
+    pass
+
+
+class ExpPPC(ExpNotImplemented):
+    pass
+
+
+class ExpUnknown(ExpNotImplemented):
+    pass
 
 
 # Need to store this here as we get a cyclic dependency
@@ -170,3 +195,16 @@ class typespec:
             return self._typespec[7] == "DEFERRED_CL"
 
         return False
+
+
+_map = {
+    "OP": ExpOp,
+    "FUNCTION": ExpFunction,
+    "CONSTANT": ExpConstant,
+    "VARIABLE": ExpVariable,
+    "SUBSTRING": ExpSubString,
+    "NULL": ExpNull,
+    "COMPCALL": ExpCompCall,
+    "PPC": ExpPPC,
+    "UNKNOWN": ExpUnknown,
+}
