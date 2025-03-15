@@ -7,31 +7,31 @@ from . import expressions
 
 class arrayspec:
     def __init__(self, array, *, version):
-        self._raw = array
+        self._array = array
         self.version = version
 
     def __bool__(self):
-        return len(self._raw) > 0
+        return len(self._array) > 0
 
     @property
     def rank(self):
-        return int(self._raw[0])
+        return int(self._array[0])
 
     @property
     def corank(self):
-        return int(self._raw[1])
+        return int(self._array[1])
 
     @property
     def type(self):
-        return self._raw[2]
+        return self._array[2]
 
     @property
     def lower(self):
         lower = []
         for i in range(self.rank + self.corank):
-            if len(self._args[3 + i * 2]):
-                self.lower.append(
-                    expressions.expression(self._args[3 + i * 2], version=self.version)
+            if len(self._array[3 + i * 2]):
+                lower.append(
+                    expressions.expression(self._array[3 + i * 2], version=self.version)
                 )
 
         return lower
@@ -40,9 +40,9 @@ class arrayspec:
     def upper(self):
         upper = []
         for i in range(self.rank + self.corank):
-            if len(self._args[4 + i * 2]):
-                self.upper.append(
-                    expressions.expression(self._args[4 + i * 2], version=self.version)
+            if len(self._array[4 + i * 2]):
+                upper.append(
+                    expressions.expression(self._array[4 + i * 2], version=self.version)
                 )
 
         return upper
