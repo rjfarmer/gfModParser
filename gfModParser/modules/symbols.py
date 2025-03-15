@@ -11,7 +11,7 @@ class Symbols:
     Holds all variables/procedures/arguments in module
     """
 
-    def __init__(self, symbols, version):
+    def __init__(self, symbols, *, version):
         self._raw = symbols
         self.version = version
         self.symbols = symbols
@@ -52,7 +52,7 @@ class Symbol:
     Single object (variable, procedure, argument etc)
     """
 
-    def __init__(self, id, symbol, version):
+    def __init__(self, id, symbol, *, version):
         self.version = version
         self._id = id
         # For very long variable names we may get 'name'\n'module'

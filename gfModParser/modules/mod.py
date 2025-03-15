@@ -16,7 +16,7 @@ class VersionError(Exception):
 
 
 class module:
-    def __init__(self, filename, version):
+    def __init__(self, filename, *, version):
         self.filename = filename
         self.version = version
 

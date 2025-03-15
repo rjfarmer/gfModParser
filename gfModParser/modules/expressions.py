@@ -4,7 +4,7 @@ from .. import utils
 
 
 class expression:
-    def __init__(self, expression, version):
+    def __init__(self, expression, *, version):
         self._expression = expression
         self.version = version
 
@@ -28,7 +28,7 @@ class expression:
 
 
 class ExpGeneric:
-    def __init__(self, type, kind, args, version):
+    def __init__(self, type, kind, args, *, version):
         self._args = args
         self.version = version
         self._type = type
@@ -137,7 +137,7 @@ class ExpUnknown(ExpNotImplemented):
 # Need to store this here as we get a cyclic dependency
 # between expressions and typespec
 class typespec:
-    def __init__(self, typespec, version):
+    def __init__(self, typespec, *, version):
         self._typespec = typespec
         self.version = version
 

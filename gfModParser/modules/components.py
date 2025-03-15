@@ -10,7 +10,7 @@ from . import procedures
 
 
 class Components:
-    def __init__(self, components, version):
+    def __init__(self, components, *, version):
         self._components = {}
         self.version = version
         for c in components:
@@ -37,7 +37,7 @@ class Components:
 
 
 class component:
-    def __init__(self, component, version):
+    def __init__(self, component, *, version):
         self._component = component
         self.version = version
 

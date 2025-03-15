@@ -11,7 +11,7 @@ class Properties:
     Stores properties of an object
     """
 
-    def __init__(self, properties, version):
+    def __init__(self, properties, *, version):
         self._raw = properties
         self.version = version
         self._properties = None

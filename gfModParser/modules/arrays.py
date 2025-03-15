@@ -4,7 +4,7 @@ from .. import utils
 
 
 class arrayspec:
-    def __init__(self, array, version):
+    def __init__(self, array, *, version):
         self._raw = array
         self.version = version
 

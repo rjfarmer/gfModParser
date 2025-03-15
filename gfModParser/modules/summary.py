@@ -7,7 +7,7 @@ class SummaryItem:
     Single entry into the Summary look up table
     """
 
-    def __init__(self, name, ambiguous, id, version):
+    def __init__(self, name, ambiguous, id, *, version):
         self.name = utils.string_clean(name)
         self.ambiguous = ambiguous != "0"
         self.id = int(id)
@@ -19,7 +19,7 @@ class Summary:
     Look up table of top level variables/procedures and thier ID's
     """
 
-    def __init__(self, summary, version):
+    def __init__(self, summary, *, version):
         self.version = version
         # Remove any nested newlines
         self._raw_summary = summary.replace("\n", " ")

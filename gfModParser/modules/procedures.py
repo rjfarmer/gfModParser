@@ -23,7 +23,7 @@ from .. import utils
 
 
 class typebound_proc:
-    def __init__(self, proc, version):
+    def __init__(self, proc, *, version):
         self._proc = proc
         self.version = version
 
