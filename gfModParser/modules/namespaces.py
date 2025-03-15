@@ -1,25 +1,37 @@
-@dataclass_json
-@dataclass
+# SPDX-License-Identifier: GPL-2.0+
+
+from . import procedures
+
+
 class namespace:
-    ref: int = -1
+    def __init__(self, namespace, *, version):
+        self._namespace = namespace
+        self.version = version
 
-    def __post_init__(self):
-        self.ref = symbol_ref(self.ref)
+    @property
+    def ref(self):
+        return int(self._namespace)
 
 
-@dataclass_json
-@dataclass(init=False)
 class derived_ns:
-    unknown1: str = None
-    proc: t.List[typebound_proc] = None
+    def __init__(self, derives_ns, *, version):
+        self._dns = derives_ns
+        self.version = version
 
-    def __init__(self, *args, **kwargs):
-        self.raw = args
-        self.kwargs = kwargs
+        self._proc = None
 
-        if not len(args):
-            return
-        self.unknown1 = args[0]
-        self.proc = []
-        for i in args[1]:
-            self.proc.append(typebound_proc(i))
+    def __bool__(self):
+        return len(self._dns) > 0
+
+    @property
+    def unknown(self):
+        return self._dns[0]
+
+    @property
+    def proc(self):
+        if self._proc is None and self:
+            self._proc = []
+            for i in self._dns[1:]:
+                self._proc.append(procedures.typebound_proc(i, version=self.version))
+
+        return self._proc

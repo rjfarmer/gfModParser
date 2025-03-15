@@ -3,25 +3,6 @@
 from .. import utils
 
 
-# @dataclass_json
-# @dataclass(init=False)
-# class formal_arglist:
-#     symbol: t.List[symbol_ref] = None
-
-#     def __init__(self, *args):
-#         self.symbol = []
-#         for i in args:
-#             self.symbol.append(symbol_ref(i))
-
-#         self.raw = args
-
-#     def __len__(self):
-#         return len(self.symbol)
-
-#     def __iter__(self):
-#         return iter(self.symbol)
-
-
 class typebound_proc:
     def __init__(self, proc, *, version):
         self._proc = proc
@@ -59,12 +40,18 @@ class typebound_proc:
         return int(self._proc[6])
 
     # # TODO: Handle is_generic
-    # self.proc_ref = symbol_ref(args[0][1][7][0])
+    @property
+    def proc_ref(self):
+        return int(self._proc[7])
 
 
-# @dataclass_json
-# @dataclass(init=False)
-# class actual_arglist:
-#     def __init__(self, *args, **kwargs):
-#         self.raw = args
-#         self.kwargs = kwargs
+class arglist:
+    def __init__(self, args, *, version):
+        self._args = args
+        self.version = version
+
+    def __len__(self):
+        return len(self._args)
+
+    def __iter__(self):
+        return iter(self._args)

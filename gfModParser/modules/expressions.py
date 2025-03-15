@@ -2,6 +2,8 @@
 
 from .. import utils
 
+from . import procedures
+
 
 class expression:
     def __init__(self, expression, *, version):
@@ -24,7 +26,7 @@ class expression:
     @property
     def arglist(self):
         if len(self._args) == 7:
-            return self._args[6]  # actual_arglist
+            return procedures.actual_arglist(self._args[6])
 
 
 class ExpGeneric:

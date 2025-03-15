@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0+
 import re
-import functools
 
 from .. import utils
 from . import properties
@@ -89,6 +88,6 @@ class Symbol:
     def parent_id(self):
         return int(self._symbol[4])
 
-    @functools.cached_property
+    @property
     def properties(self):
         return properties.Properties(self._symbol[5], version=self.version)

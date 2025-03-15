@@ -57,13 +57,14 @@ class component:
     def array(self):
         return arrays.arrayspec(self._component[3], version=self.version)
 
-    # PDT expression
-    # if len(self._component[4]):
-    #     self.expr = expression(self._component[4], version=self.version)
+    @property
+    def pdt_expression(self):
+        return expressions.expression(self._component[4], version=self.version)
 
     # PDT component specifictaion
-    # if len(self._component[5]):
-    #     self.actual_arg = actual_arglist(self._component[5], version=self.version)
+    @property
+    def pdt_arglist(self):
+        return procedures.actual_arglist(self._component[5], version=self.version)
 
     @property
     def attribute(self):
@@ -77,8 +78,7 @@ class component:
     def initializer(self):
         # also check for vtype?
         if self.name == "_final" or self.name == "_hash":
-            pass
-            # return = expression(self._component[8], version=self.version)
+            return expressions.expression(self._component[8], version=self.version)
 
     @property
     def proc_pointer(self):

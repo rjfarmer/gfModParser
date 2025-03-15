@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0+
 
-from .. import utils
+import numpy as np
+
+from . import expressions
 
 
 class arrayspec:
@@ -8,39 +10,62 @@ class arrayspec:
         self._raw = array
         self.version = version
 
-    #     if not len(args):
-    #         return
+    def __bool__(self):
+        return len(self._raw) > 0
 
-    #     self.rank = int(args[0])
-    #     self.corank = int(args[1])
-    #     self.array_type = args[2]
-    #     self.lower = []
-    #     self.upper = []
-    #     for i in range(self.rank + self.corank):
-    #         if len(args[3 + i * 2]):
-    #             self.lower.append(expression(*args[3 + i * 2]))
-    #         if len(args[4 + i * 2]):
-    #             self.upper.append(expression(*args[4 + i * 2]))
+    @property
+    def rank(self):
+        return int(self._raw[0])
 
-    # @property
-    # def fshape(self):
-    #     res = []
-    #     for l, u in zip(self.lower, self.upper):
-    #         res.append([l.value, u.value])
+    @property
+    def corank(self):
+        return int(self._raw[1])
 
-    #     return res
+    @property
+    def type(self):
+        return self._raw[2]
 
-    # @property
-    # def pyshape(self):
-    #     res = []
-    #     if self.lower is None:
-    #         return []
+    @property
+    def lower(self):
+        lower = []
+        for i in range(self.rank + self.corank):
+            if len(self._args[3 + i * 2]):
+                self.lower.append(
+                    expressions.expression(self._args[3 + i * 2], version=self.version)
+                )
 
-    #     for l, u in zip(self.lower, self.upper):
-    #         res.append(u.value - l.value + 1)
+        return lower
 
-    #     return res
+    @property
+    def upper(self):
+        upper = []
+        for i in range(self.rank + self.corank):
+            if len(self._args[4 + i * 2]):
+                self.upper.append(
+                    expressions.expression(self._args[4 + i * 2], version=self.version)
+                )
 
-    # @property
-    # def size(self):
-    #     return np.prod(self.pyshape)
+        return upper
+
+    @property
+    def fshape(self):
+        res = []
+        for l, u in zip(self.lower, self.upper):
+            res.append([l.value, u.value])
+
+        return res
+
+    @property
+    def pyshape(self):
+        res = []
+        if self.lower is None:
+            return []
+
+        for l, u in zip(self.lower, self.upper):
+            res.append(u.value - l.value + 1)
+
+        return res
+
+    @property
+    def size(self):
+        return np.prod(self.pyshape)

@@ -4,6 +4,11 @@ import pyparsing
 from . import attributes
 from . import components
 from . import expressions
+from . import simds
+from . import namespaces
+from . import procedures
+from . import arrays
+from . import namelists
 
 
 class Properties:
@@ -17,17 +22,20 @@ class Properties:
         self._properties = None
         self._components = None
 
+        self._comp_access = None
+        self._parameter = None
+
     def _load(self):
         p = pyparsing.OneOrMore(pyparsing.nestedExpr()).parseString(self._raw)
 
         self._properties = p[0]
 
-        self._offset1 = 0
-        self._offset2 = 0
         if isinstance(self._properties[2], str):
-            self._offset1 = 1
+            self._comp_access = self._properties[2]
+            _ = self._properties.pop(2)
         if self.attributes.is_parameter:
-            self._offset2 = 1
+            self._parameter = self._properties[2]
+            _ = self._properties.pop(6)
 
     @property
     def attributes(self):
@@ -48,103 +56,98 @@ class Properties:
 
     @property
     def component_access(self):
-        if self._properties is None:
-            self._load()
-        return self._properties[2]
+        return self._comp_access
 
     @property
     def typespec(self):
         if self._properties is None:
             self._load()
-        return expressions.typespec(
-            self._properties[2 + self._offset1], version=self.version
-        )
+        return expressions.typespec(self._properties[2], version=self.version)
 
     @property
     def namespace(self):
         if self._properties is None:
             self._load()
-        return self._properties[3 + self._offset1]
+        return namespaces.namespace(self._properties[3], version=self.version)
 
     @property
     def common_symbol(self):
         if self._properties is None:
             self._load()
-        return self._properties[4 + self._offset1]
+        return int(self._properties[4])
 
     @property
     def formal_argument(self):
         if self._properties is None:
             self._load()
-        return self._properties[5 + self._offset1]
+        return procedures.arglist(self._properties[5], version=self.version)
 
     @property
     def parameter(self):
-        if self._properties is None:
-            self._load()
-        return self._properties[6 + self._offset1]
+        if self._parameter is not None:
+            return expressions.expression(self._parameter, version=self.version)
 
     @property
     def array_spec(self):
         if self._properties is None:
             self._load()
-        return self._properties[7 + self._offset1 + self._offset2]
+        return arrays.arrayspec(self._properties[6], version=self.version)
 
     @property
     def symbol_reference(self):
         if self._properties is None:
             self._load()
         if not any([i == "CRAY_POINTER" for i in self.attributes]):
-            return self._properties[8 + self._offset1 + self._offset2]
+            return int(self._properties[7])
 
     @property
     def cray_pointer_reference(self):
         if self._properties is None:
             self._load()
         if any([i == "CRAY_POINTER" for i in self.attributes]):
-            return self._properties[9 + self._offset1 + self._offset2]
+            return self._properties[7]
 
     @property
     def derived(self):
         if self._properties is None:
             self._load()
-        return self._properties[10 + self._offset1 + self._offset2]
+        return namespaces.derived_ns(self._properties[8], version=self.version)
 
     @property
     def actual_argument(self):
         if self._properties is None:
             self._load()
-        return self._properties[11 + self._offset1 + self._offset2]
+        return procedures.arglist(self._properties[9], version=self.version)
 
     @property
     def namelist(self):
         if self._properties is None:
             self._load()
-        return self._properties[12 + self._offset1 + self._offset2]
+        return namelists.namelist(self._properties[10], version=self.version)
 
     @property
     def intrinsic(self):
         if self._properties is None:
             self._load()
-        return self._properties[13 + self._offset1 + self._offset2]
+        return int(self._properties[11])
 
     @property
     def intrinsic_symbol(self):
         if self._properties is None:
             self._load()
-        if len(self._properties) >= 14 + self._offset1 + self._offset2:
-            return self._properties[14 + self._offset1 + self._offset2]
+        if len(self._properties) > 12:
+            return int(self._properties[12])
 
     @property
     def hash(self):
         if self._properties is None:
             self._load()
-        if len(self._properties) >= 15 + self._offset1 + self._offset2:
-            return self._properties[15 + self._offset1 + self._offset2]
+        if len(self._properties) > 13:
+            return int(self._properties[13])
 
     @property
     def simd(self):
         if self._properties is None:
             self._load()
-        if len(self._properties) >= 16 + self._offset1 + self._offset2:
-            return self._properties[16 + self._offset1 + self._offset2]
+        if len(self._properties) >= 14:
+            return simds.simd(self._properties[14], version=self.version)
