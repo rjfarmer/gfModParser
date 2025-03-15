@@ -26,7 +26,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "numpy >=1.13.0, <2.3",
+    "numpy <2.3",
     "pyparsing >=3.2.1, <=3.3",
 ]
 
@@ -37,7 +37,7 @@ dynamic = ["version"]
 test = ['pytest','pytest-xdist']
 coverage = ['pytest', 'coveralls']
 quad = ['pyquadp']
-dev = ['pre-commit','black', 'pytest']
+dev = ['pre-commit','black', 'pytest','pytest-xdist']
 
 [tool.pytest.ini_options]
 addopts = "-s"
