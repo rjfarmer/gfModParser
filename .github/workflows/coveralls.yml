@@ -40,5 +40,5 @@ jobs:
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          coverage run --source=gfModParser -m pytest tests/
+          coverage run -m pytest
           coveralls --service=github

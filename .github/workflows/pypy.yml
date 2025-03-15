@@ -37,4 +37,4 @@ jobs:
         run: pypy3 -m pip install .[test]
 
       - name: Test
-        run: pypy3 -m pytest -n auto
+        run: pypy3 -m pytest

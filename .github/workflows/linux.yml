@@ -42,5 +42,5 @@ jobs:
 
   
       - name: Test
-        run: python -m pytest -v -n auto
+        run: python -m pytest -v
 

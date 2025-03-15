@@ -35,15 +35,20 @@ dynamic = ["version"]
 
 [project.optional-dependencies]
 test = ['pytest','pytest-xdist']
-coverage = ['pytest', 'coveralls']
+coverage = ['pytest', 'pytest-xdist', 'coveralls','coverage-enable-subprocess']
 quad = ['pyquadp']
 dev = ['pre-commit','black', 'pytest','pytest-xdist']
 
 [tool.pytest.ini_options]
-addopts = "-s"
+addopts = "-s -n auto"
 testpaths = [
     "tests",
 ]
 
 [tool.bandit]
 exclude_dirs = ["tests"]
+
+[tool.coverage.run]
+source = ["gfModParser"]
+parallel = true
+concurrency = ["multiprocessing", "thread"]
