@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import numpy as np
-from pprint import pprint
 
 import gfModParser as gf
 
@@ -16,3 +15,12 @@ class TestUtils:
         assert isinstance(h, np.double)
 
         assert h == np.double(5065465344.0)
+
+    def test_string_clean(self):
+
+        # fmt: off
+        assert gf.utils.string_clean("'abc'") == 'abc'
+        assert gf.utils.string_clean("'abc'") == 'abc'
+        assert gf.utils.string_clean("abc") == 'abc'
+        assert gf.utils.string_clean("") == ''
+        # fmt: on
