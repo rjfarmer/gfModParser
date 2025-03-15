@@ -41,9 +41,7 @@ dev = ['pre-commit','black', 'pytest','pytest-xdist']
 
 [tool.pytest.ini_options]
 addopts = "-s -n auto"
-testpaths = [
-    "tests",
-]
+testpaths = ["tests"]
 
 [tool.bandit]
 exclude_dirs = ["tests"]

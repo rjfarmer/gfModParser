@@ -40,5 +40,5 @@ jobs:
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          coverage run -m pytest
+          coverage run -m pytest -n 1
           coveralls --service=github
