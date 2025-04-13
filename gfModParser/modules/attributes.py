@@ -153,7 +153,7 @@ class Attributes:
         return self.flavor == "MODULE"
 
     def __dir__(self):
-        # Get things defined by the getattr plus the properties (needs to dir the class though)
+        # Get things defined by the getattr plus the properties (needs to dir() the class though)
         return [i.lower() for i in _all] + dir(self.__class__)
 
     def __getattr__(self, key):

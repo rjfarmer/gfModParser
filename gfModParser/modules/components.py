@@ -61,7 +61,7 @@ class component:
     def pdt_expression(self):
         return expressions.expression(self._component[4], version=self.version)
 
-    # PDT component specifictaion
+    # PDT component specification
     @property
     def pdt_arglist(self):
         return procedures.actual_arglist(self._component[5], version=self.version)

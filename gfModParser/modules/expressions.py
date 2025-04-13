@@ -5,7 +5,7 @@ from .. import utils
 from . import procedures
 
 
-class expression:
+class Expression:
     def __init__(self, expression, *, version):
         self._expression = expression
         self.version = version
@@ -55,7 +55,7 @@ class ExpOp(ExpGeneric):
 
     @property
     def unary_args(self):
-        return expression(self._args[4], version=self.version), expression(
+        return Expression(self._args[4], version=self.version), Expression(
             self._args[5], version=self.version
         )
 
@@ -73,7 +73,7 @@ class ExpFunction(ExpGeneric):
 
     @property
     def args(self):
-        return expression(self._args[4], version=self.version)
+        return Expression(self._args[4], version=self.version)
 
 
 class ExpConstant(ExpGeneric):
@@ -111,7 +111,7 @@ class ExpArray(ExpGeneric):
     def value(self):
         value = []
         for i in self._args[3]:
-            value.append(expression(i, version=self.version))
+            value.append(Expression(i, version=self.version))
 
         return value
 
@@ -185,7 +185,7 @@ class typespec:
     #         if not args[6][0]:
     #             self.charlen = -1
     #         else:
-    #             self.charlen = expression(
+    #             self.charlen = Expression(
     #                 *args[6][0]
     #             )  # TODO: might this need to be iterated for mulit-d strings?
     #     except IndexError:

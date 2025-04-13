@@ -4,5 +4,5 @@
 # TODO: Find some Fortran that trigger this
 class simd_dec:
     def __init__(self, simds, *, version):
-        self._sumds = simds
+        self._simds = simds
         self.version = version
