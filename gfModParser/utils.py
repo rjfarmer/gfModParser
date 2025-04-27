@@ -68,7 +68,7 @@ def hextofloat(s, kind=4):
 
 def gfortran_version():
     x = (
-        subprocess.run(["gfortran", "-v"], capture_output=True)
+        subprocess.run(["gfortran", "-v"], capture_output=True, shell=False)
         .stderr.decode()
         .split("\n")
     )
