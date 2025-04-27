@@ -19,7 +19,7 @@ class module:
         self._checks()
 
     def _checks(self):
-        if self.version != 15:
+        if self.version < 15 or self.version > 16:
             raise ValueError(f"Unsupported module version {self.version}")
 
         if not "GFORTRAN" in self.header:

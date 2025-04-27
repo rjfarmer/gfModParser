@@ -2,7 +2,8 @@
 
 import numpy as np
 import itertools
-
+import subprocess
+from packaging.version import Version
 
 try:
     import pyquadp as pyq
@@ -10,6 +11,28 @@ try:
     PYQ_IMPORTED = True
 except ImportError:
     PYQ_IMPORTED = False
+
+
+"""
+Map gfortran version to Mod file version
+"""
+
+
+def gfortran_mod_map(version):
+    if version < Version("4.8.1"):
+        return 9
+    elif version < Version("4.9.2"):
+        return 10
+    elif version < Version("5.1.0"):
+        return 12
+    elif version < Version("8.0.0"):
+        return 14
+    elif version < Version("15.0.0"):
+        return 15
+    elif version.major == 15:
+        return 16
+    else:
+        raise ValueError(f"Unknown gfortran version {version}")
 
 
 def string_clean(string):
@@ -41,3 +64,15 @@ def hextofloat(s, kind=4):
         return np.double.fromhex(man)
     else:
         return float.fromhex(man)
+
+
+def gfortran_version():
+    x = (
+        subprocess.run(["gfortran", "-v"], capture_output=True)
+        .stderr.decode()
+        .split("\n")
+    )
+    for i in x:
+        if "gcc version" in i:
+            v = i.split()[2]
+            return Version(v)

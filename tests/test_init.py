@@ -17,14 +17,16 @@ class TestInit:
         assert "a_int" in self.mod
 
     def test_str(self):
-        assert str(self.mod) == "Module: tests/build/basic.mod Gfortran: 15"
+        version = gf.utils.gfortran_version()
+        mod = gf.utils.gfortran_mod_map(version)
+        assert str(self.mod) == f"Module: tests/build/basic.mod Gfortran: {mod}"
 
     def test_repr(self):
         assert repr(self.mod) == "module('tests/build/basic.mod')"
 
     def test_bad_version(self):
         m2 = copy.deepcopy(self.mod)
-        m2._version = 16
+        m2._version = -99
 
         with pytest.raises(ValueError):
             m2._checks()
