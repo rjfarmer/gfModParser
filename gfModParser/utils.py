@@ -1,8 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import numpy as np
-import itertools
-import subprocess
 from packaging.version import Version
 
 try:
@@ -64,15 +62,3 @@ def hextofloat(s, kind=4):
         return np.double.fromhex(man)
     else:
         return float.fromhex(man)
-
-
-def gfortran_version():
-    x = (
-        subprocess.run(["gfortran", "-v"], capture_output=True, shell=False)
-        .stderr.decode()
-        .split("\n")
-    )
-    for i in x:
-        if "gcc version" in i:
-            v = i.split()[2]
-            return Version(v)

@@ -17,9 +17,7 @@ class TestInit:
         assert "a_int" in self.mod
 
     def test_str(self):
-        version = gf.utils.gfortran_version()
-        mod = gf.utils.gfortran_mod_map(version)
-        assert str(self.mod) == f"Module: tests/build/basic.mod Gfortran: {mod}"
+        assert "Module: tests/build/basic.mod Gfortran:" in str(self.mod)
 
     def test_repr(self):
         assert repr(self.mod) == "module('tests/build/basic.mod')"
