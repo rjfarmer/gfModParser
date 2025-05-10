@@ -48,8 +48,3 @@ python -m pytest --cov gfModParser --cov-report html # Generate coverage report
 ## License
 
 gfModParser is distributed under the GPLv2 or later.
-
-The following files are from https://aoterodelaroza.github.io/devnotes/modern-fortran-makefiles/ and distributed under GPLv3.
-- ``tests/Makefile``
-- ``tests/src/Makefile``
-- ``tests/src/makedepf08.awk``
