@@ -55,6 +55,9 @@ files = [
 ]
 
 
+@pytest.mark.skipif(
+    os.environ["PYTEST_COVERAGE"] == "1", reason="Skip when running coverage"
+)
 class TestModTxt:
     @pytest.mark.parametrize("filename", files)
     def test_load(self, filename):

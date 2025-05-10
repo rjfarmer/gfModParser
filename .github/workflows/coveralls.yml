@@ -40,6 +40,7 @@ jobs:
       - name: Run coveralls
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTEST_COVERAGE: 1
         run: |
           python -m pytest --cov=gfModParser --cov-report lcov:lcov.info
 

@@ -1,4 +1,5 @@
 #!/usr/bin/bash
 
-python -m pytest --cov=gfModParser --cov-report html
+export PYTEST_COVERAGE=1
+python -m pytest --cov=gfModParser --cov-report html 
 xdg-open htmlcov/index.html
