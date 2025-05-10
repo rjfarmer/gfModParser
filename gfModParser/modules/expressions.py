@@ -9,11 +9,30 @@ class Expression:
     def __init__(self, expression, *, version):
         self._expression = expression
         self.version = version
+        t = self._expression[0]
+
+        map = {
+            "OP": ExpOp,
+            "FUNCTION": ExpFunction,
+            "CONSTANT": ExpConstant,
+            "VARIABLE": ExpVariable,
+            "SUBSTRING": ExpSubString,
+            "NULL": ExpNull,
+            "COMPCALL": ExpCompCall,
+            "PPC": ExpPPC,
+            "UNKNOWN": ExpUnknown,
+        }
+
+        self._exp = map[t](
+            self.typespec.type,
+            self.typespec.kind,
+            self._expression,
+            version=self.version,
+        )
 
     @property
     def type(self):
-        t = self._expression[0]
-        return _map[t](t, self.typespec.kind, self._expression, version=self.version)
+        return self._exp
 
     @property
     def typespec(self):
@@ -25,8 +44,18 @@ class Expression:
 
     @property
     def arglist(self):
-        if len(self._args) == 7:
-            return procedures.actual_arglist(self._args[6])
+        if len(self._exp._args) == 7:
+            return procedures.actual_arglist(self._exp._args[6])
+
+    @property
+    def value(self):
+        return self._exp.value
+
+    def __str__(self):
+        return self._exp.__str__()
+
+    def __repr__(self):
+        return self._exp.__repr__()
 
 
 class ExpGeneric:
@@ -93,7 +122,7 @@ class ExpConstant(ExpGeneric):
         elif self._type == "LOGICAL":
             return int(self._args[3]) == 1
         else:
-            raise NotImplementedError(self._args)
+            raise NotImplementedError(f"Type={self._type} args3={self._args[3]}")
 
     def len(self):
         if self._type == "CHARACTER":
@@ -197,16 +226,3 @@ class typespec:
             return self._typespec[7] == "DEFERRED_CL"
 
         return False
-
-
-_map = {
-    "OP": ExpOp,
-    "FUNCTION": ExpFunction,
-    "CONSTANT": ExpConstant,
-    "VARIABLE": ExpVariable,
-    "SUBSTRING": ExpSubString,
-    "NULL": ExpNull,
-    "COMPCALL": ExpCompCall,
-    "PPC": ExpPPC,
-    "UNKNOWN": ExpUnknown,
-}

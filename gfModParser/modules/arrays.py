@@ -10,8 +10,15 @@ class arrayspec:
         self._array = array
         self.version = version
 
+        self._low = []
+        self._up = []
+
     def __bool__(self):
         return len(self._array) > 0
+
+    @property
+    def ndims(self):
+        return self.rank
 
     @property
     def rank(self):
@@ -26,46 +33,62 @@ class arrayspec:
         return self._array[2]
 
     @property
-    def lower(self):
-        lower = []
-        for i in range(self.rank + self.corank):
-            if len(self._array[3 + i * 2]):
-                lower.append(
-                    expressions.expression(self._array[3 + i * 2], version=self.version)
-                )
+    def is_defered(self):
+        """
+        Defered arrays (like allocatable) do not have compile time bounds, but do have
+        compile time rank
+        """
+        return self.type == "DEFERRED"
 
-        return lower
+    @property
+    def lower(self):
+        if len(self._low) == 0:
+            for i in range(self.rank + self.corank):
+                if len(self._array[3 + i * 2]):
+                    self._low.append(
+                        expressions.Expression(
+                            self._array[3 + i * 2], version=self.version
+                        )
+                    )
+
+        return self._low
 
     @property
     def upper(self):
-        upper = []
-        for i in range(self.rank + self.corank):
-            if len(self._array[4 + i * 2]):
-                upper.append(
-                    expressions.expression(self._array[4 + i * 2], version=self.version)
-                )
+        if len(self._up) == 0:
+            for i in range(self.rank + self.corank):
+                if len(self._array[4 + i * 2]):
+                    self._up.append(
+                        expressions.Expression(
+                            self._array[4 + i * 2], version=self.version
+                        )
+                    )
 
-        return upper
+        return self._up
 
     @property
     def fshape(self):
+        """
+        Returns the array shape as a tuple of Fortran bounds ((lower, upper),..)
+        """
         res = []
         for l, u in zip(self.lower, self.upper):
-            res.append([l.value, u.value])
+            res.append((l.value, u.value))
 
-        return res
+        return tuple(res)
 
     @property
     def pyshape(self):
+        """
+        Returns the array shape as a tuple of Python bounds (ndim1,ndim2,..)
+        """
         res = []
-        if self.lower is None:
-            return []
-
         for l, u in zip(self.lower, self.upper):
             res.append(u.value - l.value + 1)
 
-        return res
+        return tuple(res)
 
     @property
     def size(self):
-        return np.prod(self.pyshape)
+        if not self.is_defered:
+            return np.prod(self.pyshape)

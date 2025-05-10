@@ -42,7 +42,13 @@ module explicit_arrays
 	character(len=10), dimension(5,5) :: b_str_exp_2d
 	character(len=10), dimension(5,5,5) :: b_str_exp_3d
 	character(len=10), dimension(5,5,5,5) :: b_str_exp_4d
-	character(len=10), dimension(5,5,5,5,5) :: b_str_exp_5d     
+	character(len=10), dimension(5,5,5,5,5) :: b_str_exp_5d    
+	
+
+	integer, dimension(1:5) :: b_int_exp_1d_lower
+	integer, dimension(1:5,2:5) :: b_int_exp_2d_lower
+	integer, dimension(1:5,2:5,3:5) :: b_int_exp_3d_lower
+	integer, dimension(1:5,2:5,3:5,4:5) :: b_int_exp_4d_lower
 
 
 	integer, dimension(5) :: b_int_exp_1d_set = (/1,2,3,4,5/)
