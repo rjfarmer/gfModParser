@@ -1,4 +1,4 @@
-name: Linux CI
+name: Windows CI
 on: [push, pull_request]
 permissions: {}
 
@@ -8,12 +8,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]    
+        os: [windows-latest]    
         python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']    
         toolchain:
           - {compiler: gcc, version: 12}
           - {compiler: gcc, version: 13}
-          - {compiler: gcc, version: 14}
 
 
     steps:
