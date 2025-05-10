@@ -3,15 +3,13 @@ FC:=gfortran
 FCOPTS:=-c -cpp -fcray-pointer -J build
 MODDIR:=build
 
-SRC:=src
+rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
 
-BUILD:=build
-
-SOURCES:=$(shell find $(SRC) -name '*.f90')
-OBJS = $(patsubst %.f90,%.o,$(SOURCES))
+SOURCES := $(call rwildcard,src/,*.f90)
+OBJS := $(patsubst %.f90,%.o,$(SOURCES))
 
 all: $(OBJS) 
 
 %.o : %.f90
-	$(FC) $(FCOPTS) -o $(subst $(SRC),$(BUILD),$@) $<
+	$(FC) $(FCOPTS) -o $(subst src,build,$@) $<
 
