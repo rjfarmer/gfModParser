@@ -54,10 +54,13 @@ files = [
     "utils_system.mod.txt",
 ]
 
+try:
+    coverage = os.environ["PYTEST_COVERAGE"] == "1"
+except KeyError:
+    coverage = False
 
-@pytest.mark.skipif(
-    os.environ["PYTEST_COVERAGE"] == "1", reason="Skip when running coverage"
-)
+
+@pytest.mark.skipif(coverage, reason="Skip when running coverage")
 class TestModTxt:
     @pytest.mark.parametrize("filename", files)
     def test_load(self, filename):
