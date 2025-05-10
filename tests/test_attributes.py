@@ -10,8 +10,8 @@ import gfModParser as gf
 class TestAttributes:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module("tests/build/basic.mod")
-        self.mod2 = gf.module("tests/build/dt.mod")
+        self.mod = gf.module(os.path.join("tests", "build", "basic.mod"))
+        self.mod2 = gf.module(os.path.join("tests", "build", "dt.mod"))
 
     def test_flavor(self):
         assert self.mod["a_int"].properties.attributes.is_variable
@@ -76,7 +76,7 @@ class TestAttributes:
 class TestAttrElemental:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module("tests/build/elements.mod")
+        self.mod = gf.module(os.path.join("tests", "build", "elements.mod"))
 
     def test_status(self):
         assert self.mod["pure_func"].properties.attributes.pure

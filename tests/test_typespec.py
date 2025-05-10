@@ -10,7 +10,7 @@ import gfModParser as gf
 class TestSymbols:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module("tests/build/basic.mod")
+        self.mod = gf.module(os.path.join("tests", "build", "basic.mod"))
 
     def test_type(self):
         assert self.mod["a_int"].properties.typespec.type == "INTEGER"
@@ -26,7 +26,7 @@ class TestSymbols:
 class TestISOC:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module("tests/build/isoc.mod")
+        self.mod = gf.module(os.path.join("tests", "build", "isoc.mod"))
 
     def test_interop(self):
         assert self.mod["func_bind_c"].properties.typespec.is_c_interop

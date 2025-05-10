@@ -10,7 +10,7 @@ import gfModParser as gf
 class TestTypeboundProc:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module("tests/build/proc_ptrs.mod")
+        self.mod = gf.module(os.path.join("tests", "build", "proc_ptrs.mod"))
 
     def test_pass(self):
         pp = self.mod["Ppptr"].properties.components["p_func_pass"].proc_pointer

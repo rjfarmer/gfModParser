@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import pytest
+import os
 
 import gfModParser as gf
 
@@ -8,7 +9,7 @@ import gfModParser as gf
 class TestArrayExplicit:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module("tests/build/explicit_arrays.mod")
+        self.mod = gf.module(os.path.join("tests", "build", "explicit_arrays.mod"))
 
     def test_rank(self):
         assert self.mod["b_int_exp_1d"].properties.array_spec.rank == 1
@@ -82,7 +83,7 @@ class TestArrayExplicit:
 class TestArrayDummy:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module("tests/build/dummy_arrays.mod")
+        self.mod = gf.module(os.path.join("tests", "build", "dummy_arrays.mod"))
 
     def test_rank(self):
         assert self.mod["c_int_alloc_1d"].properties.array_spec.rank == 1

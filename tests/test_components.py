@@ -10,7 +10,7 @@ import gfModParser as gf
 class TestComponents:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module("tests/build/dt.mod")
+        self.mod = gf.module(os.path.join("tests", "build", "dt.mod"))
 
     def test_no_comp(self):
         assert not len(self.mod["dp"].properties.components)

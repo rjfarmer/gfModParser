@@ -10,4 +10,4 @@ import gfModParser as gf
 class TestProperties:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module("tests/build/basic.mod")
+        self.mod = gf.module(os.path.join("tests", "build", "basic.mod"))
