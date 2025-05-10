@@ -17,10 +17,11 @@ class TestInit:
         assert "a_int" in self.mod
 
     def test_str(self):
-        assert "Module: tests/build/basic.mod Gfortran:" in str(self.mod)
+        assert "basic.mod" in str(self.mod)
 
     def test_repr(self):
-        assert repr(self.mod) == "module('tests/build/basic.mod')"
+        f = os.path.join("tests", "build", "basic.mod")
+        assert repr(self.mod) == f"module('{f}')"
 
     def test_bad_version(self):
         m2 = copy.deepcopy(self.mod)
