@@ -36,3 +36,28 @@ class TestComponents:
 
         assert ts.type == "INTEGER"
         assert ts.kind == 4
+
+    def test_array(self):
+        assert (
+            not self.mod["S_struct_basic"].properties.components["a_int"].array.is_array
+        )
+        assert (
+            self.mod["S_struct_basic"]
+            .properties.components["b_int_exp_1d"]
+            .array.is_array
+        )
+
+        assert (
+            self.mod["S_struct_basic"]
+            .properties.components["b_int_exp_1d"]
+            .array.lower[0]
+            .value
+            == 1
+        )
+        assert (
+            self.mod["S_struct_basic"]
+            .properties.components["b_int_exp_1d"]
+            .array.upper[0]
+            .value
+            == 5
+        )
