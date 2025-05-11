@@ -60,8 +60,19 @@ except KeyError:
     coverage = False
 
 
+class TestModTxtbasic:
+    def test_load(self):
+        filename = "num_lib.mod.txt"
+        m = gf.module(pathlib.PurePath("tests").joinpath("txt", filename))
+        assert m["anonymous_mixing"].properties.attributes.is_parameter
+
+    def test_missing(self):
+        with pytest.raises(FileNotFoundError):
+            m = gf.module("xxxxx.mod")
+
+
 @pytest.mark.skipif(coverage, reason="Skip when running coverage")
-class TestModTxt:
+class TestModTxtAll:
     @pytest.mark.parametrize("filename", files)
     def test_load(self, filename):
         m = gf.module(pathlib.PurePath("tests").joinpath("txt", filename))
@@ -72,7 +83,3 @@ class TestModTxt:
                 if sys.version_info.major > 3 and sys.version_info.minor > 11:
                     e.add_note(f"Key: {key}")
                 raise
-
-    def test_missing(self):
-        with pytest.raises(FileNotFoundError):
-            m = gf.module("xxxxx.mod")
