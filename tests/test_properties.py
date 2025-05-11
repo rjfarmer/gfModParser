@@ -11,3 +11,6 @@ class TestProperties:
     @pytest.fixture(autouse=True)
     def load(self):
         self.mod = gf.module(os.path.join("tests", "build", "basic.mod"))
+
+    def test_parameter(self):
+        assert self.mod["dp"].properties.parameter.value == 8

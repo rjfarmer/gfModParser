@@ -34,7 +34,7 @@ class Properties:
             self._comp_access = self._properties[2]
             _ = self._properties.pop(2)
         if self.attributes.is_parameter:
-            self._parameter = self._properties[2]
+            self._parameter = self._properties[6]
             _ = self._properties.pop(6)
 
     @property
@@ -56,6 +56,8 @@ class Properties:
 
     @property
     def component_access(self):
+        if self._properties is None:
+            self._load()
         return self._comp_access
 
     @property
@@ -84,8 +86,10 @@ class Properties:
 
     @property
     def parameter(self):
+        if self._properties is None:
+            self._load()
         if self._parameter is not None:
-            return expressions.expression(self._parameter, version=self.version)
+            return expressions.Expression(self._parameter, version=self.version)
 
     @property
     def array_spec(self):
