@@ -75,6 +75,9 @@ class ExpGeneric:
     def value(self):
         return None
 
+    def __eq__(self, key):
+        return self._type == key
+
 
 class ExpOp(ExpGeneric):
 
