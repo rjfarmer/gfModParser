@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/rjfarmer/gfModParser/badge.svg)](https://coveralls.io/github/rjfarmer/gfModParser)
 [![PyPI version](https://badge.fury.io/py/gfmodparser.svg)](https://badge.fury.io/py/gfmodparser)
 [![Python versions](https://img.shields.io/pypi/pyversions/gfmodparser.svg)](https://img.shields.io/pypi/pyversions/gfmodparser.svg)
-[![gfortran versions](https://img.shields.io/badge/gfortran-8%7C9%7C10%7C11%7C12%7C13-blue)](https://img.shields.io/badge/gfortran-8%7C9%7C10%7C11%7C12%7C13-blue)
+[![gfortran versions](https://img.shields.io/badge/gfortran-8%7C9%7C10%7C11%7C12%7C13%7C14%7C15-blue)](https://img.shields.io/badge/gfortran-8%7C9%7C10%7C11%7C12%7C13%7C14%7C15-blue)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/gfmodparser)
 
 
