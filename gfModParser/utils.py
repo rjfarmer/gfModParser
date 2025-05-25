@@ -18,17 +18,17 @@ Map gfortran version to Mod file version
 
 def gfortran_mod_map(version):
     if version < Version("4.8.1"):
-        return 9
+        return Version("9")
     elif version < Version("4.9.2"):
-        return 10
+        return Version("10")
     elif version < Version("5.1.0"):
-        return 12
+        return Version("12")
     elif version < Version("8.0.0"):
-        return 14
+        return Version("14")
     elif version < Version("15.0.0"):
-        return 15
+        return Version("15")
     elif version.major == 15:
-        return 16
+        return Version("16")
     else:
         raise ValueError(f"Unknown gfortran version {version}")
 
