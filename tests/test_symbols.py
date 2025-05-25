@@ -41,3 +41,7 @@ class TestSymbols:
     def test_id(self):
         assert self.mod["a_int"].id != self.mod["dp"].id
         assert isinstance(self.mod["a_int"].id, int)
+
+    def test_str(self):
+        assert str(self.mod["dp"]) == "dp"
+        assert repr(self.mod["dp"]) == "dp"

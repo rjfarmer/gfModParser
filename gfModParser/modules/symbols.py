@@ -48,6 +48,24 @@ class Symbols:
             # Remove starting \n and ending
             self._split[id] = Symbol(id, data[1:], version=self.version)
 
+    def keys(self):
+        if self._split is None:
+            self._split_symbols()
+
+        return self._split.keys()
+
+    def items(self):
+        if self._split is None:
+            self._split_symbols()
+
+        return self._split.items()
+
+    def values(self):
+        if self._split is None:
+            self._split_symbols()
+
+        return self._split.values()
+
 
 class Symbol:
     """
@@ -94,3 +112,9 @@ class Symbol:
     @property
     def properties(self):
         return properties.Properties(self._symbol[5], version=self.version)
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name

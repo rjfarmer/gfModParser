@@ -17,6 +17,7 @@ class Expression:
             "CONSTANT": ExpConstant,
             "VARIABLE": ExpVariable,
             "SUBSTRING": ExpSubString,
+            "ARRAY": ExpArray,
             "NULL": ExpNull,
             "COMPCALL": ExpCompCall,
             "PPC": ExpPPC,
@@ -56,6 +57,10 @@ class Expression:
 
     def __repr__(self):
         return self._exp.__repr__()
+
+    @property
+    def len(self):
+        return self._exp.len
 
 
 class ExpGeneric:
@@ -127,6 +132,7 @@ class ExpConstant(ExpGeneric):
         else:
             raise NotImplementedError(f"Type={self._type} args3={self._args[3]}")
 
+    @property
     def len(self):
         if self._type == "CHARACTER":
             return int(self._args[3])
