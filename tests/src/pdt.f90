@@ -14,7 +14,7 @@ module pdt
 	
 	
 	type pdt_def(k,a)
-		integer, kind :: k = sp 
+		integer, kind :: k 
 		integer, len :: a
 		real(k) :: array(a,a)
 	
