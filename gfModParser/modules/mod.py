@@ -71,6 +71,9 @@ class module:
         if key[0].isupper() and key in self._summary:
             # Derivied type definition starts with a captial letter
             return self._symbols[self._summary[key].id]
+        elif key.startswith("__"):
+            # Don't change case on internal gfortran fucntions
+            return self._symbols[self._summary[key].id]
         else:
             # Everything else is lower case
             return self._symbols[self._summary[key.lower()].id]
