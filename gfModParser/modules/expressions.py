@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
 
+import numpy as np
+
 from .. import utils
 
 from . import procedures
@@ -62,6 +64,10 @@ class Expression:
     def len(self):
         return self._exp.len
 
+    @property
+    def kind(self):
+        return self._exp._kind
+
 
 class ExpGeneric:
     def __init__(self, type, kind, args, *, version):
@@ -82,6 +88,10 @@ class ExpGeneric:
 
     def __eq__(self, key):
         return self._type == key
+
+    @property
+    def kind(self):
+        return self._kind
 
 
 class ExpOp(ExpGeneric):
@@ -137,21 +147,63 @@ class ExpConstant(ExpGeneric):
         if self._type == "CHARACTER":
             return int(self._args[3])
 
+    def __str__(self):
+        if self._type == "CHARACTER":
+            return f"CHARACTER(kind={self.kind},len={self.len})"
+        else:
+            return f"{self.type}(kind={self.kind})"
+
+    @property
+    def type(self):
+        return self._type
+
 
 class ExpVariable(ExpGeneric):
     @property
     def value(self):
         return self._args[3]
 
+    def __str__(self):
+        if self.type == "CHARACTER":
+            return f"CHARACTER(kind={self.kind},len={self.len})"
+        else:
+            return f"{self.type}"
+
 
 class ExpArray(ExpGeneric):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._value = None
+
     @property
     def value(self):
-        value = []
-        for i in self._args[3]:
-            value.append(Expression(i, version=self.version))
+        if self._value is None:
+            self._value = []
+            for i in self._args[3]:
+                self._value.append(Expression(i[0], version=self.version))
 
-        return value
+        value = []
+
+        for v in self._value:
+            value.append(v.value)
+
+        return np.array(value, dtype=self.dtype).reshape(self.shape)
+
+    @property
+    def shape(self):
+        return tuple([int(utils.string_clean(i)) for i in self._args[4]])
+
+    @property
+    def dtype(self):
+        v = Expression(self._args[3][0][0], version=self.version)
+        return utils.dtype(v.type, self.kind, len=v.len)
+
+    def __str__(self):
+        v = Expression(self._args[3][0][0], version=self.version)
+        if v.type == "CHARACTER":
+            return f"CHARACTER(kind={v.kind},len={v.len}),dimension{self.shape}"
+        else:
+            return f"{v.type},dimension{self.shape}"
 
 
 class ExpSubString(ExpNotImplemented):

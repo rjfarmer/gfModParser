@@ -17,6 +17,8 @@ module explicit_arrays
 	real(dp),parameter,dimension(10) :: const_real_dp_arr=(/1_dp,2_dp,3_dp,4_dp,5_dp,6_dp,7_dp,8_dp,9_dp,0_dp/)
 	logical, parameter, dimension(5) :: const_logical_arr=(/.true.,.false.,.true.,.false.,.true./)
 
+	integer,parameter,dimension(2,5) :: const_int_arr2d=reshape((/1,2,3,4,5,6,7,8,9,0/),(/2,5/))
+
 	! Arrays
 	integer, dimension(5) :: b_int_exp_1d
 	integer, dimension(5,5) :: b_int_exp_2d

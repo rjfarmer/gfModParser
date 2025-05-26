@@ -62,3 +62,33 @@ def hextofloat(s, kind=4):
         return np.double.fromhex(man)
     else:
         return float.fromhex(man)
+
+
+def dtype(type, kind, len=-1):
+    if type == "REAL":
+        if kind == 4:
+            return np.dtype(np.float32)
+        elif kind == 8:
+            return np.dtype(np.float64)
+        elif kind == 16:
+            return np.dtype(np.float128)
+    elif type == "INTEGER":
+        if kind == 4:
+            return np.dtype(np.int32)
+        elif kind == 8:
+            return np.dtype(np.int64)
+        elif kind == 16:
+            return np.dtype(np.int128)
+    elif type == "CHARACTER":
+        return np.dtype(f"S{len}")
+    elif type == "COMPLEX":
+        if kind == 4:
+            return np.dtype(np.complex64)
+        elif kind == 8:
+            return np.dtype(np.complex128)
+        elif kind == 16:
+            return np.dtype(np.complex256)
+    elif type == "LOGICAL":
+        return np.dtype(np.int32)
+    else:
+        raise NotImplementedError(f"Type={type} kind={kind}")
