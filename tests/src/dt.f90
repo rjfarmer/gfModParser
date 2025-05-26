@@ -27,6 +27,11 @@ module dt
     TYPE s_simple
         integer           :: x,y
     END TYPE s_simple
+
+    TYPE s_struct_access
+        integer, public           :: a_public
+        integer, private          :: a_private
+    END TYPE s_struct_access
     
     
     TYPE s_struct_nested

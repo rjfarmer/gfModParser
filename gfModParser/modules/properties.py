@@ -100,15 +100,15 @@ class Properties:
     def symbol_reference(self):
         if self._properties is None:
             self._load()
-        if not any([i == "CRAY_POINTER" for i in self.attributes]):
+        if not any([i == "CRAY_POINTER" for i in self.attributes.attributes]):
             return int(self._properties[7])
 
     @property
     def cray_pointer_reference(self):
         if self._properties is None:
             self._load()
-        if any([i == "CRAY_POINTER" for i in self.attributes]):
-            return self._properties[7]
+        if any([i == "CRAY_POINTER" for i in self.attributes.attributes]):
+            return int(self._properties[7])
 
     @property
     def derived(self):
@@ -132,14 +132,14 @@ class Properties:
     def intrinsic(self):
         if self._properties is None:
             self._load()
-        return int(self._properties[11])
+        return self._properties[11] == 1
 
     @property
     def intrinsic_symbol(self):
         if self._properties is None:
             self._load()
         if len(self._properties) > 12:
-            return int(self._properties[12])
+            return self._properties[12] == 1
 
     @property
     def hash(self):
