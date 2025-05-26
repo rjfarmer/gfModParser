@@ -27,7 +27,6 @@ class Properties:
 
     def _load(self):
         p = pyparsing.OneOrMore(pyparsing.nestedExpr()).parseString(self._raw)
-
         self._properties = p[0]
 
         if isinstance(self._properties[2], str):

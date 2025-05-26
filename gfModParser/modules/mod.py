@@ -68,4 +68,9 @@ class module:
     def __getitem__(self, key):
         self._load_summary()
         self._load_symbols()
-        return self._symbols[self._summary[key].id]
+        if key[0].isupper() and key in self._summary:
+            # Derivied type definition starts with a captial letter
+            return self._symbols[self._summary[key].id]
+        else:
+            # Everything else is lower case
+            return self._symbols[self._summary[key.lower()].id]

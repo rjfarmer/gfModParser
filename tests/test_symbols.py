@@ -45,3 +45,6 @@ class TestSymbols:
     def test_str(self):
         assert str(self.mod["dp"]) == "dp"
         assert repr(self.mod["dp"]) == "dp"
+
+    def test_case(self):
+        assert self.mod["const_int_MIXED"].name
