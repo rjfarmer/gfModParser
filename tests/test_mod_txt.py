@@ -72,10 +72,24 @@ class TestModTxtbasic:
 
 
 @pytest.mark.skipif(coverage, reason="Skip when running coverage")
-@pytest.mark.benchmark
 class TestModTxtAll:
     @pytest.mark.parametrize("filename", files)
     def test_load(self, filename):
+        m = gf.Module(pathlib.PurePath("tests").joinpath("txt", filename))
+        for key in m.keys():
+            try:
+                p = m[key].properties.attributes.is_variable
+            except Exception as e:
+                if sys.version_info.major > 3 and sys.version_info.minor > 11:
+                    e.add_note(f"Key: {key}")
+                raise
+
+
+@pytest.mark.skipif(coverage, reason="Skip when running coverage")
+@pytest.mark.benchmark
+class TestBenchMark:
+    def test_load(self):
+        filename = "rates_def.mod.txt"
         m = gf.Module(pathlib.PurePath("tests").joinpath("txt", filename))
         for key in m.keys():
             try:
