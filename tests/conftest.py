@@ -17,12 +17,6 @@ def pytest_configure(config):
         pass
     subprocess.call(["make", "-f", "Makefile", "all"], cwd="tests")
 
-    # Only compile these if we have gfortran 15 or later
-    gf_version = int(
-        subprocess.run(["gfortran", "-dumpversion"], capture_output=True)
-        .stdout.strip()
-        .decode()
-    )
     if gfortran_version().major >= 15:
         subprocess.call(["make", "-f", "Makefile15", "all"], cwd="tests")
 
