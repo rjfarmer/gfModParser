@@ -16,6 +16,10 @@ class VersionError(Exception):
 
 
 class module:
+    """
+    Provides low level interface into the module data
+    """
+
     def __init__(self, filename, *, version):
         self.filename = filename
         self.version = version

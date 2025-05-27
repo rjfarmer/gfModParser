@@ -11,10 +11,10 @@ import gfModParser as gf
 class TestExpressions:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module(os.path.join("tests", "build", "basic.mod"))
-        self.comp = gf.module(os.path.join("tests", "build", "comp.mod"))
-        self.char = gf.module(os.path.join("tests", "build", "strings.mod"))
-        self.array = gf.module(os.path.join("tests", "build", "explicit_arrays.mod"))
+        self.mod = gf.Module(os.path.join("tests", "build", "basic.mod"))
+        self.comp = gf.Module(os.path.join("tests", "build", "comp.mod"))
+        self.char = gf.Module(os.path.join("tests", "build", "strings.mod"))
+        self.array = gf.Module(os.path.join("tests", "build", "explicit_arrays.mod"))
 
     def test_type(self):
         assert self.mod["dp"].properties.parameter.type == "INTEGER"

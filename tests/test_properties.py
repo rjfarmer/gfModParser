@@ -10,9 +10,9 @@ import gfModParser as gf
 class TestProperties:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module(os.path.join("tests", "build", "basic.mod"))
-        self.dt = gf.module(os.path.join("tests", "build", "dt.mod"))
-        self.ptrs = gf.module(os.path.join("tests", "build", "ptrs.mod"))
+        self.mod = gf.Module(os.path.join("tests", "build", "basic.mod"))
+        self.dt = gf.Module(os.path.join("tests", "build", "dt.mod"))
+        self.ptrs = gf.Module(os.path.join("tests", "build", "ptrs.mod"))
 
     def test_parameter(self):
         assert self.mod["dp"].properties.parameter.value == 8

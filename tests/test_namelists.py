@@ -10,7 +10,7 @@ import gfModParser as gf
 class TestNamelists:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module(os.path.join("tests", "build", "namelist.mod"))
+        self.mod = gf.Module(os.path.join("tests", "build", "namelist.mod"))
 
     def test_nml(self):
         nml = self.mod["namelist1"]

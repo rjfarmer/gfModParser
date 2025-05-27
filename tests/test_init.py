@@ -11,7 +11,7 @@ import gfModParser as gf
 class TestInit:
     @pytest.fixture(autouse=True)
     def load(self):
-        self.mod = gf.module(os.path.join("tests", "build", "basic.mod"))
+        self.mod = gf.Module(os.path.join("tests", "build", "basic.mod"))
 
     def test_in(self):
         assert "a_int" in self.mod
