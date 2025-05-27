@@ -5,6 +5,7 @@ from pprint import pprint
 import gfModParser as gf
 
 
+@pytest.mark.benchmark
 class TestComponents:
     @pytest.fixture(autouse=True)
     def load(self):

@@ -72,6 +72,7 @@ class TestModTxtbasic:
 
 
 @pytest.mark.skipif(coverage, reason="Skip when running coverage")
+@pytest.mark.benchmark
 class TestModTxtAll:
     @pytest.mark.parametrize("filename", files)
     def test_load(self, filename):
