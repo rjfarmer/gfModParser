@@ -13,3 +13,8 @@ all: $(OBJS)
 %.o : %.f90
 	$(FC) $(FCOPTS) -o $(subst src,build,$@) $<
 
+.PHONY: clean
+
+clean:
+	rm -rf $(MODDIR)
+	mkdir $(MODDIR)
