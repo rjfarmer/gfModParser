@@ -79,6 +79,13 @@ def dtype(type, kind, len=-1):
             return np.dtype(np.int64)
         elif kind == 16:
             return np.dtype(np.int128)
+    elif type == "UNSIGNED":
+        if kind == 4:
+            return np.dtype(np.uint32)
+        elif kind == 8:
+            return np.dtype(np.uint64)
+        elif kind == 16:
+            return np.dtype(np.uint128)
     elif type == "CHARACTER":
         return np.dtype(f"S{len}")
     elif type == "COMPLEX":

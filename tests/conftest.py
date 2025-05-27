@@ -9,8 +9,18 @@ def pytest_configure(config):
     if hasattr(config, "workerinput"):
         # prevent workers to run the same code
         return
+
     try:
         os.mkdir(os.path.join("tests", "build"))
     except FileExistsError:
         pass
-    subprocess.call(["make", "all"], shell=True, cwd="tests")
+    subprocess.call(["make", "-f", "Makefile", "all"], cwd="tests")
+
+    # Only compile these if we have gfortran 15 or later
+    gf_version = int(
+        subprocess.run(["gfortran", "-dumpversion"], capture_output=True)
+        .stdout.strip()
+        .decode()
+    )
+    if gf_version >= 15:
+        subprocess.call(["make", "-f", "Makefile15", "all"], cwd="tests")

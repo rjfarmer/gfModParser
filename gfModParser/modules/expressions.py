@@ -128,7 +128,7 @@ class ExpConstant(ExpGeneric):
     def value(self):
         if self._type == "REAL":
             return utils.hextofloat(utils.string_clean(self._args[3]), self._kind)
-        elif self._type == "INTEGER":
+        elif self._type == "INTEGER" or self._type == "UNSIGNED":
             return int(utils.string_clean(self._args[3]))
         elif self._type == "CHARACTER":
             return utils.string_clean(self._args[4])

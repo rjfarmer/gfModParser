@@ -1,0 +1,22 @@
+
+# For things that need gforetran 15 or later
+
+FC:=gfortran
+FCOPTS:=-c -cpp -funsigned -J build
+MODDIR:=build
+
+rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
+
+SOURCES := $(call rwildcard,src15/,*.f90)
+OBJS := $(patsubst %.f90,%.o,$(SOURCES))
+
+all: $(OBJS) 
+
+%.o : %.f90
+	$(FC) $(FCOPTS) -o $(subst src15,build,$@) $<
+
+.PHONY: clean
+
+clean:
+	rm -rf $(MODDIR)
+	mkdir $(MODDIR)
