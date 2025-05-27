@@ -2,6 +2,7 @@
 
 import subprocess
 import os
+from packaging.version import Version
 
 
 def pytest_configure(config):
@@ -22,5 +23,17 @@ def pytest_configure(config):
         .stdout.strip()
         .decode()
     )
-    if gf_version >= 15:
+    if gfortran_version().major >= 15:
         subprocess.call(["make", "-f", "Makefile15", "all"], cwd="tests")
+
+
+def gfortran_version():
+    # Only compile these if we have gfortran 15 or later
+    gf_version = (
+        subprocess.run(["gfortran", "-dumpversion"], capture_output=True)
+        .stdout.strip()
+        .decode()
+    )
+
+    # Linux and macs we get the major version windows gives us a full string
+    return Version(gf_version)
