@@ -79,6 +79,9 @@ class Properties:
 
     @property
     def formal_argument(self):
+        """
+        Symbol references for the procedure arguments
+        """
         if self._properties is None:
             self._load()
         return procedures.arglist(self._properties[5], version=self.version)
@@ -98,6 +101,9 @@ class Properties:
 
     @property
     def symbol_reference(self):
+        """
+        0 if a subroutine, else the symbol reference for a function result
+        """
         if self._properties is None:
             self._load()
         if not any([i == "CRAY_POINTER" for i in self.attributes.attributes]):

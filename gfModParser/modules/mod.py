@@ -68,6 +68,9 @@ class module:
     def __getitem__(self, key):
         self._load_summary()
         self._load_symbols()
+        if isinstance(key, int):
+            # Lookup by index, used by procedure to find arguments
+            return self._symbols[key]
         if key[0].isupper() and key in self._summary:
             # Derivied type definition starts with a captial letter
             return self._symbols[self._summary[key].id]
