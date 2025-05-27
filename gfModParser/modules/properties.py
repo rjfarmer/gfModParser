@@ -132,7 +132,8 @@ class Properties:
     def namelist(self):
         if self._properties is None:
             self._load()
-        return namelists.namelist(self._properties[10], version=self.version)
+        if self.attributes.is_namelist:
+            return namelists.namelist(self._properties[10], version=self.version)
 
     @property
     def intrinsic(self):

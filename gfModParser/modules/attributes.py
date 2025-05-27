@@ -152,6 +152,10 @@ class Attributes:
     def is_module(self):
         return self.flavor == "MODULE"
 
+    @property
+    def is_namelist(self):
+        return self.flavor == "NAMELIST"
+
     def __dir__(self):
         # Get things defined by the getattr plus the properties (needs to dir() the class though)
         return [i.lower() for i in _all] + dir(self.__class__)
