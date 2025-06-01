@@ -84,7 +84,7 @@ class Properties:
         """
         if self._properties is None:
             self._load()
-        return procedures.arglist(self._properties[5], version=self.version)
+        return procedures.Arglist(self._properties[5], version=self.version)
 
     @property
     def parameter(self):
@@ -126,14 +126,14 @@ class Properties:
     def actual_argument(self):
         if self._properties is None:
             self._load()
-        return procedures.arglist(self._properties[9], version=self.version)
+        return procedures.Arglist(self._properties[9], version=self.version)
 
     @property
     def namelist(self):
         if self._properties is None:
             self._load()
         if self.attributes.is_namelist:
-            return namelists.namelist(self._properties[10], version=self.version)
+            return namelists.Namelist(self._properties[10], version=self.version)
 
     @property
     def intrinsic(self):
