@@ -19,6 +19,7 @@ class Expression:
             "CONSTANT": ExpConstant,
             "VARIABLE": ExpVariable,
             "SUBSTRING": ExpSubString,
+            "STRUCTURE": ExpStructure,
             "ARRAY": ExpArray,
             "NULL": ExpNull,
             "COMPCALL": ExpCompCall,
@@ -207,6 +208,10 @@ class ExpArray(ExpGeneric):
 
 
 class ExpSubString(ExpNotImplemented):
+    pass
+
+
+class ExpStructure(ExpNotImplemented):
     pass
 
 
