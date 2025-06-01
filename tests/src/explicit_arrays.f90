@@ -139,56 +139,7 @@ module explicit_arrays
         if(all(x.eqv..true.)) res2 = .true.
     end function func_logical_multi
     
-    
-    function func_mesh_exp(N) result(mesh)
-        ! Github issues #13
-        integer, intent(in) :: N
-        integer(dp) :: mesh(N+1)
-        integer :: i
-        
-        do i=1,n+1
-            mesh(i) = i
-        end do
-        
-    end function func_mesh_exp
 
-
-    subroutine func_mesh_exp2(x,N) 
-        integer, intent(in) :: N
-        integer :: x(N+1)
-        integer :: i
-        
-        do i=1,n+1
-            x(i) = i
-        end do
-        
-    end subroutine func_mesh_exp2
-
-
-    subroutine func_mesh_exp3(x,N) 
-        integer, intent(in) :: N
-        integer :: x((N*2)+1)
-        integer :: i
-        
-        do i=1,(N*2)+1
-            x(i) = i
-        end do
-        
-    end subroutine func_mesh_exp3
-
-
-    subroutine func_mesh_exp4(x,N) 
-        integer, intent(in) :: N
-        integer :: x((N+3)*2+1)
-        integer :: i
-        
-        do i=1,(N+3)*2+1
-            x(i) = i
-        end do
-        
-    end subroutine func_mesh_exp4
-    
-    
     subroutine check_exp_2d_2m3(arr, success)
         ! Github issues #19
         integer, dimension(2,3) :: arr
@@ -202,28 +153,6 @@ module explicit_arrays
 
     end subroutine check_exp_2d_2m3
     
-    
-    subroutine check_exp_2d_2m3_nt(arr, NT, success)
-        ! Github issues #19
-        integer, intent(in) :: NT
-        integer, dimension(3,NT) :: arr
-        logical :: success
-        integer :: i
-        
-        success=.false.
-        
-        if(arr(1,2)==1 .and. arr(2,1)==2 .and. arr(2,3) == 3 .and. arr(2,4) ==4 ) success = .true.
-        
-!		do i=1,3
-!			write(*,*) arr(i,:)
-!		end do
-        
-        arr(1,NT) = 5
-
-    end subroutine check_exp_2d_2m3_nt	
-    
-
-
     function func_return_1d_int_arr() result(x)
         integer,dimension(5) :: x
 

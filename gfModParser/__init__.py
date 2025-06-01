@@ -37,6 +37,18 @@ class Module:
             self._version = int(self.header.split("'")[1])
         return self._version
 
+    @property
+    def interface(self):
+        return self._mod.interface
+
+    @property
+    def operator(self):
+        return self._mod.operator
+
+    @property
+    def generic(self):
+        return self._mod.generic
+
     def keys(self):
         return self._mod.keys()
 

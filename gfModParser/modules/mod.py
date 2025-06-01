@@ -9,6 +9,7 @@ from .. import io
 
 from . import summary
 from . import symbols
+from . import operators
 
 
 class VersionError(Exception):
@@ -41,6 +42,9 @@ class module:
         else:
             raw_data = io.read_compressed(self.filename)
 
+        # Remove header:
+        raw_data = raw_data[raw_data.index("(") :]
+
         # Split into sections
         (
             self._raw_interface,
@@ -61,6 +65,18 @@ class module:
         if self._symbols is None:
             self._symbols = symbols.Symbols(self._raw_symbols, version=self.version)
 
+    def _load_operators(self):
+        if self._operators is None:
+            self._interfaces = operators.Interfaces(
+                self._raw_interface, version=self.version
+            )
+            self._operators = operators.Operators(
+                self._raw_operators, version=self.version
+            )
+            self._generics = operators.Generics(
+                self._raw_generics, version=self.version
+            )
+
     def keys(self):
         self._load_summary()
         return self._summary.keys()
@@ -72,6 +88,7 @@ class module:
     def __getitem__(self, key):
         self._load_summary()
         self._load_symbols()
+        print(key, type(key))
         if isinstance(key, int):
             # Lookup by index, used by procedure to find arguments
             return self._symbols[key]
@@ -84,3 +101,18 @@ class module:
         else:
             # Everything else is lower case
             return self._symbols[self._summary[key.lower()].id]
+
+    @property
+    def operator(self):
+        self._load_operators()
+        return self._operators
+
+    @property
+    def interface(self):
+        self._load_operators()
+        return self._interfaces
+
+    @property
+    def generic(self):
+        self._load_operators()
+        return self._generics

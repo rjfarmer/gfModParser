@@ -22,15 +22,14 @@ module face
     
 
     interface operator(+)
-        procedure :: my_add
+        procedure :: my_add, my_add2
     end interface 
     
     
     interface operator(-)
         procedure :: my_sub
-    end interface 	
-    
-    
+    end interface
+
     interface assignment (=)
         procedure :: my_eq
     end interface 
@@ -55,6 +54,13 @@ module face
         my_add = a%a*2 +b*2
     end function my_add
     
+    real function my_add2(a,b)
+        type(my_type), intent(in) :: a
+        real, intent(in) :: b
+        
+        my_add2 = a%a*2 +b*2
+    end function my_add2
+
     real function my_sub(a,b)
         type(my_type), intent(in) :: a
         integer, intent(in) :: b
@@ -148,4 +154,85 @@ module face
         convert_cmplx = x * 5
     end function convert_cmplx
 
+
+    function func_str_int_len(i) result(s)
+        ! Github issue #12
+        integer, intent(in) :: i
+        character(len=str_int_len(i)) :: s
+        write(s, '(i0)') i
+    end function func_str_int_len
+          
+    pure integer function str_int_len(i) result(sz)
+        ! Returns the length of the string representation of 'i'
+        integer, intent(in) :: i
+        integer, parameter :: MAX_STR = 100
+        character(MAX_STR) :: s
+        ! If 's' is too short (MAX_STR too small), Fortran will abort with:
+        ! "Fortran runtime error: End of record"
+        write(s, '(i0)') i
+        sz = len_trim(s)
+    end function str_int_len
+
+
+    function func_mesh_exp(N) result(mesh)
+        ! Github issues #13
+        integer, intent(in) :: N
+        integer(dp) :: mesh(N+1)
+        integer :: i
+        
+        do i=1,n+1
+            mesh(i) = i
+        end do
+        
+    end function func_mesh_exp
+
+
+    subroutine func_mesh_exp2(x,N) 
+        integer, intent(in) :: N
+        integer :: x(N+1)
+        integer :: i
+        
+        do i=1,n+1
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp2
+
+
+    subroutine func_mesh_exp3(x,N) 
+        integer, intent(in) :: N
+        integer :: x((N*2)+1)
+        integer :: i
+        
+        do i=1,(N*2)+1
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp3
+
+
+    subroutine func_mesh_exp4(x,N) 
+        integer, intent(in) :: N
+        integer :: x((N+3)*2+1)
+        integer :: i
+        
+        do i=1,(N+3)*2+1
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp4
+
+    subroutine check_exp_2d_2m3_nt(arr, NT, success)
+        ! Github issues #19
+        integer, intent(in) :: NT
+        integer, dimension(3,NT) :: arr
+        logical :: success
+        
+        success=.false.
+    
+        
+        arr(1,NT) = 5
+
+    end subroutine check_exp_2d_2m3_nt
+    
 end module face
