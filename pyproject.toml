@@ -50,3 +50,6 @@ exclude_dirs = ["tests"]
 source = ["gfModParser"]
 parallel = true
 concurrency = ["multiprocessing", "thread"]
+
+[tool.cibuildwheel]
+before-all = "uname -a"
