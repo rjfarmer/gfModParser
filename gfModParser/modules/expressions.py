@@ -158,6 +158,10 @@ class ExpConstant(ExpGeneric):
     def type(self):
         return self._type
 
+    @property
+    def raw(self):
+        return utils.string_clean(self._args[3])
+
 
 class ExpVariable(ExpGeneric):
     @property

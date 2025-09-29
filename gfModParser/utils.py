@@ -46,22 +46,19 @@ def string_clean(string):
 
 def hextofloat(s, kind=4):
     # Given hex like parameter '0.12decde@9' returns 5065465344.0
-    man, exp = s.split("@")
-    exp = int(exp)
-    decimal = man.index(".")
-    negative = man[0] == "-"
-    man = man[decimal + 1 :]
-    man = man.ljust(exp, "0")
-    man = man[:exp] + "." + man[exp:]
-    man = man + "P0"
-    if negative:
-        man = "-" + man
-    if PYQ_IMPORTED and kind == 16:
-        return pyq.qfloat.fromhex(man)
-    elif kind == 8:
-        return np.double.fromhex(man)
+    if "@" in s:
+        man, exp = s.split("@")
+        exp = int(exp)
     else:
-        return float.fromhex(man)
+        man = s
+        exp = 0
+
+    if PYQ_IMPORTED and kind == 16:
+        return pyq.qfloat.fromhex(man) * 16**exp
+    elif kind == 8:
+        return np.double.fromhex(man) * 16**exp
+    else:
+        return float.fromhex(man) * 16**exp
 
 
 def dtype(type, kind, len=-1):

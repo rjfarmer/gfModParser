@@ -88,7 +88,6 @@ class module:
     def __getitem__(self, key):
         self._load_summary()
         self._load_symbols()
-        print(key, type(key))
         if isinstance(key, int):
             # Lookup by index, used by procedure to find arguments
             return self._symbols[key]
