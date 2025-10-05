@@ -39,9 +39,10 @@ class arrayspec:
         return -1
 
     @property
-    def type(self) -> str | None:
+    def type(self) -> str:
         if self.is_array:
             return self._array[2]
+        return ""
 
     @property
     def is_deferred(self) -> bool:
