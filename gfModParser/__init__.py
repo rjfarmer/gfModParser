@@ -111,7 +111,7 @@ class Variables:
         Return the Fortran type (INTEGER, REAL, LOGICAL, CHARACTER, etc)
         """
         if key in self:
-            return self.module[self._id(key)].properties.typespec.type
+            return self.module[self._id(key)].type
 
     @cache
     def kind(self, key):
@@ -120,7 +120,7 @@ class Variables:
         for gfortran can be treated as such
         """
         if key in self:
-            return self.module[self._id(key)].properties.typespec.kind
+            return self.module[self._id(key)].kind
 
     @cache
     def array(self, key):
@@ -129,7 +129,7 @@ class Variables:
         is an array and if so, its shape, size etc
         """
         if key in self:
-            return self.module[self._id(key)].properties.array_spec
+            return self.module[self._id(key)].is_array
 
 
 class Parameters:
@@ -252,7 +252,7 @@ class DerivedTypes:
     def keys(self):
         res = []
         for i in self.module.keys():
-            if self.module[i].properties.attributes.is_derived:
+            if self.module[i].is_dt:
                 res.append(i)
         return set(res)
 

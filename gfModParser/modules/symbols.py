@@ -118,3 +118,40 @@ class Symbol:
 
     def __repr__(self):
         return self.name
+
+    # Convenience functions
+    @property
+    def type(self) -> str:
+        """Return the Fortran type
+
+        Returns:
+            str
+        """
+        return self.properties.typespec.type
+
+    @property
+    def kind(self) -> int:
+        """Return the Fortran kind
+
+        Returns:
+            int:
+        """
+        return self.properties.typespec.kind
+
+    @property
+    def is_array(self) -> bool:
+        """Return if an array
+
+        Returns:
+            bool
+        """
+        return self.properties.array_spec
+
+    @property
+    def is_dt(self) -> bool:
+        """Return if a dt
+
+        Returns:
+            bool
+        """
+        return self.properties.attributes.is_derived
