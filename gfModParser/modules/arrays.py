@@ -17,40 +17,50 @@ class arrayspec:
         return self.is_array
 
     @property
-    def is_array(self):
+    def is_array(self) -> bool:
         return len(self._array) > 0
 
     @property
-    def ndims(self):
+    def ndims(self) -> int:
         if self.is_array:
             return self.rank
+        return -1
 
     @property
-    def rank(self):
+    def rank(self) -> int:
         if self.is_array:
             return int(self._array[0])
+        return -1
 
     @property
-    def corank(self):
+    def corank(self) -> int:
         if self.is_array:
             return int(self._array[1])
+        return -1
 
     @property
-    def type(self):
+    def type(self) -> str | None:
         if self.is_array:
             return self._array[2]
 
     @property
-    def is_defered(self):
+    def is_deferred(self) -> bool:
         """
-        Defered arrays (like allocatable) do not have compile time bounds, but do have
+        Deferred arrays (like allocatable) do not have compile time bounds, but do have
         compile time rank
         """
         if self.is_array:
             return self.type == "DEFERRED"
+        return False
 
     @property
-    def lower(self):
+    def is_explicit(self) -> bool:
+        if self.is_array:
+            return self.type == "EXPLICIT"
+        return False
+
+    @property
+    def lower(self) -> tuple:
         if self.is_array:
             if len(self._low) == 0:
                 for i in range(self.rank + self.corank):
@@ -61,10 +71,11 @@ class arrayspec:
                             )
                         )
 
-            return self._low
+            return tuple(self._low)
+        return ()
 
     @property
-    def upper(self):
+    def upper(self) -> tuple:
         if self.is_array:
             if len(self._up) == 0:
                 for i in range(self.rank + self.corank):
@@ -75,10 +86,11 @@ class arrayspec:
                             )
                         )
 
-            return self._up
+            return tuple(self._up)
+        return ()
 
     @property
-    def fshape(self):
+    def fshape(self) -> tuple:
         """
         Returns the array shape as a tuple of Fortran bounds ((lower, upper),..)
         """
@@ -88,9 +100,10 @@ class arrayspec:
                 res.append((l.value, u.value))
 
             return tuple(res)
+        return ()
 
     @property
-    def pyshape(self):
+    def pyshape(self) -> tuple:
         """
         Returns the array shape as a tuple of Python bounds (ndim1,ndim2,..)
         """
@@ -100,9 +113,12 @@ class arrayspec:
                 res.append(u.value - l.value + 1)
 
             return tuple(res)
+        return ()
 
     @property
-    def size(self):
+    def size(self) -> int:
         if self.is_array:
-            if not self.is_defered:
+            if not self.is_deferred:
                 return np.prod(self.pyshape)
+
+        return -1

@@ -18,7 +18,7 @@ class typebound_proc:
     def overridable(self):
         return self._proc[1]
 
-    # Also sho defered here? see mio_typebound_proc
+    # Also sho deferred here? see mio_typebound_proc
 
     @property
     def nopass(self):

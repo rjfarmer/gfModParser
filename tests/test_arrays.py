@@ -29,7 +29,7 @@ class TestArrayExplicit:
 
     def test_type(self):
         assert self.mod["b_int_exp_1d"].properties.array_spec.type == "EXPLICIT"
-        assert not self.mod["b_int_exp_1d"].properties.array_spec.is_defered
+        assert not self.mod["b_int_exp_1d"].properties.array_spec.is_deferred
 
     def test_if_array(self):
         assert self.mod["const_int_arr"].properties.array_spec
@@ -102,15 +102,15 @@ class TestArrayDummy:
         assert self.mod["c_int_alloc_5d"].properties.array_spec.corank == 0
 
     def test_type(self):
-        assert self.mod["c_int_alloc_1d"].properties.array_spec.is_defered
+        assert self.mod["c_int_alloc_1d"].properties.array_spec.is_deferred
 
     def test_lower(self):
-        assert self.mod["c_int_alloc_1d"].properties.array_spec.lower == []
-        assert self.mod["c_int_alloc_2d"].properties.array_spec.lower == []
+        assert self.mod["c_int_alloc_1d"].properties.array_spec.lower == ()
+        assert self.mod["c_int_alloc_2d"].properties.array_spec.lower == ()
 
     def test_upper(self):
-        assert self.mod["c_int_alloc_1d"].properties.array_spec.upper == []
-        assert self.mod["c_int_alloc_2d"].properties.array_spec.upper == []
+        assert self.mod["c_int_alloc_1d"].properties.array_spec.upper == ()
+        assert self.mod["c_int_alloc_2d"].properties.array_spec.upper == ()
 
     def test_fshape(self):
         assert self.mod["c_int_alloc_1d"].properties.array_spec.fshape == ()
@@ -121,5 +121,5 @@ class TestArrayDummy:
         assert self.mod["c_int_alloc_2d"].properties.array_spec.pyshape == ()
 
     def test_size(self):
-        assert self.mod["c_int_alloc_1d"].properties.array_spec.size is None
-        assert self.mod["c_int_alloc_2d"].properties.array_spec.size is None
+        assert self.mod["c_int_alloc_1d"].properties.array_spec.size == -1
+        assert self.mod["c_int_alloc_2d"].properties.array_spec.size == -1
