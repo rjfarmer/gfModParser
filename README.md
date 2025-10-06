@@ -9,7 +9,7 @@
 # gfModParser
 Parser for gfortran's Fortran module file format. 
 
-Requires gfortran>=8.0, Works with python >= 3.9
+Requires gfortran>=8.0, Works with python >= 3.10
 
 GFortran module source code https://github.com/gcc-mirror/gcc/blob/master/gcc/fortran/module.cc
 
@@ -45,7 +45,7 @@ python -m pytest --cov gfModParser --cov-report html # Generate coverage report
 
 ## Usage
 
-Basic usage involes loading a module then exploring what it offers:
+Basic usage involves loading a module then exploring what it offers:
 
 ````python
 import gfModParser as gf
@@ -58,13 +58,13 @@ mod.keys()
 mod['a_variable']
 ````
 
-The ``Module`` class provides all the information known about a thing, but can be complicated to use. So there exists some convienance classes to make life easier:
+The ``Module`` class provides all the information known about a thing, but can be complicated to use. So there exists some convenience classes to make life easier:
 
 ````python
 import gfModParser as gf
 mod = gf.Module("fortran.mod")
 
-# Stores all module level varibles
+# Stores all module level variables
 variables = gf.Variables(mod)
 
 # Stores all module level parameters
@@ -112,7 +112,7 @@ result = procedures.result('a_function')
 variables.type(result)
 ````
 
-Arguments to the procedure can be accessed via, and returnd as a dict:
+Arguments to the procedure can be accessed via, and returned as a dict:
 
 ````python
 args = procedures.arguments('a_function')
