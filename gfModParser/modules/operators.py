@@ -1,5 +1,4 @@
 import operator
-import pyparsing
 
 from .. import utils
 from . import utils as u
@@ -48,7 +47,7 @@ class Interfaces:
 
     def _load(self):
         self._interfaces = {}
-        face = pyparsing.OneOrMore(pyparsing.nestedExpr()).parseString(self._raw)[0]
+        face = utils.bracket_split(self._raw)[0]
 
         for index, value in enumerate(face):
             if len(value):
@@ -82,7 +81,7 @@ class Operators:
 
     def _load(self):
         self._operators = {}
-        face = pyparsing.OneOrMore(pyparsing.nestedExpr()).parseString(self._raw)[0]
+        face = utils.bracket_split(self._raw)[0]
 
         for value in face:
             (name, _, *num) = value
@@ -113,7 +112,7 @@ class Generics:
 
     def _load(self):
         self._generics = {}
-        face = pyparsing.OneOrMore(pyparsing.nestedExpr()).parseString(self._raw)[0]
+        face = utils.bracket_split(self._raw)[0]
 
         for value in face:
             (name, _, *num) = value

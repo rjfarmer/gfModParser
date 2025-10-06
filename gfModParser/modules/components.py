@@ -1,7 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0+
 
-import pyparsing
-
 from .. import utils
 from . import attributes
 from . import expressions
@@ -27,7 +25,7 @@ class Components:
 
     def __getitem__(self, key):
         if key in self._components:
-            if isinstance(self._components[key], pyparsing.results.ParseResults):
+            if isinstance(self._components[key], list):
                 self._components[key] = component(
                     self._components[key], version=self.version
                 )
@@ -59,7 +57,7 @@ class component:
 
     @property
     def pdt_expression(self):
-        return expressions.expression(self._component[4], version=self.version)
+        return expressions.Expression(self._component[4], version=self.version)
 
     # PDT component specification
     @property
@@ -78,10 +76,10 @@ class component:
     def initializer(self):
         # also check for vtype?
         if self.name == "_final" or self.name == "_hash":
-            return expressions.expression(self._component[8], version=self.version)
+            return expressions.Expression(self._component[8], version=self.version)
 
     @property
     def proc_pointer(self):
         if self.attribute.proc_pointer:
-            # The initialzer might be in slot 8 so instead of looking at 8 or 9 just look at the final one
+            # The initializer might be in slot 8 so instead of looking at 8 or 9 just look at the final one
             return procedures.typebound_proc(self._component[-1], version=self.version)

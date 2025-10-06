@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0+
-import pyparsing
 
+from .. import utils
 from . import attributes
 from . import components
 from . import expressions
@@ -26,7 +26,7 @@ class Properties:
         self._parameter = None
 
     def _load(self):
-        p = pyparsing.OneOrMore(pyparsing.nestedExpr()).parseString(self._raw)
+        p = utils.bracket_split(self._raw)
         self._properties = p[0]
 
         if isinstance(self._properties[2], str):

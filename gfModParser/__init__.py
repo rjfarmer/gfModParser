@@ -230,7 +230,7 @@ class Procedures:
         """
         Returns a dict of the dummy arguments to the procedure
 
-        These can be fed back indivdiually into the Variables() class for easier accessing
+        These can be fed back individually into the Variables() class for easier accessing
         """
         if key in self:
             ref = self.module[key].properties.formal_argument
@@ -268,7 +268,7 @@ class DerivedTypes:
         """
         Returns a dict of the components of the derived type
 
-        Note the key must have the first letter captialised to find the definition of the type
+        Note the key must have the first letter capitalized to find the definition of the type
         """
         res = {}
         if key in self:

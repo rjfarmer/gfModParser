@@ -96,3 +96,31 @@ def dtype(type, kind, len=-1):
         return np.dtype(np.int32)
     else:
         raise NotImplementedError(f"Type={type} kind={kind}")
+
+
+def bracket_split(string):
+    def _helper(substring):
+        items = []
+        tmp = []
+        for item in substring:
+            if item == "(":
+                result, closeparen = _helper(substring)
+                if not closeparen:
+                    raise ValueError("Unbalanced parentheses")
+                items.append(result)
+            elif item == ")":
+                t = "".join(tmp).strip()
+                if len(t):
+                    items.append(t)
+                return items, True
+            else:
+                if item != " ":
+                    tmp.append(item)
+                else:
+                    t = "".join(tmp).strip()
+                    if len(t):
+                        items.append(t)
+                        tmp = []
+        return items, False
+
+    return _helper(iter(string))[0]
