@@ -72,7 +72,7 @@ class Properties:
         return namespaces.namespace(self._properties[3], version=self.version)
 
     @property
-    def common_symbol(self):
+    def common_symbol(self) -> int:
         if self._properties is None:
             self._load()
         return int(self._properties[4])
@@ -100,7 +100,7 @@ class Properties:
         return arrays.arrayspec(self._properties[6], version=self.version)
 
     @property
-    def symbol_reference(self):
+    def symbol_reference(self) -> int:
         """
         0 if a subroutine, else the symbol reference for a function result
         """
@@ -108,13 +108,15 @@ class Properties:
             self._load()
         if not any([i == "CRAY_POINTER" for i in self.attributes.attributes]):
             return int(self._properties[7])
+        return -1
 
     @property
-    def cray_pointer_reference(self):
+    def cray_pointer_reference(self) -> int:
         if self._properties is None:
             self._load()
         if any([i == "CRAY_POINTER" for i in self.attributes.attributes]):
             return int(self._properties[7])
+        return -1
 
     @property
     def derived(self):
@@ -136,24 +138,26 @@ class Properties:
             return namelists.Namelist(self._properties[10], version=self.version)
 
     @property
-    def intrinsic(self):
+    def intrinsic(self) -> bool:
         if self._properties is None:
             self._load()
         return self._properties[11] == 1
 
     @property
-    def intrinsic_symbol(self):
+    def intrinsic_symbol(self) -> bool:
         if self._properties is None:
             self._load()
         if len(self._properties) > 12:
             return self._properties[12] == 1
+        return False
 
     @property
-    def hash(self):
+    def hash(self) -> int:
         if self._properties is None:
             self._load()
         if len(self._properties) > 13:
             return int(self._properties[13])
+        return -1
 
     @property
     def simd(self):

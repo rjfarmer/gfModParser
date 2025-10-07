@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
 
+from typing import List
+
 from .. import utils
 from . import attributes
 from . import expressions
@@ -20,7 +22,7 @@ class Components:
     def __contains__(self, key):
         return key in self._components
 
-    def keys(self):
+    def keys(self) -> List[str]:
         return self._components.keys()
 
     def __getitem__(self, key):
@@ -40,11 +42,11 @@ class component:
         self.version = version
 
     @property
-    def id(self):
+    def id(self) -> int:
         return int(self._component[0])
 
     @property
-    def name(self):
+    def name(self) -> str:
         return utils.string_clean(self._component[1])
 
     @property
@@ -69,7 +71,7 @@ class component:
         return attributes.Attributes(self._component[6], version=self.version)
 
     @property
-    def access(self):
+    def access(self) -> str:
         return utils.string_clean(self._component[7])
 
     @property

@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import numpy as np
+from typing import List, Tuple
 
 from .. import utils
 
@@ -43,13 +44,14 @@ class Expression:
         return typespec(self._expression[1], version=self.version)
 
     @property
-    def rank(self):
+    def rank(self) -> int:
         return int(self._expression[2])
 
     @property
-    def arglist(self):
+    def arglist(self) -> List:
         if len(self._exp._args) == 7:
             return procedures.actual_arglist(self._exp._args[6])
+        return []
 
     @property
     def value(self):
@@ -62,12 +64,12 @@ class Expression:
         return self._exp.__repr__()
 
     @property
-    def len(self):
+    def len(self) -> int:
         return self._exp.len
 
     @property
-    def kind(self):
-        return self._exp._kind
+    def kind(self) -> int:
+        return self.typespec.kind
 
 
 class ExpGeneric:
@@ -91,7 +93,7 @@ class ExpGeneric:
         return self._type == key
 
     @property
-    def kind(self):
+    def kind(self) -> int:
         return self._kind
 
 
@@ -159,7 +161,7 @@ class ExpConstant(ExpGeneric):
         return self._type
 
     @property
-    def raw(self):
+    def raw(self) -> str:
         return utils.string_clean(self._args[3])
 
 
@@ -181,7 +183,7 @@ class ExpArray(ExpGeneric):
         self._value = None
 
     @property
-    def value(self):
+    def value(self) -> np.ndarray:
         if self._value is None:
             self._value = []
             for i in self._args[3]:
@@ -195,11 +197,11 @@ class ExpArray(ExpGeneric):
         return np.array(value, dtype=self.dtype).reshape(self.shape)
 
     @property
-    def shape(self):
+    def shape(self) -> Tuple:
         return tuple([int(utils.string_clean(i)) for i in self._args[4]])
 
     @property
-    def dtype(self):
+    def dtype(self) -> np.dtype:
         v = Expression(self._args[3][0][0], version=self.version)
         return utils.dtype(v.type, self.kind, len=v.len)
 
@@ -243,32 +245,34 @@ class typespec:
         self.version = version
 
     @property
-    def type(self):
+    def type(self) -> str:
         return self._typespec[0]
 
     def _isclass(self):
         return self.type == "CLASS" or self.type == "DERIVED"
 
     @property
-    def kind(self):
+    def kind(self) -> int:
         if not self._isclass():
             return int(self._typespec[1])
+        return -1
 
     @property
-    def class_ref(self):
+    def class_ref(self) -> int:
         if self._isclass():
             return int(self._typespec[1])
+        return -1
 
     @property
     def interface(self):
         return self._typespec[2]
 
     @property
-    def is_c_interop(self):
+    def is_c_interop(self) -> bool:
         return int(self._typespec[3]) == 1
 
     @property
-    def is_iso_c(self):
+    def is_iso_c(self) -> bool:
         return int(self._typespec[4]) == 1
 
     @property
@@ -277,7 +281,7 @@ class typespec:
         return self._typespec[5]
 
     @property
-    def charlen(self):
+    def charlen(self) -> int:
         return self._typespec[6]
 
     #     try:
@@ -291,7 +295,7 @@ class typespec:
     #         self.charlen = -1
 
     @property
-    def deferred_cl(self):
+    def deferred_cl(self) -> bool:
         if len(self._typespec) == 8:
             return self._typespec[7] == "DEFERRED_CL"
 

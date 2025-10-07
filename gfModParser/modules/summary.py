@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
+
+from typing import List
+
 from .. import utils
 
 
@@ -38,7 +41,7 @@ class Summary:
     def __getitem__(self, key):
         return self._names[key]
 
-    def keys(self):
+    def keys(self) -> List:
         return self._names.keys()
 
     def __contains__(self, key):

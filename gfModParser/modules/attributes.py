@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
 
+from typing import Set
+
 from .. import utils
 
 _all = set(
@@ -99,61 +101,61 @@ class Attributes:
         self.version = version
 
     @property
-    def flavor(self):
+    def flavor(self) -> str:
         return utils.string_clean(self._attributes[0])
 
     @property
-    def intent(self):
+    def intent(self) -> str:
         return utils.string_clean(self._attributes[1])
 
     @property
-    def procedure(self):
+    def procedure(self) -> str:
         return utils.string_clean(self._attributes[2])
 
     @property
-    def if_source(self):
+    def if_source(self) -> str:
         return utils.string_clean(self._attributes[3])
 
     @property
-    def save(self):
+    def save(self) -> str:
         return utils.string_clean(self._attributes[4])
 
     @property
-    def external_attribute(self):
+    def external_attribute(self) -> bool:
         return int(self._attributes[5]) == 1
 
     @property
-    def extension(self):
+    def extension(self) -> bool:
         return int(self._attributes[6]) == 1
 
     @property
-    def attributes(self):
+    def attributes(self) -> Set[str]:
         if self._attr is None:
             self._attr = set([utils.string_clean(i) for i in self._attributes[7:]])
         return self._attr
 
     @property
-    def is_parameter(self):
+    def is_parameter(self) -> bool:
         return self.flavor == "PARAMETER"
 
     @property
-    def is_variable(self):
+    def is_variable(self) -> bool:
         return self.flavor == "VARIABLE"
 
     @property
-    def is_procedure(self):
+    def is_procedure(self) -> bool:
         return self.flavor == "PROCEDURE"
 
     @property
-    def is_derived(self):
+    def is_derived(self) -> bool:
         return self.flavor == "DERIVED"
 
     @property
-    def is_module(self):
+    def is_module(self) -> bool:
         return self.flavor == "MODULE"
 
     @property
-    def is_namelist(self):
+    def is_namelist(self) -> bool:
         return self.flavor == "NAMELIST"
 
     def __dir__(self):

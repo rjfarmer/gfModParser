@@ -96,7 +96,7 @@ variables.array('a_variable').shape # etc
 ````
 
 ### Parameter
-Has the same fucntions as ``Variables`` but also a method for returning the value of the parameter:
+Has the same functions as ``Variables`` but also a method for returning the value of the parameter:
 
 ````python
 parameters.value('a_parameter')

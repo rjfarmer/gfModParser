@@ -2,7 +2,7 @@
 
 # https://github.com/gcc-mirror/gcc/blob/master/gcc/fortran/module.cc
 
-import typing as t
+from typing import List
 
 from .. import utils
 from .. import io
@@ -77,7 +77,7 @@ class module:
                 self._raw_generics, version=self.version
             )
 
-    def keys(self):
+    def keys(self) -> List:
         self._load_summary()
         return self._summary.keys()
 

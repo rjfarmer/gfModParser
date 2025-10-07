@@ -1,4 +1,5 @@
 import operator
+from typing import List
 
 from .. import utils
 from . import utils as u
@@ -54,7 +55,7 @@ class Interfaces:
                 key = list(self._default_ops.keys())[index]
                 self._interfaces[key] = u.ListSymbols(value, version=self.version)
 
-    def keys(self):
+    def keys(self) -> List:
         if self._interfaces is None:
             self._load()
 
@@ -88,7 +89,7 @@ class Operators:
             name = utils.string_clean(name)
             self._operators[name] = u.ListSymbols(num, version=self.version)
 
-    def keys(self):
+    def keys(self) -> List:
         if self._operators is None:
             self._load()
 
@@ -119,7 +120,7 @@ class Generics:
             name = utils.string_clean(name)
             self._generics[name] = u.ListSymbols(num, version=self.version)
 
-    def keys(self):
+    def keys(self) -> List:
         if self._generics is None:
             self._load()
 

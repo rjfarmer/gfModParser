@@ -129,7 +129,16 @@ class Variables:
         is an array and if so, its shape, size etc
         """
         if key in self:
+            return self.module[self._id(key)].properties.array_spec
+
+    @cache
+    def is_array(self, key) -> bool:
+        """
+        Returns if object is an array
+        """
+        if key in self:
             return self.module[self._id(key)].is_array
+        return False
 
 
 class Parameters:

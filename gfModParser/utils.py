@@ -2,6 +2,7 @@
 
 import numpy as np
 from packaging.version import Version
+from typing import List
 
 try:
     import pyquadp as pyq
@@ -11,12 +12,10 @@ except ImportError:
     PYQ_IMPORTED = False
 
 
-"""
-Map gfortran version to Mod file version
-"""
-
-
-def gfortran_mod_map(version):
+def gfortran_mod_map(version) -> Version:
+    """
+    Map gfortran version to Mod file version
+    """
     if version < Version("4.8.1"):
         return Version("9")
     elif version < Version("4.9.2"):
@@ -33,7 +32,7 @@ def gfortran_mod_map(version):
         raise ValueError(f"Unknown gfortran version {version}")
 
 
-def string_clean(string):
+def string_clean(string) -> str:
     if string is None:
         return
     if string.startswith("'") or string.startswith('"'):
@@ -61,7 +60,7 @@ def hextofloat(s, kind=4):
         return float.fromhex(man) * 16**exp
 
 
-def dtype(type, kind, len=-1):
+def dtype(type, kind, len=-1) -> np.dtype:
     if type == "REAL":
         if kind == 4:
             return np.dtype(np.float32)
@@ -98,7 +97,7 @@ def dtype(type, kind, len=-1):
         raise NotImplementedError(f"Type={type} kind={kind}")
 
 
-def bracket_split(string):
+def bracket_split(string) -> List[str]:
     def _helper(substring):
         items = []
         tmp = []

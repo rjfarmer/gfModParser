@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
 
+from typing import List
+
 from .. import utils
 
 from . import utils as u
@@ -21,7 +23,7 @@ class typebound_proc:
     # Also sho deferred here? see mio_typebound_proc
 
     @property
-    def nopass(self):
+    def nopass(self) -> bool:
         return self._proc[2] == "NOPASS"
 
     @property
@@ -33,12 +35,12 @@ class typebound_proc:
         return self._proc[4]
 
     @property
-    def pass_arg(self):
+    def pass_arg(self) -> str:
         # argument name
         return utils.string_clean(self._proc[5])
 
     @property
-    def pass_arg_num(self):
+    def pass_arg_num(self) -> int:
         return int(self._proc[6])
 
     # # TODO: Handle is_generic

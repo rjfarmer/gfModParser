@@ -83,30 +83,30 @@ class Symbol:
         self._symbol = symbol.split(" ", maxsplit=5)
 
     @property
-    def mangled_name(self):
+    def mangled_name(self) -> str:
         if not self.bind_c:
             return f"__{self.module}_MOD_{self.name}"
         else:
             return utils.string_clean(self._symbol[3])
 
     @property
-    def id(self):
+    def id(self) -> int:
         return int(self._id)
 
     @property
-    def name(self):
+    def name(self) -> str:
         return utils.string_clean(self._symbol[1])
 
     @property
-    def module(self):
+    def module(self) -> str:
         return utils.string_clean(self._symbol[2])
 
     @property
-    def bind_c(self):
+    def bind_c(self) -> bool:
         return len(utils.string_clean(self._symbol[3])) > 0
 
     @property
-    def parent_id(self):
+    def parent_id(self) -> int:
         return int(self._symbol[4])
 
     @property
@@ -145,7 +145,7 @@ class Symbol:
         Returns:
             bool
         """
-        return self.properties.array_spec
+        return self.properties.array_spec.is_array
 
     @property
     def is_dt(self) -> bool:
@@ -155,3 +155,21 @@ class Symbol:
             bool
         """
         return self.properties.attributes.is_derived
+
+    @property
+    def is_procedure(self) -> bool:
+        return self.properties.attributes.is_procedure
+
+    @property
+    def is_function(self) -> bool:
+        if self.is_procedure:
+            return self.properties.symbol_reference > 0
+
+        return False
+
+    @property
+    def is_subroutine(self) -> bool:
+        if self.is_procedure:
+            return self.properties.symbol_reference == 0
+
+        return False

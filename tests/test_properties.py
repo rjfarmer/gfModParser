@@ -30,7 +30,7 @@ class TestProperties:
         assert self.mod["dp"].properties.symbol_reference == 0
 
     def test_cray(self):
-        assert self.mod["dp"].properties.cray_pointer_reference is None
+        assert self.mod["dp"].properties.cray_pointer_reference == -1
 
         assert self.ptrs["ipt"].properties.cray_pointer_reference == 0
 

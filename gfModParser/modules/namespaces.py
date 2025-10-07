@@ -9,7 +9,7 @@ class namespace:
         self.version = version
 
     @property
-    def ref(self):
+    def ref(self) -> int:
         return int(self._namespace)
 
 
