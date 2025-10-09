@@ -12,7 +12,7 @@ def read_compressed(filename) -> str:
 
 
 def read_uncompressed(filename) -> str:
-    with open(filename, "r") as f:
+    with open(filename, "r", encoding="utf8") as f:
         data = f.read()
 
     return data
@@ -26,7 +26,7 @@ def read_compressed_header(filename) -> List[str]:
 
 
 def read_uncompressed_header(filename) -> List[str]:
-    with open(filename, "r") as f:
+    with open(filename, "r", encoding="utf8") as f:
         data = f.readline()
 
     return data

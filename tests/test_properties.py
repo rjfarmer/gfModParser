@@ -41,4 +41,4 @@ class TestProperties:
     def test_derived_proc(self):
         proc = self.dt["S_struct_basic"].properties.derived.proc
         assert len(proc) == 3
-        # TODO: Needs tests for the actual elemtns of proc, seems to be emtpy for S_struct_basic
+        # TODO: Needs tests for the actual elements of proc, seems to be empty for S_struct_basic

@@ -49,9 +49,10 @@ class Expression:
 
     @property
     def arglist(self) -> List:
-        if len(self._exp._args) == 7:
-            return procedures.actual_arglist(self._exp._args[6])
-        return []
+        raise NotImplementedError
+        # if len(self._exp._args) == 7:
+        #     return procedures.actual_arglist(self._exp._args[6])
+        # return []
 
     @property
     def value(self):
@@ -77,7 +78,7 @@ class ExpGeneric:
         self._args = args
         self.version = version
         self._type = type
-        self._kind = kind
+        self.kind = kind
 
     def __str__(self):
         return self._type
@@ -91,10 +92,6 @@ class ExpGeneric:
 
     def __eq__(self, key):
         return self._type == key
-
-    @property
-    def kind(self) -> int:
-        return self._kind
 
 
 class ExpOp(ExpGeneric):
@@ -130,15 +127,15 @@ class ExpConstant(ExpGeneric):
     @property
     def value(self):
         if self._type == "REAL":
-            return utils.hextofloat(utils.string_clean(self._args[3]), self._kind)
+            return utils.hextofloat(utils.string_clean(self._args[3]), self.kind)
         elif self._type == "INTEGER" or self._type == "UNSIGNED":
             return int(utils.string_clean(self._args[3]))
         elif self._type == "CHARACTER":
             return utils.string_clean(self._args[4])
         elif self._type == "COMPLEX":
             return complex(
-                utils.hextofloat(utils.string_clean(self._args[3]), self._kind),
-                utils.hextofloat(utils.string_clean(self._args[4]), self._kind),
+                utils.hextofloat(utils.string_clean(self._args[3]), self.kind),
+                utils.hextofloat(utils.string_clean(self._args[4]), self.kind),
             )
         elif self._type == "LOGICAL":
             return int(self._args[3]) == 1
@@ -171,10 +168,10 @@ class ExpVariable(ExpGeneric):
         return self._args[3]
 
     def __str__(self):
-        if self.type == "CHARACTER":
+        if self._type == "CHARACTER":
             return f"CHARACTER(kind={self.kind},len={self.len})"
         else:
-            return f"{self.type}"
+            return f"{self._type}"
 
 
 class ExpArray(ExpGeneric):

@@ -1,6 +1,10 @@
 # SPDX-License-Identifier: GPL-2.0+
 
-from .. import utils
+from typing import Type
+
+
+from gfModParser import utils
+
 from . import attributes
 from . import components
 from . import expressions
@@ -26,6 +30,7 @@ class Properties:
         self._parameter = None
 
     def _load(self):
+        self._properties = []
         p = utils.bracket_split(self._raw)
         self._properties = p[0]
 
@@ -37,13 +42,13 @@ class Properties:
             _ = self._properties.pop(6)
 
     @property
-    def attributes(self):
+    def attributes(self) -> Type[attributes.Attributes]:
         if self._properties is None:
             self._load()
         return attributes.Attributes(self._properties[0], version=self.version)
 
     @property
-    def components(self):
+    def components(self) -> Type[components.Components]:
         if self._properties is None:
             self._load()
         if self._components is None:
@@ -60,13 +65,13 @@ class Properties:
         return self._comp_access
 
     @property
-    def typespec(self):
+    def typespec(self) -> Type[expressions.typespec]:
         if self._properties is None:
             self._load()
         return expressions.typespec(self._properties[2], version=self.version)
 
     @property
-    def namespace(self):
+    def namespace(self) -> Type[namespaces.namespace]:
         if self._properties is None:
             self._load()
         return namespaces.namespace(self._properties[3], version=self.version)
@@ -78,7 +83,7 @@ class Properties:
         return int(self._properties[4])
 
     @property
-    def formal_argument(self):
+    def formal_argument(self) -> Type[procedures.Arglist]:
         """
         Symbol references for the procedure arguments
         """
@@ -87,14 +92,14 @@ class Properties:
         return procedures.Arglist(self._properties[5], version=self.version)
 
     @property
-    def parameter(self):
+    def parameter(self) -> Type[expressions.Expression]:
         if self._properties is None:
             self._load()
         if self._parameter is not None:
             return expressions.Expression(self._parameter, version=self.version)
 
     @property
-    def array_spec(self):
+    def array_spec(self) -> [arrays.arrayspec]:
         if self._properties is None:
             self._load()
         return arrays.arrayspec(self._properties[6], version=self.version)
@@ -119,19 +124,19 @@ class Properties:
         return -1
 
     @property
-    def derived(self):
+    def derived(self) -> Type[namespaces.derived_ns]:
         if self._properties is None:
             self._load()
         return namespaces.derived_ns(self._properties[8], version=self.version)
 
     @property
-    def actual_argument(self):
+    def actual_argument(self) -> Type[procedures.Arglist]:
         if self._properties is None:
             self._load()
         return procedures.Arglist(self._properties[9], version=self.version)
 
     @property
-    def namelist(self):
+    def namelist(self) -> Type[namelists.Namelist] | None:
         if self._properties is None:
             self._load()
         if self.attributes.is_namelist:

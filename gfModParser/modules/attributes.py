@@ -167,3 +167,6 @@ class Attributes:
             return key.upper() in self.attributes
         else:
             raise AttributeError(f"Key not found {key}")
+
+    def __contains__(self, key):
+        return key in self._attr
