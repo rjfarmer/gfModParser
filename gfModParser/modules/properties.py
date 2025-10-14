@@ -27,7 +27,7 @@ class Properties:
         self._components = None
 
         self._comp_access = None
-        self._parameter = None
+        self._exp_type = None
 
     def _load(self):
         self._properties = []
@@ -38,7 +38,7 @@ class Properties:
             self._comp_access = self._properties[2]
             _ = self._properties.pop(2)
         if self.attributes.is_parameter:
-            self._parameter = self._properties[6]
+            self._exp_type = self._properties[6]
             _ = self._properties.pop(6)
 
     @property
@@ -92,14 +92,15 @@ class Properties:
         return procedures.Arglist(self._properties[5], version=self.version)
 
     @property
-    def parameter(self) -> Type[expressions.Expression]:
+    def exp_type(self) -> Type[expressions.Expression] | None:
         if self._properties is None:
             self._load()
-        if self._parameter is not None:
-            return expressions.Expression(self._parameter, version=self.version)
+
+        if self._exp_type is not None:
+            return expressions.Expression(self._exp_type, version=self.version)
 
     @property
-    def array_spec(self) -> [arrays.arrayspec]:
+    def array_spec(self) -> Type[arrays.arrayspec]:
         if self._properties is None:
             self._load()
         return arrays.arrayspec(self._properties[6], version=self.version)

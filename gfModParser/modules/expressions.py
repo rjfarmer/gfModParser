@@ -25,6 +25,7 @@ class Expression:
             "NULL": ExpNull,
             "COMPCALL": ExpCompCall,
             "PPC": ExpPPC,
+            "CONDITIONAL": ExpConditional,
             "UNKNOWN": ExpUnknown,
         }
 
@@ -230,6 +231,10 @@ class ExpPPC(ExpNotImplemented):
     pass
 
 
+class ExpConditional(ExpNotImplemented):
+    pass
+
+
 class ExpUnknown(ExpNotImplemented):
     pass
 
@@ -245,7 +250,7 @@ class typespec:
     def type(self) -> str:
         return self._typespec[0]
 
-    def _isclass(self):
+    def _isclass(self) -> bool:
         return self.type == "CLASS" or self.type == "DERIVED"
 
     @property
@@ -278,8 +283,10 @@ class typespec:
         return self._typespec[5]
 
     @property
-    def charlen(self) -> int:
-        return self._typespec[6]
+    def charlen(self) -> Expression:
+        if len(self._typespec[6]):
+            return Expression(self._typespec[6][0], version=self.version)
+        raise AttributeError("Object does not have a character length")
 
     #     try:
     #         if not args[6][0]:

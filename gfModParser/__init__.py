@@ -170,7 +170,7 @@ class Parameters:
         Returns the parameter value
         """
         if key in self:
-            return self.module[key].properties.parameter.value
+            return self.module[key].properties.exp_type.value
 
     @cache
     def type(self, key):

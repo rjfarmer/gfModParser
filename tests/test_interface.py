@@ -21,7 +21,7 @@ class TestComponents:
         assert "dp" in self.p
         assert not "sub_no_args" in self.p
         assert self.p["dp"].name == "dp"
-        assert self.p["dp"].properties.parameter.value == 8
+        assert self.p["dp"].properties.exp_type.value == 8
         assert self.p.value("dp") == 8
         assert self.p.type("dp") == "INTEGER"
         assert self.p.kind("dp") == 4

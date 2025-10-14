@@ -15,7 +15,7 @@ class TestProperties:
         self.ptrs = gf.Module(os.path.join("tests", "build", "ptrs.mod"))
 
     def test_parameter(self):
-        assert self.mod["dp"].properties.parameter.value == 8
+        assert self.mod["dp"].properties.exp_type.value == 8
 
     def test_comp_access(self):
         assert self.dt["S_struct_basic"].properties.component_access == "PUBLIC"
