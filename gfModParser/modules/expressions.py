@@ -101,7 +101,7 @@ class ExpOp(ExpGeneric):
         return self._args[3]
 
     @property
-    def unary_args(self) -> Expression:
+    def unary_args(self) -> tuple[Expression, Expression]:
         return Expression(self._args[4], version=self.version), Expression(
             self._args[5], version=self.version
         )
@@ -143,9 +143,10 @@ class ExpConstant(ExpGeneric):
             raise NotImplementedError(f"Type={self._type} args3={self._args[3]}")
 
     @property
-    def len(self) -> int | None:
+    def len(self) -> int:
         if self._type == "CHARACTER":
             return int(self._args[3])
+        return -1
 
     def __str__(self):
         if self._type == "CHARACTER":

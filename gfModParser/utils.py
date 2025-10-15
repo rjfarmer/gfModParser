@@ -2,17 +2,17 @@
 
 import numpy as np
 from packaging.version import Version
-from typing import Any
+from typing import Any, Union
 
 try:
-    import pyquadp as pyq
+    import pyquadp as pyq  # type: ignore[import-not-found]
 
     PYQ_IMPORTED = True
 except ImportError:
     PYQ_IMPORTED = False
 
 
-def gfortran_mod_map(version) -> Version:
+def gfortran_mod_map(version: Version) -> Version:
     """
     Map gfortran version to Mod file version
     """
@@ -32,9 +32,9 @@ def gfortran_mod_map(version) -> Version:
         raise ValueError(f"Unknown gfortran version {version}")
 
 
-def string_clean(string) -> str:
+def string_clean(string: str) -> str:
     if string is None:
-        return
+        return ""
     if string.startswith("'") or string.startswith('"'):
         string = string[1:]
     if string.endswith("'") or string.endswith('"'):
@@ -43,19 +43,22 @@ def string_clean(string) -> str:
     return string
 
 
-def hextofloat(s, kind=4) -> float | np.double | pyq.qfloat:
+def hextofloat(s: str, kind: int = 4) -> Union[float, np.double, "pyq.qfloat"]:
     # Given hex like parameter '0.12decde@9' returns 5065465344.0
     if "@" in s:
-        man, exp = s.split("@")
-        exp = int(exp)
+        man, e = s.split("@")
+        exp = int(e)
     else:
         man = s
         exp = 0
 
-    if PYQ_IMPORTED and kind == 16:
-        return pyq.qfloat.fromhex(man) * 16**exp
+    if kind == 16:
+        if PYQ_IMPORTED:
+            return pyq.qfloat.fromhex(man) * 16**exp
+        else:
+            raise ValueError("Please install pyQuadp to handle quad precision numbers")
     elif kind == 8:
-        return np.double.fromhex(man) * 16**exp
+        return np.double.fromhex(man) * 16**exp  # type: ignore[attr-defined]
     else:
         return float.fromhex(man) * 16**exp
 
@@ -93,8 +96,8 @@ def dtype(type, kind, len=-1) -> np.dtype:
             return np.dtype(np.complex256)
     elif type == "LOGICAL":
         return np.dtype(np.int32)
-    else:
-        raise NotImplementedError(f"Type={type} kind={kind}")
+
+    raise NotImplementedError(f"Type={type} kind={kind}")
 
 
 def bracket_split(string) -> list[Any]:

@@ -4,22 +4,18 @@ from .. import utils
 
 
 class generics:
-    name: str = ""
-    module: str = ""
-    id: list[int] = -1
-
     def __init__(self, generics, *, version):
         self._generic = generics
         self.version = version
 
     @property
     def name(self) -> str:
-        return utils.string_clean(self._generics[0])
+        return utils.string_clean(self._generic[0])
 
     @property
     def module(self) -> str:
-        return utils.string_clean(self._generics[1])
+        return utils.string_clean(self._generic[1])
 
     @property
     def ids(self) -> list[int]:
-        return [int(i) for i in self._generics[2:]]
+        return [int(i) for i in self._generic[2:]]

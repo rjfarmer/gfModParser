@@ -61,7 +61,7 @@ class arrayspec:
         return False
 
     @property
-    def lower(self) -> tuple[int, ...]:
+    def lower(self) -> tuple[expressions.Expression, ...]:
         if self.is_array:
             if len(self._low) == 0:
                 for i in range(self.rank + self.corank):
@@ -76,7 +76,7 @@ class arrayspec:
         return ()
 
     @property
-    def upper(self) -> tuple[int, ...]:
+    def upper(self) -> tuple[expressions.Expression, ...]:
         if self.is_array:
             if len(self._up) == 0:
                 for i in range(self.rank + self.corank):
@@ -117,9 +117,9 @@ class arrayspec:
         return ()
 
     @property
-    def size(self) -> int:
+    def size(self) -> np.int64:
         if self.is_array:
             if not self.is_deferred:
                 return np.prod(self.pyshape)
 
-        return -1
+        return np.int64(-1)

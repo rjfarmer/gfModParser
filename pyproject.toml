@@ -38,6 +38,7 @@ coverage = ['pytest', 'pytest-xdist', 'pytest-cov']
 quad = ['pyquadp']
 dev = ['pre-commit','black', 'pytest','pytest-xdist']
 perfomance = ["pytest", "pytest-codspeed", 'pytest-xdist']
+types = ["mypy", "types-setuptools"]
 
 [tool.pytest.ini_options]
 addopts = "-s -n auto"

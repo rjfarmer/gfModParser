@@ -17,14 +17,14 @@ def read_uncompressed(filename) -> str:
     return data
 
 
-def read_compressed_header(filename) -> list[str]:
+def read_compressed_header(filename) -> str:
     with gzip.open(filename) as f:
         data = f.readline().decode()
 
     return data
 
 
-def read_uncompressed_header(filename) -> list[str]:
+def read_uncompressed_header(filename) -> str:
     with open(filename, "r", encoding="utf8") as f:
         data = f.readline()
 

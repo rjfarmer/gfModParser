@@ -98,6 +98,7 @@ class Properties:
 
         if self._exp_type is not None:
             return expressions.Expression(self._exp_type, version=self.version)
+        return None
 
     @property
     def array_spec(self) -> arrays.arrayspec:
@@ -142,6 +143,7 @@ class Properties:
             self._load()
         if self.attributes.is_namelist:
             return namelists.Namelist(self._properties[10], version=self.version)
+        return None
 
     @property
     def intrinsic(self) -> bool:
@@ -171,3 +173,4 @@ class Properties:
             self._load()
         if len(self._properties) >= 14:
             return simds.simd_dec(self._properties[14], version=self.version)
+        return None

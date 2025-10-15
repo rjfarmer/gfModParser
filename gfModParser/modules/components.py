@@ -77,9 +77,11 @@ class component:
         # also check for vtype?
         if self.name == "_final" or self.name == "_hash":
             return expressions.Expression(self._component[8], version=self.version)
+        return None
 
     @property
     def proc_pointer(self) -> procedures.typebound_proc | None:
         if self.attribute.proc_pointer:
             # The initializer might be in slot 8 so instead of looking at 8 or 9 just look at the final one
             return procedures.typebound_proc(self._component[-1], version=self.version)
+        return None
