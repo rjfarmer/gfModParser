@@ -23,7 +23,7 @@ class TestUtils:
         assert gf.utils.string_clean("'abc'") == 'abc'
         assert gf.utils.string_clean("abc") == 'abc'
         assert gf.utils.string_clean("") == ''
-        assert gf.utils.string_clean(None) is None
+        assert gf.utils.string_clean(None) == ''
         # fmt: on
 
     def test_hex2(self):
