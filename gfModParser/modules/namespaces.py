@@ -20,7 +20,7 @@ class derived_ns:
 
         self._proc = None
 
-    def __bool__(self):
+    def __bool__(self) -> bool:
         return len(self._dns) > 0
 
     @property
@@ -28,7 +28,7 @@ class derived_ns:
         return self._dns[0]
 
     @property
-    def proc(self):
+    def proc(self) -> list[procedures.typebound_proc]:
         if self._proc is None and self:
             self._proc = []
             for i in self._dns[1:]:

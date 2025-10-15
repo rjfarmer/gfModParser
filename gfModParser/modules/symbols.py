@@ -48,7 +48,7 @@ class Symbols:
             # Remove starting \n and ending
             self._split[id] = Symbol(id, data[1:], version=self.version)
 
-    def keys(self):
+    def keys(self) -> list:
         if self._split is None:
             self._split_symbols()
 
@@ -110,13 +110,13 @@ class Symbol:
         return int(self._symbol[4])
 
     @property
-    def properties(self):
+    def properties(self) -> properties.Properties:
         return properties.Properties(self._symbol[5], version=self.version)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return self.name
 
     # Convenience functions

@@ -1,7 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0+
 
-from typing import List
-
 from .. import utils
 
 
@@ -10,7 +8,7 @@ class SummaryItem:
     Single entry into the Summary look up table
     """
 
-    def __init__(self, name, ambiguous, id, *, version):
+    def __init__(self, name: str, ambiguous: str, id: int, *, version: int):
         self.name = utils.string_clean(name)
         self.ambiguous = ambiguous != "0"
         self.id = int(id)
@@ -41,7 +39,7 @@ class Summary:
     def __getitem__(self, key):
         return self._names[key]
 
-    def keys(self) -> List:
+    def keys(self) -> list:
         return self._names.keys()
 
     def __contains__(self, key):

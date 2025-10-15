@@ -1,7 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0+
 
-from typing import Set
-
 from .. import utils
 
 _all = set(
@@ -129,7 +127,7 @@ class Attributes:
         return int(self._attributes[6]) == 1
 
     @property
-    def attributes(self) -> Set[str]:
+    def attributes(self) -> set[str]:
         if self._attr is None:
             self._attr = set([utils.string_clean(i) for i in self._attributes[7:]])
         return self._attr

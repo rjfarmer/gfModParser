@@ -1,7 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0+
 
-from typing import List
-
 from .. import utils
 
 from . import utils as u

@@ -42,13 +42,13 @@ class Properties:
             _ = self._properties.pop(6)
 
     @property
-    def attributes(self) -> Type[attributes.Attributes]:
+    def attributes(self) -> attributes.Attributes:
         if self._properties is None:
             self._load()
         return attributes.Attributes(self._properties[0], version=self.version)
 
     @property
-    def components(self) -> Type[components.Components]:
+    def components(self) -> components.Components:
         if self._properties is None:
             self._load()
         if self._components is None:
@@ -65,13 +65,13 @@ class Properties:
         return self._comp_access
 
     @property
-    def typespec(self) -> Type[expressions.typespec]:
+    def typespec(self) -> expressions.typespec:
         if self._properties is None:
             self._load()
         return expressions.typespec(self._properties[2], version=self.version)
 
     @property
-    def namespace(self) -> Type[namespaces.namespace]:
+    def namespace(self) -> namespaces.namespace:
         if self._properties is None:
             self._load()
         return namespaces.namespace(self._properties[3], version=self.version)
@@ -83,7 +83,7 @@ class Properties:
         return int(self._properties[4])
 
     @property
-    def formal_argument(self) -> Type[procedures.Arglist]:
+    def formal_argument(self) -> procedures.Arglist:
         """
         Symbol references for the procedure arguments
         """
@@ -92,7 +92,7 @@ class Properties:
         return procedures.Arglist(self._properties[5], version=self.version)
 
     @property
-    def exp_type(self) -> Type[expressions.Expression] | None:
+    def exp_type(self) -> expressions.Expression | None:
         if self._properties is None:
             self._load()
 
@@ -100,7 +100,7 @@ class Properties:
             return expressions.Expression(self._exp_type, version=self.version)
 
     @property
-    def array_spec(self) -> Type[arrays.arrayspec]:
+    def array_spec(self) -> arrays.arrayspec:
         if self._properties is None:
             self._load()
         return arrays.arrayspec(self._properties[6], version=self.version)
@@ -125,19 +125,19 @@ class Properties:
         return -1
 
     @property
-    def derived(self) -> Type[namespaces.derived_ns]:
+    def derived(self) -> namespaces.derived_ns:
         if self._properties is None:
             self._load()
         return namespaces.derived_ns(self._properties[8], version=self.version)
 
     @property
-    def actual_argument(self) -> Type[procedures.Arglist]:
+    def actual_argument(self) -> procedures.Arglist:
         if self._properties is None:
             self._load()
         return procedures.Arglist(self._properties[9], version=self.version)
 
     @property
-    def namelist(self) -> Type[namelists.Namelist] | None:
+    def namelist(self) -> namelists.Namelist | None:
         if self._properties is None:
             self._load()
         if self.attributes.is_namelist:
@@ -166,8 +166,8 @@ class Properties:
         return -1
 
     @property
-    def simd(self):
+    def simd(self) -> simds.simd_dec | None:
         if self._properties is None:
             self._load()
         if len(self._properties) >= 14:
-            return simds.simd(self._properties[14], version=self.version)
+            return simds.simd_dec(self._properties[14], version=self.version)

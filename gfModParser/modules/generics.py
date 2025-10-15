@@ -1,14 +1,12 @@
 # SPDX-License-Identifier: GPL-2.0+
 
-from typing import List
-
 from .. import utils
 
 
 class generics:
     name: str = ""
     module: str = ""
-    id: t.List[int] = -1
+    id: list[int] = -1
 
     def __init__(self, generics, *, version):
         self._generic = generics
@@ -23,5 +21,5 @@ class generics:
         return utils.string_clean(self._generics[1])
 
     @property
-    def ids(self) -> List[int]:
+    def ids(self) -> list[int]:
         return [int(i) for i in self._generics[2:]]

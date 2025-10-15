@@ -13,7 +13,7 @@ class arrayspec:
         self._low = []
         self._up = []
 
-    def __bool__(self):
+    def __bool__(self) -> bool:
         return self.is_array
 
     @property
@@ -61,7 +61,7 @@ class arrayspec:
         return False
 
     @property
-    def lower(self) -> tuple:
+    def lower(self) -> tuple[int, ...]:
         if self.is_array:
             if len(self._low) == 0:
                 for i in range(self.rank + self.corank):
@@ -76,7 +76,7 @@ class arrayspec:
         return ()
 
     @property
-    def upper(self) -> tuple:
+    def upper(self) -> tuple[int, ...]:
         if self.is_array:
             if len(self._up) == 0:
                 for i in range(self.rank + self.corank):
@@ -91,7 +91,7 @@ class arrayspec:
         return ()
 
     @property
-    def fshape(self) -> tuple:
+    def fshape(self) -> tuple[tuple[int, int], ...]:
         """
         Returns the array shape as a tuple of Fortran bounds ((lower, upper),..)
         """
@@ -104,7 +104,7 @@ class arrayspec:
         return ()
 
     @property
-    def pyshape(self) -> tuple:
+    def pyshape(self) -> tuple[int, ...]:
         """
         Returns the array shape as a tuple of Python bounds (ndim1,ndim2,..)
         """

@@ -32,7 +32,7 @@ class Module:
         self._mod = mod.module(self.filename, version=self.version)
 
     @property
-    def version(self):
+    def version(self) -> int:
         if self._version is None:
             self._version = int(self.header.split("'")[1])
         return self._version

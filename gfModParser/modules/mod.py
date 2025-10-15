@@ -2,8 +2,6 @@
 
 # https://github.com/gcc-mirror/gcc/blob/master/gcc/fortran/module.cc
 
-from typing import List
-
 from .. import utils
 from .. import io
 
@@ -77,7 +75,7 @@ class module:
                 self._raw_generics, version=self.version
             )
 
-    def keys(self) -> List:
+    def keys(self) -> list:
         self._load_summary()
         return self._summary.keys()
 
@@ -102,16 +100,16 @@ class module:
             return self._symbols[self._summary[key.lower()].id]
 
     @property
-    def operator(self):
+    def operator(self) -> operators.Operators:
         self._load_operators()
         return self._operators
 
     @property
-    def interface(self):
+    def interface(self) -> operators.Interfaces:
         self._load_operators()
         return self._interfaces
 
     @property
-    def generic(self):
+    def generic(self) -> operators.Generics:
         self._load_operators()
         return self._generics

@@ -1,11 +1,31 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import numpy as np
-from typing import List, Tuple
 
 from .. import utils
 
 from . import procedures
+
+
+class ExpGeneric:
+    def __init__(self, type, kind, args, *, version):
+        self._args = args
+        self.version = version
+        self._type = type
+        self.kind = kind
+
+    def __str__(self):
+        return self._type
+
+    def __repr__(self):
+        return self._type
+
+    @property
+    def value(self):
+        return None
+
+    def __eq__(self, key):
+        return self._type == key
 
 
 class Expression:
@@ -37,11 +57,11 @@ class Expression:
         )
 
     @property
-    def type(self):
+    def type(self) -> ExpGeneric:
         return self._exp
 
     @property
-    def typespec(self):
+    def typespec(self) -> "typespec":
         return typespec(self._expression[1], version=self.version)
 
     @property
@@ -49,7 +69,7 @@ class Expression:
         return int(self._expression[2])
 
     @property
-    def arglist(self) -> List:
+    def arglist(self) -> list:
         raise NotImplementedError
         # if len(self._exp._args) == 7:
         #     return procedures.actual_arglist(self._exp._args[6])
@@ -74,27 +94,6 @@ class Expression:
         return self.typespec.kind
 
 
-class ExpGeneric:
-    def __init__(self, type, kind, args, *, version):
-        self._args = args
-        self.version = version
-        self._type = type
-        self.kind = kind
-
-    def __str__(self):
-        return self._type
-
-    def __repr__(self):
-        return self._type
-
-    @property
-    def value(self):
-        return None
-
-    def __eq__(self, key):
-        return self._type == key
-
-
 class ExpOp(ExpGeneric):
 
     @property
@@ -102,7 +101,7 @@ class ExpOp(ExpGeneric):
         return self._args[3]
 
     @property
-    def unary_args(self):
+    def unary_args(self) -> Expression:
         return Expression(self._args[4], version=self.version), Expression(
             self._args[5], version=self.version
         )
@@ -144,7 +143,7 @@ class ExpConstant(ExpGeneric):
             raise NotImplementedError(f"Type={self._type} args3={self._args[3]}")
 
     @property
-    def len(self):
+    def len(self) -> int | None:
         if self._type == "CHARACTER":
             return int(self._args[3])
 
@@ -155,7 +154,7 @@ class ExpConstant(ExpGeneric):
             return f"{self.type}(kind={self.kind})"
 
     @property
-    def type(self):
+    def type(self) -> str:
         return self._type
 
     @property
@@ -195,7 +194,7 @@ class ExpArray(ExpGeneric):
         return np.array(value, dtype=self.dtype).reshape(self.shape)
 
     @property
-    def shape(self) -> Tuple:
+    def shape(self) -> tuple[int, ...]:
         return tuple([int(utils.string_clean(i)) for i in self._args[4]])
 
     @property

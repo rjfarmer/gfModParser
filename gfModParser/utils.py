@@ -2,7 +2,7 @@
 
 import numpy as np
 from packaging.version import Version
-from typing import List
+from typing import Any
 
 try:
     import pyquadp as pyq
@@ -43,7 +43,7 @@ def string_clean(string) -> str:
     return string
 
 
-def hextofloat(s, kind=4):
+def hextofloat(s, kind=4) -> float | np.double | pyq.qfloat:
     # Given hex like parameter '0.12decde@9' returns 5065465344.0
     if "@" in s:
         man, exp = s.split("@")
@@ -97,7 +97,7 @@ def dtype(type, kind, len=-1) -> np.dtype:
         raise NotImplementedError(f"Type={type} kind={kind}")
 
 
-def bracket_split(string) -> List[str]:
+def bracket_split(string) -> list[Any]:
     def _helper(substring):
         items = []
         tmp = []
