@@ -1,17 +1,19 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import numpy as np
+from packaging.version import Version
+
 
 from . import expressions
 
 
 class arrayspec:
-    def __init__(self, array, *, version):
+    def __init__(self, array, *, version: Version) -> None:
         self._array = array
         self.version = version
 
-        self._low = []
-        self._up = []
+        self._low: list[expressions.Expression] = []
+        self._up: list[expressions.Expression] = []
 
     def __bool__(self) -> bool:
         return self.is_array

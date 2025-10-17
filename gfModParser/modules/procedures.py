@@ -1,4 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0+
+from packaging.version import Version
 
 from .. import utils
 
@@ -6,7 +7,7 @@ from . import utils as u
 
 
 class typebound_proc:
-    def __init__(self, proc, *, version):
+    def __init__(self, proc, *, version: Version) -> None:
         self._proc = proc
         self.version = version
 

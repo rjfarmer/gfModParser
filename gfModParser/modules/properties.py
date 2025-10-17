@@ -1,6 +1,9 @@
 # SPDX-License-Identifier: GPL-2.0+
+from packaging.version import Version
+from functools import cache
 
-from typing import Type
+
+from typing import Type, Any
 
 
 from gfModParser import utils
@@ -20,16 +23,15 @@ class Properties:
     Stores properties of an object
     """
 
-    def __init__(self, properties, *, version):
+    def __init__(self, properties, *, version: Version) -> None:
         self._raw = properties
         self.version = version
-        self._properties = None
-        self._components = None
+        self._properties: list[Any] = []
 
-        self._comp_access = None
+        self._comp_access = ""
         self._exp_type = None
 
-    def _load(self):
+    def _load(self) -> None:
         self._properties = []
         p = utils.bracket_split(self._raw)
         self._properties = p[0]
@@ -43,42 +45,39 @@ class Properties:
 
     @property
     def attributes(self) -> attributes.Attributes:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         return attributes.Attributes(self._properties[0], version=self.version)
 
     @property
+    @cache
     def components(self) -> components.Components:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
-        if self._components is None:
-            self._components = components.Components(
-                self._properties[1], version=self.version
-            )
 
-        return self._components
+        return components.Components(self._properties[1], version=self.version)
 
     @property
     def component_access(self):
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         return self._comp_access
 
     @property
     def typespec(self) -> expressions.typespec:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         return expressions.typespec(self._properties[2], version=self.version)
 
     @property
     def namespace(self) -> namespaces.namespace:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         return namespaces.namespace(self._properties[3], version=self.version)
 
     @property
     def common_symbol(self) -> int:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         return int(self._properties[4])
 
@@ -87,13 +86,13 @@ class Properties:
         """
         Symbol references for the procedure arguments
         """
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         return procedures.Arglist(self._properties[5], version=self.version)
 
     @property
     def exp_type(self) -> expressions.Expression | None:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
 
         if self._exp_type is not None:
@@ -102,7 +101,7 @@ class Properties:
 
     @property
     def array_spec(self) -> arrays.arrayspec:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         return arrays.arrayspec(self._properties[6], version=self.version)
 
@@ -111,7 +110,7 @@ class Properties:
         """
         0 if a subroutine, else the symbol reference for a function result
         """
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         if not any([i == "CRAY_POINTER" for i in self.attributes.attributes]):
             return int(self._properties[7])
@@ -119,7 +118,7 @@ class Properties:
 
     @property
     def cray_pointer_reference(self) -> int:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         if any([i == "CRAY_POINTER" for i in self.attributes.attributes]):
             return int(self._properties[7])
@@ -127,19 +126,19 @@ class Properties:
 
     @property
     def derived(self) -> namespaces.derived_ns:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         return namespaces.derived_ns(self._properties[8], version=self.version)
 
     @property
     def actual_argument(self) -> procedures.Arglist:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         return procedures.Arglist(self._properties[9], version=self.version)
 
     @property
     def namelist(self) -> namelists.Namelist | None:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         if self.attributes.is_namelist:
             return namelists.Namelist(self._properties[10], version=self.version)
@@ -147,13 +146,13 @@ class Properties:
 
     @property
     def intrinsic(self) -> bool:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         return self._properties[11] == 1
 
     @property
     def intrinsic_symbol(self) -> bool:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         if len(self._properties) > 12:
             return self._properties[12] == 1
@@ -161,7 +160,7 @@ class Properties:
 
     @property
     def hash(self) -> int:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         if len(self._properties) > 13:
             return int(self._properties[13])
@@ -169,7 +168,7 @@ class Properties:
 
     @property
     def simd(self) -> simds.simd_dec | None:
-        if self._properties is None:
+        if not len(self._properties):
             self._load()
         if len(self._properties) >= 14:
             return simds.simd_dec(self._properties[14], version=self.version)

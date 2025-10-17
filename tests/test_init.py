@@ -44,4 +44,4 @@ class TestInit:
         with pytest.raises(KeyError):
             self.mod["xxxx"]
 
-        assert not "xxx" in self.mod._mod._symbols
+        assert not "xxx" in self.mod._mod.symbols

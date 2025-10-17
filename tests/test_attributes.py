@@ -19,7 +19,7 @@ class TestAttributes:
         assert self.mod["func_int_no_args"].properties.attributes.is_procedure
 
         # Procedure argument
-        assert self.mod._mod._symbols[34].properties.attributes.is_variable
+        assert self.mod._mod.symbols[34].properties.attributes.is_variable
 
     def test_proc(self):
         assert self.mod["a_int"].properties.attributes.procedure == "UNKNOWN-PROC"
@@ -31,11 +31,11 @@ class TestAttributes:
 
     def test_intent(self):
         assert self.mod["a_int"].properties.attributes.intent == "UNKNOWN-INTENT"
-        assert self.mod._mod._symbols[34].properties.attributes.intent == "IN"
+        assert self.mod._mod.symbols[34].properties.attributes.intent == "IN"
 
     def test_save(self):
         assert self.mod["a_int"].properties.attributes.save == "IMPLICIT-SAVE"
-        assert self.mod._mod._symbols[34].properties.attributes.save == "UNKNOWN"
+        assert self.mod._mod.symbols[34].properties.attributes.save == "UNKNOWN"
         assert self.mod["a_int_save"].properties.attributes.save == "EXPLICIT-SAVE"
 
     def test_ext_attr(self):

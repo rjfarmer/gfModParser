@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
+from packaging.version import Version
+
+from functools import cache
 
 from .. import utils
 
@@ -93,7 +96,7 @@ _all = set(
 
 class Attributes:
 
-    def __init__(self, attributes, *, version):
+    def __init__(self, attributes, *, version: Version) -> None:
         self._attributes = attributes
         self._attr = None
         self.version = version
@@ -127,10 +130,9 @@ class Attributes:
         return int(self._attributes[6]) == 1
 
     @property
+    @cache
     def attributes(self) -> set[str]:
-        if self._attr is None:
-            self._attr = set([utils.string_clean(i) for i in self._attributes[7:]])
-        return self._attr
+        return set([utils.string_clean(i) for i in self._attributes[7:]])
 
     @property
     def is_parameter(self) -> bool:

@@ -1,4 +1,7 @@
 import operator
+from packaging.version import Version
+from functools import cache
+
 
 from .. import utils
 from . import utils as u
@@ -37,12 +40,12 @@ class Interfaces:
         "NULL": None,
     }
 
-    def __init__(self, interfaces, *, version):
+    def __init__(self, interfaces, *, version: Version) -> None:
         """
         For overriding inbuilt functions (like +,*,-,/ etc)
         """
         self._raw = interfaces
-        self._interfaces = None
+        self._interfaces: dict[str, u.ListSymbols] = {}
         self.version = version
 
     def _load(self):
@@ -54,14 +57,14 @@ class Interfaces:
                 key = list(self._default_ops.keys())[index]
                 self._interfaces[key] = u.ListSymbols(value, version=self.version)
 
-    def keys(self) -> list:
-        if self._interfaces is None:
+    def keys(self):
+        if not len(self._interfaces):
             self._load()
 
         return self._interfaces.keys()
 
     def __getitem__(self, key):
-        if self._interfaces is None:
+        if not len(self._interfaces):
             self._load()
 
         return self._interfaces[key]
@@ -71,14 +74,15 @@ class Interfaces:
 
 
 class Operators:
-    def __init__(self, operators, *, version):
+    def __init__(self, operators, *, version: Version) -> None:
         """
         Provides custom operators like .my_op.
         """
         self._raw = operators
-        self._operators = None
+        self._operators: dict[str, u.ListSymbols] = {}
         self.version = version
 
+    @cache
     def _load(self):
         self._operators = {}
         face = utils.bracket_split(self._raw)[0]
@@ -88,21 +92,21 @@ class Operators:
             name = utils.string_clean(name)
             self._operators[name] = u.ListSymbols(num, version=self.version)
 
-    def keys(self) -> list:
-        if self._operators is None:
+    def keys(self):
+        if not len(self._operators):
             self._load()
 
         return self._operators.keys()
 
     def __getitem__(self, key):
-        if self._operators is None:
+        if not len(self._operators):
             self._load()
 
         return self._operators[key]
 
 
 class Generics:
-    def __init__(self, generics, *, version):
+    def __init__(self, generics, *, version: Version) -> None:
         """
         Provides generic interfaces (type overloading)
         """
@@ -119,7 +123,7 @@ class Generics:
             name = utils.string_clean(name)
             self._generics[name] = u.ListSymbols(num, version=self.version)
 
-    def keys(self) -> list:
+    def keys(self):
         if self._generics is None:
             self._load()
 

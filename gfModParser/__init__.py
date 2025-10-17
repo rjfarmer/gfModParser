@@ -77,20 +77,20 @@ class Variables:
         self.module = module
 
     @cache
-    def keys(self):
+    def keys(self) -> set[str]:
         res = []
         for i in self.module.keys():
             if self.module[i].properties.attributes.is_variable:
                 res.append(i)
         return set(res)
 
-    def __contains__(self, key):
+    def __contains__(self, key: str | Symbol) -> bool:
         if isinstance(key, str):
             return key in self.keys()
         elif isinstance(key, Symbol):
             return key.properties.attributes.is_variable
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: str | Symbol) -> str | Symbol:
         if key in self:
             if isinstance(key, str):
                 return self.module[key]
@@ -150,18 +150,18 @@ class Parameters:
         self.module = module
 
     @cache
-    def keys(self):
+    def keys(self) -> set[str]:
         res = []
         for i in self.module.keys():
             if self.module[i].properties.attributes.is_parameter:
                 res.append(i)
         return set(res)
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: str):
         if key in self:
             return self.module[key]
 
-    def __contains__(self, key):
+    def __contains__(self, key: str) -> bool:
         return key in self.keys()
 
     @cache
@@ -208,18 +208,18 @@ class Procedures:
         self.module = module
 
     @cache
-    def keys(self):
+    def keys(self) -> set[str]:
         res = []
         for i in self.module.keys():
             if self.module[i].properties.attributes.is_procedure:
                 res.append(i)
         return set(res)
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: str):
         if key in self:
             return self.module[key]
 
-    def __contains__(self, key):
+    def __contains__(self, key: str) -> bool:
         return key in self.keys()
 
     @cache
@@ -258,22 +258,22 @@ class DerivedTypes:
         self.module = module
 
     @cache
-    def keys(self):
+    def keys(self) -> set[str]:
         res = []
         for i in self.module.keys():
             if self.module[i].is_dt:
                 res.append(i)
         return set(res)
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: str):
         if key in self:
             return self.module[key]
 
-    def __contains__(self, key):
+    def __contains__(self, key: str) -> bool:
         return key in self.keys()
 
     @cache
-    def components(self, key):
+    def components(self, key: str) -> dict:
         """
         Returns a dict of the components of the derived type
 
@@ -284,4 +284,4 @@ class DerivedTypes:
             ref = self.module[key]
             for component in ref.properties.components.keys():
                 res[component] = ref.properties.components[component]
-            return res
+        return res

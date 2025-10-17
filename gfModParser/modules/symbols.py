@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
 import re
+from packaging.version import Version
+
 
 from .. import utils
 from . import properties
@@ -10,19 +12,19 @@ class Symbols:
     Holds all variables/procedures/arguments in module
     """
 
-    def __init__(self, symbols, *, version):
+    def __init__(self, symbols, *, version: Version) -> None:
         self._raw = symbols
         self.version = version
         self.symbols = symbols
-        self._split = None
+        self._split: dict[str, Symbol] = {}
 
     def __contains__(self, key):
-        if self._split is None:
+        if not len(self._split):
             self._split_symbols()
         return key in self._split
 
     def __getitem__(self, key):
-        if self._split is None:
+        if not len(self._split):
             self._split_symbols()
 
         return self._split[key]
@@ -48,20 +50,20 @@ class Symbols:
             # Remove starting \n and ending
             self._split[id] = Symbol(id, data[1:], version=self.version)
 
-    def keys(self) -> list:
-        if self._split is None:
+    def keys(self):
+        if not len(self._split):
             self._split_symbols()
 
         return self._split.keys()
 
     def items(self):
-        if self._split is None:
+        if not len(self._split):
             self._split_symbols()
 
         return self._split.items()
 
     def values(self):
-        if self._split is None:
+        if not len(self._split):
             self._split_symbols()
 
         return self._split.values()
@@ -72,7 +74,7 @@ class Symbol:
     Single object (variable, procedure, argument etc)
     """
 
-    def __init__(self, id, symbol, *, version):
+    def __init__(self, id, symbol, *, version: Version) -> None:
         self.version = version
         self._id = id
         # For very long variable names we may get 'name'\n'module'

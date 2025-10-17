@@ -1,6 +1,9 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 # https://github.com/gcc-mirror/gcc/blob/master/gcc/fortran/module.cc
+from packaging.version import Version
+from typing import Union
+from functools import cache
 
 from .. import utils
 from .. import io
@@ -19,17 +22,13 @@ class module:
     Provides low level interface into the module data
     """
 
-    def __init__(self, filename, *, version):
+    def __init__(self, filename: str, *, version: Version) -> None:
         self.filename = filename
         self.version = version
 
-        self._interfaces = None
-        self._operators = None
         self._common = None
         self._equivalence = None
         self._omp = None
-        self._symbols = None
-        self._summary = None
 
         self.load()
 
@@ -55,61 +54,48 @@ class module:
             self._raw_summary,
         ) = raw_data.split("\n\n")
 
-    def _load_summary(self):
-        if self._summary is None:
-            self._summary = summary.Summary(self._raw_summary, version=self.version)
-
-    def _load_symbols(self):
-        if self._symbols is None:
-            self._symbols = symbols.Symbols(self._raw_symbols, version=self.version)
-
-    def _load_operators(self):
-        if self._operators is None:
-            self._interfaces = operators.Interfaces(
-                self._raw_interface, version=self.version
-            )
-            self._operators = operators.Operators(
-                self._raw_operators, version=self.version
-            )
-            self._generics = operators.Generics(
-                self._raw_generics, version=self.version
-            )
-
-    def keys(self) -> list:
-        self._load_summary()
-        return self._summary.keys()
-
-    def __contains__(self, key):
-        self._load_summary()
-        return key in self._summary
-
-    def __getitem__(self, key):
-        self._load_summary()
-        self._load_symbols()
-        if isinstance(key, int):
-            # Lookup by index, used by procedure to find arguments
-            return self._symbols[key]
-        if key[0].isupper() and key in self._summary:
-            # Derivied type definition starts with a captial letter
-            return self._symbols[self._summary[key].id]
-        elif key.startswith("__"):
-            # Don't change case on internal gfortran fucntions
-            return self._symbols[self._summary[key].id]
-        else:
-            # Everything else is lower case
-            return self._symbols[self._summary[key.lower()].id]
+    @property
+    @cache
+    def summary(self):
+        return summary.Summary(self._raw_summary, version=self.version)
 
     @property
+    @cache
+    def symbols(self):
+        return symbols.Symbols(self._raw_symbols, version=self.version)
+
+    def keys(self) -> list:
+        return self.summary.keys()
+
+    def __contains__(self, key) -> bool:
+        return key in self.summary
+
+    def __getitem__(self, key):
+        if isinstance(key, int):
+            # Lookup by index, used by procedure to find arguments
+            return self.symbols[key]
+        if key[0].isupper() and key in self.summary:
+            # Derivied type definition starts with a captial letter
+            return self.symbols[self.summary[key].id]
+        elif key.startswith("__"):
+            # Don't change case on internal gfortran fucntions
+            return self.symbols[self.summary[key].id]
+        else:
+            # Everything else is lower case
+            return self.symbols[self.summary[key.lower()].id]
+
+    @property
+    @cache
     def operator(self) -> operators.Operators:
-        self._load_operators()
+        self._operators = operators.Operators(self._raw_operators, version=self.version)
         return self._operators
 
     @property
+    @cache
     def interface(self) -> operators.Interfaces:
-        self._load_operators()
-        return self._interfaces
+        return operators.Interfaces(self._raw_interface, version=self.version)
 
     @property
+    @cache
     def generic(self) -> operators.Generics:
-        self._load_operators()
-        return self._generics
+        return operators.Generics(self._raw_generics, version=self.version)

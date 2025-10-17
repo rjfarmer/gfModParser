@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
+from packaging.version import Version
+
+from typing import Any
 
 from .. import utils
 from . import attributes
@@ -8,7 +11,7 @@ from . import procedures
 
 
 class Components:
-    def __init__(self, components, *, version):
+    def __init__(self, components, *, version: Version) -> None:
         self._components = {}
         self.version = version
         for c in components:
@@ -20,7 +23,7 @@ class Components:
     def __contains__(self, key):
         return key in self._components
 
-    def keys(self) -> list[str]:
+    def keys(self) -> Any:
         return self._components.keys()
 
     def __getitem__(self, key):
@@ -35,7 +38,7 @@ class Components:
 
 
 class component:
-    def __init__(self, component, *, version):
+    def __init__(self, component, *, version: Version) -> None:
         self._component = component
         self.version = version
 

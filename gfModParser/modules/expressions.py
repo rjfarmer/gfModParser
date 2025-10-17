@@ -1,4 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0+
+from packaging.version import Version
 
 import numpy as np
 
@@ -8,7 +9,7 @@ from . import procedures
 
 
 class ExpGeneric:
-    def __init__(self, type, kind, args, *, version):
+    def __init__(self, type, kind, args, *, version: Version) -> None:
         self._args = args
         self.version = version
         self._type = type
@@ -29,7 +30,7 @@ class ExpGeneric:
 
 
 class Expression:
-    def __init__(self, expression, *, version):
+    def __init__(self, expression, *, version: Version) -> None:
         self._expression = expression
         self.version = version
         t = self._expression[0]
@@ -242,7 +243,7 @@ class ExpUnknown(ExpNotImplemented):
 # Need to store this here as we get a cyclic dependency
 # between expressions and typespec
 class typespec:
-    def __init__(self, typespec, *, version):
+    def __init__(self, typespec, *, version: Version) -> None:
         self._typespec = typespec
         self.version = version
 
