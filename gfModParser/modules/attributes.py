@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
 from packaging.version import Version
 
-from functools import cache
+from functools import cached_property
 
 from .. import utils
 
@@ -98,7 +98,6 @@ class Attributes:
 
     def __init__(self, attributes, *, version: Version) -> None:
         self._attributes = attributes
-        self._attr = None
         self.version = version
 
     @property
@@ -129,8 +128,7 @@ class Attributes:
     def extension(self) -> bool:
         return int(self._attributes[6]) == 1
 
-    @property
-    @cache
+    @cached_property
     def attributes(self) -> set[str]:
         return set([utils.string_clean(i) for i in self._attributes[7:]])
 
@@ -162,11 +160,11 @@ class Attributes:
         # Get things defined by the getattr plus the properties (needs to dir() the class though)
         return [i.lower() for i in _all] + dir(self.__class__)
 
-    def __getattr__(self, key):
+    def __getattr__(self, key: str):
         if key.upper() in _all:
-            return key.upper() in self.attributes
+            return key in self
         else:
             raise AttributeError(f"Key not found {key}")
 
-    def __contains__(self, key):
-        return key in self._attr
+    def __contains__(self, key: str) -> bool:
+        return key.upper() in self.attributes

@@ -2,7 +2,7 @@
 
 import numpy as np
 from packaging.version import Version
-
+from functools import cached_property
 
 from . import expressions
 
@@ -11,9 +11,6 @@ class arrayspec:
     def __init__(self, array, *, version: Version) -> None:
         self._array = array
         self.version = version
-
-        self._low: list[expressions.Expression] = []
-        self._up: list[expressions.Expression] = []
 
     def __bool__(self) -> bool:
         return self.is_array
@@ -62,34 +59,34 @@ class arrayspec:
             return self.type == "EXPLICIT"
         return False
 
-    @property
+    @cached_property
     def lower(self) -> tuple[expressions.Expression, ...]:
+        low = []
         if self.is_array:
-            if len(self._low) == 0:
-                for i in range(self.rank + self.corank):
-                    if len(self._array[3 + i * 2]):
-                        self._low.append(
-                            expressions.Expression(
-                                self._array[3 + i * 2], version=self.version
-                            )
+            for i in range(self.rank + self.corank):
+                if len(self._array[3 + i * 2]):
+                    low.append(
+                        expressions.Expression(
+                            self._array[3 + i * 2], version=self.version
                         )
+                    )
 
-            return tuple(self._low)
+            return tuple(low)
         return ()
 
-    @property
+    @cached_property
     def upper(self) -> tuple[expressions.Expression, ...]:
+        up = []
         if self.is_array:
-            if len(self._up) == 0:
-                for i in range(self.rank + self.corank):
-                    if len(self._array[4 + i * 2]):
-                        self._up.append(
-                            expressions.Expression(
-                                self._array[4 + i * 2], version=self.version
-                            )
+            for i in range(self.rank + self.corank):
+                if len(self._array[4 + i * 2]):
+                    up.append(
+                        expressions.Expression(
+                            self._array[4 + i * 2], version=self.version
                         )
+                    )
 
-            return tuple(self._up)
+            return tuple(up)
         return ()
 
     @property

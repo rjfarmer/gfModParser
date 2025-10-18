@@ -3,7 +3,7 @@
 # https://github.com/gcc-mirror/gcc/blob/master/gcc/fortran/module.cc
 from packaging.version import Version
 from typing import Union
-from functools import cache
+from functools import cached_property
 
 from .. import utils
 from .. import io
@@ -54,17 +54,15 @@ class module:
             self._raw_summary,
         ) = raw_data.split("\n\n")
 
-    @property
-    @cache
+    @cached_property
     def summary(self):
         return summary.Summary(self._raw_summary, version=self.version)
 
-    @property
-    @cache
+    @cached_property
     def symbols(self):
         return symbols.Symbols(self._raw_symbols, version=self.version)
 
-    def keys(self) -> list:
+    def keys(self):
         return self.summary.keys()
 
     def __contains__(self, key) -> bool:
@@ -84,18 +82,14 @@ class module:
             # Everything else is lower case
             return self.symbols[self.summary[key.lower()].id]
 
-    @property
-    @cache
+    @cached_property
     def operator(self) -> operators.Operators:
-        self._operators = operators.Operators(self._raw_operators, version=self.version)
-        return self._operators
+        return operators.Operators(self._raw_operators, version=self.version)
 
-    @property
-    @cache
+    @cached_property
     def interface(self) -> operators.Interfaces:
         return operators.Interfaces(self._raw_interface, version=self.version)
 
-    @property
-    @cache
+    @cached_property
     def generic(self) -> operators.Generics:
         return operators.Generics(self._raw_generics, version=self.version)

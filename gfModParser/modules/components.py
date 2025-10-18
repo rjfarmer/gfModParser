@@ -17,13 +17,13 @@ class Components:
         for c in components:
             self._components[utils.string_clean(c[1])] = c
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self._components)
 
-    def __contains__(self, key):
+    def __contains__(self, key) -> bool:
         return key in self._components
 
-    def keys(self) -> Any:
+    def keys(self):
         return self._components.keys()
 
     def __getitem__(self, key):

@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0+
 from packaging.version import Version
-from functools import cache
+from functools import cached_property
 
 
 from typing import Type, Any
@@ -49,8 +49,7 @@ class Properties:
             self._load()
         return attributes.Attributes(self._properties[0], version=self.version)
 
-    @property
-    @cache
+    @cached_property
     def components(self) -> components.Components:
         if not len(self._properties):
             self._load()

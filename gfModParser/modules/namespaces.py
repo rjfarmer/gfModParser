@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0+
 from packaging.version import Version
+from functools import cached_property
 
 from . import procedures
 
@@ -19,8 +20,6 @@ class derived_ns:
         self._dns = derives_ns
         self.version = version
 
-        self._proc: list[procedures.typebound_proc] = []
-
     def __bool__(self) -> bool:
         return len(self._dns) > 0
 
@@ -28,11 +27,11 @@ class derived_ns:
     def unknown(self):
         return self._dns[0]
 
-    @property
+    @cached_property
     def proc(self) -> list[procedures.typebound_proc]:
-        if not len(self._proc) and self:
-            self._proc = []
+        proc = []
+        if self:
             for i in self._dns[1:]:
-                self._proc.append(procedures.typebound_proc(i, version=self.version))
+                proc.append(procedures.typebound_proc(i, version=self.version))
 
-        return self._proc
+        return proc
