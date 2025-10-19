@@ -2,10 +2,15 @@ on: ["push", "pull_request"]
 name: Codspeed
 permissions: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   benchmarks:
     name: Run benchmarks
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:

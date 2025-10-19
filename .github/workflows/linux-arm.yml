@@ -2,9 +2,14 @@ on: ["push", "pull_request"]
 name: Linux ARM
 permissions: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   LinuxArm:
     runs-on: ubuntu-24.04-arm
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
