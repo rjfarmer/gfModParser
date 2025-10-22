@@ -132,7 +132,16 @@ class ExpConstant(ExpGeneric):
         elif self._type == "INTEGER" or self._type == "UNSIGNED":
             return int(utils.string_clean(self._args[3]))
         elif self._type == "CHARACTER":
-            return utils.string_clean(self._args[4])
+            v = utils.string_clean(self._args[4])
+            if self.kind == 4:
+                return (
+                    v.encode("latin1")
+                    .decode("unicode_escape")
+                    .encode("latin1")
+                    .decode("utf8")
+                )
+            else:
+                return v
         elif self._type == "COMPLEX":
             return complex(
                 utils.hextofloat(utils.string_clean(self._args[3]), self.kind),

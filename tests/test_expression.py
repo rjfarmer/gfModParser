@@ -15,6 +15,7 @@ class TestExpressions:
         self.comp = gf.Module(os.path.join("tests", "build", "comp.mod"))
         self.char = gf.Module(os.path.join("tests", "build", "strings.mod"))
         self.array = gf.Module(os.path.join("tests", "build", "explicit_arrays.mod"))
+        self.unicode = gf.Module(os.path.join("tests", "build", "unicode.mod"))
 
     def test_type(self):
         assert self.mod["dp"].properties.exp_type.type == "INTEGER"
@@ -102,3 +103,6 @@ class TestExpressions:
 
         a3 = self.array["const_logical_arr"].properties.exp_type
         np.testing.assert_equal(a3.value, np.array([True, False, True, False, True]))
+
+    def test_char_kind_4(self):
+        assert self.unicode["uni_param"].properties.exp_type.value == "😀😎😩"
