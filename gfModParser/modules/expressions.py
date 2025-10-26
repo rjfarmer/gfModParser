@@ -295,18 +295,20 @@ class typespec:
     @property
     def charlen(self) -> Expression:
         if len(self._typespec[6]):
-            return Expression(self._typespec[6][0], version=self.version)
-        raise AttributeError("Object does not have a character length")
+            if len(self._typespec[6][0]):
+                # Fake a negative string length for defered length chars
+                t = [
+                    "CONSTANT",
+                    ["INTEGER", "4", "0", "0", "0", "INTEGER", []],
+                    "0",
+                    "-1",
+                    [],
+                ]
+            else:
+                t = self._typespec[6][0]
 
-    #     try:
-    #         if not args[6][0]:
-    #             self.charlen = -1
-    #         else:
-    #             self.charlen = Expression(
-    #                 *args[6][0]
-    #             )  # TODO: might this need to be iterated for mulit-d strings?
-    #     except IndexError:
-    #         self.charlen = -1
+            return Expression(t, version=self.version)
+        raise AttributeError("Object does not have a character length")
 
     @property
     def deferred_cl(self) -> bool:
