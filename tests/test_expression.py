@@ -108,4 +108,5 @@ class TestExpressions:
         assert self.unicode["uni_param"].properties.exp_type.value == "😀😎😩"
 
     def test_char_defered_len(self):
-        assert self.mod[103].properties.typespec.charlen.value == -1
+        assert self.mod[104].properties.typespec.charlen.value == -1
+        assert self.mod[103].properties.typespec.charlen.value == 5

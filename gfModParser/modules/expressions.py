@@ -295,7 +295,7 @@ class typespec:
     @property
     def charlen(self) -> Expression:
         if len(self._typespec[6]):
-            if len(self._typespec[6][0]):
+            if len(self._typespec[6][0]) == 0:
                 # Fake a negative string length for defered length chars
                 t = [
                     "CONSTANT",
