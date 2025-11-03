@@ -165,7 +165,7 @@ class Symbol:
         Returns:
             bool
         """
-        return self.properties.attributes.is_derived
+        return self.properties.typespec.is_dt
 
     @property
     def is_procedure(self) -> bool:
