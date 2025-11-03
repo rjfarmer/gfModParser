@@ -1,8 +1,8 @@
 
 # For things that need gforetran 15 or later
 
-FC:=gfortran
-FCOPTS:=-c -cpp -funsigned -J build
+FC = gfortran
+FCOPTS:=-c -cpp -funsigned -ffree-line-length-none -ffree-form -J build
 MODDIR:=build
 
 rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
@@ -20,3 +20,4 @@ all: $(OBJS)
 clean:
 	rm -rf $(MODDIR)
 	mkdir $(MODDIR)
+	rm -rf src15/*.mod src15/*.o src15/*.txt
