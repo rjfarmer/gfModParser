@@ -123,3 +123,9 @@ class TestArrayDummy:
     def test_size(self):
         assert self.mod["c_int_alloc_1d"].properties.array_spec.size == -1
         assert self.mod["c_int_alloc_2d"].properties.array_spec.size == -1
+
+    def test_status(self):
+        func = self.mod["func_assumed_shape_arr_1d"]
+        arg = func.properties.formal_argument[0]
+        # Assumed shape array
+        assert self.mod[arg].properties.array_spec.is_deferred

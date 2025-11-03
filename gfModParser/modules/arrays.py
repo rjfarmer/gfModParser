@@ -50,7 +50,7 @@ class arrayspec:
         compile time rank
         """
         if self.is_array:
-            return self.type == "DEFERRED"
+            return self.type == "DEFERRED" or self.type == "ASSUMED_SHAPE"
         return False
 
     @property
