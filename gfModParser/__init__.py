@@ -261,7 +261,7 @@ class DerivedTypes:
     def keys(self) -> set[str]:
         res = []
         for i in self.module.keys():
-            if self.module[i].is_dt:
+            if self.module[i].is_dt_definition:
                 res.append(i)
         return set(res)
 

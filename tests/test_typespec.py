@@ -11,6 +11,7 @@ class TestSymbols:
     @pytest.fixture(autouse=True)
     def load(self):
         self.mod = gf.Module(os.path.join("tests", "build", "basic.mod"))
+        self.dt = gf.Module(os.path.join("tests", "build", "dt.mod"))
 
     def test_type(self):
         assert self.mod["a_int"].properties.typespec.type == "INTEGER"
@@ -21,6 +22,10 @@ class TestSymbols:
         assert self.mod["a_real"].properties.typespec.kind == 4
         assert self.mod["a_int_lp"].properties.typespec.kind == 8
         assert self.mod["a_real_dp"].properties.typespec.kind == 8
+
+    def test_dt(self):
+        assert self.dt["f_struct"].properties.typespec.is_dt
+        assert not self.mod["a_int"].properties.typespec.is_dt
 
 
 class TestISOC:

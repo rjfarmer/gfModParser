@@ -150,8 +150,17 @@ class Symbol:
         return self.properties.array_spec.is_array
 
     @property
+    def is_dt_definition(self) -> bool:
+        """Return if a dt defintion (not an instance)
+
+        Returns:
+            bool
+        """
+        return self.properties.attributes.is_derived_definition
+
+    @property
     def is_dt(self) -> bool:
-        """Return if a dt
+        """Return if a instance of a dt
 
         Returns:
             bool

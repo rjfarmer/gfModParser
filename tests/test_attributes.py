@@ -65,9 +65,11 @@ class TestAttributes:
         assert not self.mod["sub_int_in"].properties.attributes.is_module
 
     def test_derived(self):
-        assert self.mod2["S_alloc_array"].properties.attributes.is_derived
-        assert not self.mod2["s_alloc_array"].properties.attributes.is_derived
-        assert not self.mod2["f_struct"].properties.attributes.is_derived
+        assert self.mod2["S_alloc_array"].properties.attributes.is_derived_definition
+        assert not self.mod2[
+            "s_alloc_array"
+        ].properties.attributes.is_derived_definition
+        assert not self.mod2["f_struct"].properties.attributes.is_derived_definition
 
     def test_dir(self):
         assert "dimension" in dir(self.mod2["S_alloc_array"].properties.attributes)

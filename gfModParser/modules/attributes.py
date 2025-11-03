@@ -145,7 +145,11 @@ class Attributes:
         return self.flavor == "PROCEDURE"
 
     @property
-    def is_derived(self) -> bool:
+    def is_derived_definition(self) -> bool:
+        """
+        Note this is only true for the definition of the derived type, not an instance of the type
+        Instance of a deriver type should check the typespec.type == 'DERIVED'
+        """
         return self.flavor == "DERIVED"
 
     @property

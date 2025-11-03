@@ -261,7 +261,11 @@ class typespec:
         return self._typespec[0]
 
     def _isclass(self) -> bool:
-        return self.type == "CLASS" or self.type == "DERIVED"
+        return self.type == "CLASS" or self.is_dt
+
+    @property
+    def is_dt(self) -> bool:
+        return self.type == "DERIVED"
 
     @property
     def kind(self) -> int:
