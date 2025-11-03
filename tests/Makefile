@@ -1,6 +1,6 @@
 
 FC:=gfortran
-FCOPTS:=-c -cpp -fcray-pointer -J build
+FCOPTS:=-c -cpp -fcray-pointer -ffree-line-length-none  -ffree-form -J build
 MODDIR:=build
 
 rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
