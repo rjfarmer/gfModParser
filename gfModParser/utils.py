@@ -72,7 +72,11 @@ def dtype(type, kind, len=-1) -> np.dtype:
         elif kind == 16:
             return np.dtype(np.float128)
     elif type == "INTEGER":
-        if kind == 4:
+        if kind == 1:
+            return np.dtype(np.int8)
+        elif kind == 2:
+            return np.dtype(np.int16)
+        elif kind == 4:
             return np.dtype(np.int32)
         elif kind == 8:
             return np.dtype(np.int64)

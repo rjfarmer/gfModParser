@@ -16,6 +16,7 @@ class TestExpressions:
         self.char = gf.Module(os.path.join("tests", "build", "strings.mod"))
         self.array = gf.Module(os.path.join("tests", "build", "explicit_arrays.mod"))
         self.unicode = gf.Module(os.path.join("tests", "build", "unicode.mod"))
+        self.params = gf.Module(os.path.join("tests", "build", "params_modules.mod"))
 
     def test_type(self):
         assert self.mod["dp"].properties.exp_type.type == "INTEGER"
@@ -110,3 +111,21 @@ class TestExpressions:
     def test_char_defered_len(self):
         assert self.mod[104].properties.typespec.charlen.value == -1
         assert self.mod[103].properties.typespec.charlen.value == 5
+
+    def test_int_kinds_array(self):
+        assert np.allclose(
+            self.params["int_i1_1d"].properties.exp_type.value,
+            np.array([-10, -1, 0, 1, 10], dtype=np.int8),
+        )
+        assert np.allclose(
+            self.params["int_i2_1d"].properties.exp_type.value,
+            np.array([-10, -1, 0, 1, 10], dtype=np.int16),
+        )
+        assert np.allclose(
+            self.params["int_i4_1d"].properties.exp_type.value,
+            np.array([-10, -1, 0, 1, 10], dtype=np.int32),
+        )
+        assert np.allclose(
+            self.params["int_i8_1d"].properties.exp_type.value,
+            np.array([-10, -1, 0, 1, 10], dtype=np.int64),
+        )
