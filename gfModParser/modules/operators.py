@@ -8,7 +8,6 @@ import abc
 from .. import utils
 from . import utils as u
 
-
 _default_ops = {
     "UPLUS": operator.__add__,
     "UMINUS": operator.__sub__,
@@ -94,7 +93,7 @@ class Generics(base_interface):
         face = utils.bracket_split(self._raw)[0]
 
         for value in face:
-            (name, _, *num) = value
+            name, _, *num = value
             name = utils.string_clean(name)
             res[name] = u.ListSymbols(num, version=self.version)
         return res
