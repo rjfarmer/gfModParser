@@ -8,7 +8,6 @@ import sys
 
 import gfModParser as gf
 
-
 # Modules where we have the uncompressed text version of the module
 
 files = [
