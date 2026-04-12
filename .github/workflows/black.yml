@@ -2,18 +2,13 @@ name: Lint
 on: [push, pull_request]
 permissions: {}
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
-
 jobs:
   lint:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           persist-credentials: false
-      - uses: psf/black@stable
+      - uses: psf/black@c6755bb741b6481d6b3d3bb563c83fa060db96c9 # 26.3.1
         with:
             options: "--check --verbose"

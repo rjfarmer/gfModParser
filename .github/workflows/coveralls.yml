@@ -17,12 +17,12 @@ jobs:
           - {compiler: gcc, version: 13}
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           persist-credentials: false
 
       - name: Set up Python 
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6
         with:
           python-version: '3.x'
           cache: 'pip'
@@ -33,7 +33,7 @@ jobs:
           python -m pip install build wheel
 
       - name: Setup fortran
-        uses: fortran-lang/setup-fortran@v1
+        uses: fortran-lang/setup-fortran@2a1b9c55897d827a9dfeb114408f3615e53b2b72 # v1
         with:
           compiler: ${{ matrix.toolchain.compiler }}
           version: ${{ matrix.toolchain.version }}
@@ -50,7 +50,8 @@ jobs:
           python -m pytest --cov=gfModParser --cov-report lcov:lcov.info
 
       - name: Upload Coverage Results
-        uses: coverallsapp/github-action@master
+        uses: coverallsapp/github-action@648a8eb78e6d50909eff900e4ec85cab4524a45b # v2.3.6
         with:
           github-token: ${{ secrets.github_token }}
           path-to-lcov: lcov.info
+

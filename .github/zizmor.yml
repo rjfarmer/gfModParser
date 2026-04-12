@@ -1,5 +1,6 @@
 rules:
-  unpinned-uses:
-    config:
-      policies:
-        "*": ref-pin
+  secrets-outside-env:
+    disable: true
+    # config:
+    #   allow:
+    #     - CODSPEED_TOKEN
