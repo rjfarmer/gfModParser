@@ -25,6 +25,10 @@ class ExpGeneric:
     def value(self):
         return None
 
+    @property
+    def len(self):
+        return None
+
     def __eq__(self, key) -> bool:
         return self._type == key
 
