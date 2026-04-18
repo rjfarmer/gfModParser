@@ -4,6 +4,7 @@ import os
 import pytest
 from pprint import pprint
 import numpy as np
+from packaging.version import Version
 
 import gfModParser as gf
 
@@ -140,3 +141,74 @@ class TestExpressions:
             self.params["int_i8_1d"].properties.exp_type.value,
             np.array([-10, -1, 0, 1, 10], dtype=np.int64),
         )
+
+    def test_expression_helper_paths(self):
+        typespec = ["INTEGER", "4", "0", "0", "0", "INTEGER", []]
+        const_expr = ["CONSTANT", typespec, "0", "1", []]
+
+        op_expr = gf.modules.expressions.Expression(
+            ["OP", typespec, "0", "UPLUS", const_expr, const_expr],
+            version=Version("15"),
+        )
+        assert op_expr.type.unary_op == "UPLUS"
+        left, right = op_expr.type.unary_args
+        assert left.value == 1
+        assert right.value == 1
+
+        fn_expr = gf.modules.expressions.Expression(
+            ["FUNCTION", typespec, "0", "f", const_expr],
+            version=Version("15"),
+        )
+        assert fn_expr.value == "f"
+        assert fn_expr.type.args.value == 1
+
+        with pytest.raises(NotImplementedError):
+            _ = fn_expr.arglist
+
+    def test_not_implemented_expression_variants(self):
+        typespec = ["INTEGER", "4", "0", "0", "0", "INTEGER", []]
+        for et in [
+            "SUBSTRING",
+            "STRUCTURE",
+            "NULL",
+            "COMPCALL",
+            "PPC",
+            "CONDITIONAL",
+            "UNKNOWN",
+        ]:
+            e = gf.modules.expressions.Expression(
+                [et, typespec, "0"], version=Version("15")
+            )
+            with pytest.raises(NotImplementedError):
+                _ = e.value
+
+    def test_exp_generic_base(self):
+        g = gf.modules.expressions.ExpGeneric("INTEGER", 4, [], version=Version("15"))
+        assert str(g) == "INTEGER"
+        assert repr(g) == "INTEGER"
+        assert g.value is None
+        assert g.len is None
+        assert g == "INTEGER"
+
+    def test_typespec_branches(self):
+        t_class = gf.modules.expressions.typespec(
+            ["CLASS", "7", "iface", "0", "0", "X", []], version=Version("15")
+        )
+        assert t_class.kind == -1
+        assert t_class.class_ref == 7
+        assert t_class.interface == "iface"
+        assert t_class.type2 == "X"
+
+        t_char = gf.modules.expressions.typespec(
+            ["CHARACTER", "1", "0", "0", "0", "CHARACTER", [], "DEFERRED_CL"],
+            version=Version("15"),
+        )
+        assert t_char.deferred_cl
+        with pytest.raises(AttributeError):
+            _ = t_char.charlen
+
+        t_no_defer = gf.modules.expressions.typespec(
+            ["INTEGER", "4", "0", "0", "0", "INTEGER", []],
+            version=Version("15"),
+        )
+        assert not t_no_defer.deferred_cl

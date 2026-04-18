@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import numpy as np
+from packaging.version import Version
+import pytest
 
 import gfModParser as gf
 
@@ -200,3 +202,53 @@ class TestUtils:
         assert gf.utils.hextofloat("0.16eb28cd34d8a1@1", kind=8) == 1.432411958301181
         assert gf.utils.hextofloat("-0.d105eb806161f0@0", kind=8) == -0.816496580927726
         assert gf.utils.hextofloat("-0.1965fea53d6e3c@1", kind=8) == -1.5874010519681994
+
+    def test_gfortran_mod_map_boundaries(self):
+        assert gf.utils.gfortran_mod_map(Version("4.8.0")) == Version("9")
+        assert gf.utils.gfortran_mod_map(Version("4.8.1")) == Version("10")
+        assert gf.utils.gfortran_mod_map(Version("4.9.1")) == Version("10")
+        assert gf.utils.gfortran_mod_map(Version("4.9.2")) == Version("12")
+        assert gf.utils.gfortran_mod_map(Version("5.0.0")) == Version("12")
+        assert gf.utils.gfortran_mod_map(Version("5.1.0")) == Version("14")
+        assert gf.utils.gfortran_mod_map(Version("8.0.0")) == Version("15")
+        assert gf.utils.gfortran_mod_map(Version("15.0.0")) == Version("16")
+
+        with pytest.raises(ValueError):
+            gf.utils.gfortran_mod_map(Version("16.0.0"))
+
+    def test_hextofloat_kind16(self):
+        if gf.utils.PYQ_IMPORTED:
+            assert gf.utils.hextofloat("0.1@1", kind=16) is not None
+        else:
+            with pytest.raises(ValueError, match="pyQuadp"):
+                gf.utils.hextofloat("0.1@1", kind=16)
+
+    def test_dtype_branches(self):
+        assert gf.utils.dtype("REAL", 4) == np.dtype(np.float32)
+        assert gf.utils.dtype("REAL", 8) == np.dtype(np.float64)
+        assert gf.utils.dtype("REAL", 16) == np.dtype((np.void, 16))
+
+        assert gf.utils.dtype("INTEGER", 1) == np.dtype(np.int8)
+        assert gf.utils.dtype("INTEGER", 2) == np.dtype(np.int16)
+        assert gf.utils.dtype("INTEGER", 4) == np.dtype(np.int32)
+        assert gf.utils.dtype("INTEGER", 8) == np.dtype(np.int64)
+        assert gf.utils.dtype("INTEGER", 16) == np.dtype((np.void, 16))
+
+        assert gf.utils.dtype("UNSIGNED", 4) == np.dtype(np.uint32)
+        assert gf.utils.dtype("UNSIGNED", 8) == np.dtype(np.uint64)
+        assert gf.utils.dtype("UNSIGNED", 16) == np.dtype((np.void, 16))
+
+        assert gf.utils.dtype("CHARACTER", 1, len=3) == np.dtype("S3")
+
+        assert gf.utils.dtype("COMPLEX", 4) == np.dtype(np.complex64)
+        assert gf.utils.dtype("COMPLEX", 8) == np.dtype(np.complex128)
+        assert gf.utils.dtype("COMPLEX", 16) == np.dtype((np.void, 32))
+
+        assert gf.utils.dtype("LOGICAL", 4) == np.dtype(np.int32)
+
+        with pytest.raises(NotImplementedError):
+            gf.utils.dtype("REAL", 2)
+
+    def test_bracket_split_unbalanced(self):
+        with pytest.raises(ValueError, match="Unbalanced parentheses"):
+            gf.utils.bracket_split("(1 2")

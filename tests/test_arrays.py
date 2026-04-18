@@ -79,6 +79,23 @@ class TestArrayExplicit:
         assert self.mod["b_int_exp_1d_lower"].properties.array_spec.size == 5
         assert self.mod["b_int_exp_2d_lower"].properties.array_spec.size == 20
 
+    def test_non_array_defaults(self):
+        a = self.mod["dp"].properties.array_spec
+
+        assert not a.is_array
+        assert a.ndims == -1
+        assert a.rank == -1
+        assert a.corank == -1
+        assert a.type == ""
+        assert not a.is_deferred
+        assert not a.is_explicit
+
+        assert a.lower == ()
+        assert a.upper == ()
+        assert a.fshape == ()
+        assert a.pyshape == ()
+        assert a.size == -1
+
 
 class TestArrayDummy:
     @pytest.fixture(autouse=True)

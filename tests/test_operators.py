@@ -22,6 +22,21 @@ class TestOperators:
         assert list(self.mod.interface["MINUS"]) == [4]
         assert list(self.mod.interface["PARENTHESES"]) == [5]
 
+        plus = self.mod.interface["PLUS"]
+        assert plus.values == [2, 3]
+        assert str(plus) == "[2, 3]"
+        assert repr(plus) == "[2, 3]"
+        assert "2" in plus
+        assert plus[0] == 2
+
+    def test_interface_views(self):
+        values = list(self.mod.interface.values())
+        items = list(self.mod.interface.items())
+
+        assert len(values) == 3
+        assert len(items) == 3
+        assert items[0][0] == "PLUS"
+
     def test_interfaces_op(self):
         assert mod.interface.op("MINUS") == operator.__sub__
 
