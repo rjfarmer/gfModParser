@@ -12,6 +12,7 @@ all: $(OBJS)
 
 src/pointers.o : FCOPTS+=-fcray-pointer
 src/cray_pointers.o : FCOPTS+=-fcray-pointer
+src/simd.o : FCOPTS+=-fopenmp
 
 
 %.o : %.f90
