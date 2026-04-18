@@ -222,6 +222,102 @@ module face
         
     end subroutine func_mesh_exp4
 
+    subroutine func_mesh_exp5(x, N)
+        ! UMINUS: unary minus in array size
+        integer, intent(in) :: N
+        integer :: x((-N)+5)
+        integer :: i
+        
+        do i=1,(-N)+5
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp5
+
+    subroutine func_mesh_exp6(x, N)
+        ! DIVIDE: division in array size
+        integer, intent(in) :: N
+        integer :: x((N/2)+1)
+        integer :: i
+        
+        do i=1,(N/2)+1
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp6
+
+    subroutine func_mesh_exp7(x, N)
+        ! POWER: exponentiation in array size
+        integer, intent(in) :: N
+        integer :: x((N**2)+1)
+        integer :: i
+        
+        do i=1,(N**2)+1
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp7
+
+    subroutine func_mesh_exp8(x, N)
+        ! AND: bitwise AND in array size
+        integer, intent(in) :: N
+        integer :: x(iand(N, 15)+1)
+        integer :: i
+        
+        do i=1,iand(N, 15)+1
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp8
+
+    subroutine func_mesh_exp9(x, N)
+        ! OR: bitwise OR in array size
+        integer, intent(in) :: N
+        integer :: x(ior(N, 3)+1)
+        integer :: i
+        
+        do i=1,ior(N, 3)+1
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp9
+
+    subroutine func_mesh_exp10(x, N, M)
+        ! Complex expression with MULTIPLE operators: PLUS, TIMES, DIVIDE
+        integer, intent(in) :: N, M
+        integer :: x(((N+M)*3)/2+1)
+        integer :: i
+        
+        do i=1,((N+M)*3)/2+1
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp10
+
+    subroutine func_mesh_exp11(x, N)
+        ! MINUS in array size
+        integer, intent(in) :: N
+        integer :: x((N-2)*4+1)
+        integer :: i
+        
+        do i=1,(N-2)*4+1
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp11
+
+    subroutine func_mesh_exp12(x, N, M)
+        ! Complex: (N+M)**2 - power with addition
+        integer, intent(in) :: N, M
+        integer :: x(((N+M)**2)/2+1)
+        integer :: i
+        
+        do i=1,((N+M)**2)/2+1
+            x(i) = i
+        end do
+        
+    end subroutine func_mesh_exp12
+
     subroutine check_exp_2d_2m3_nt(arr, NT, success)
         ! Github issues #19
         integer, intent(in) :: NT
