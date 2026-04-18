@@ -160,6 +160,8 @@ class Parameters:
     def __getitem__(self, key: str):
         if key in self:
             return self.module[key]
+        else:
+            raise KeyError(f"Can't find {key} or its not a parameter")
 
     def __contains__(self, key: str) -> bool:
         return key in self.keys()
@@ -218,6 +220,8 @@ class Procedures:
     def __getitem__(self, key: str):
         if key in self:
             return self.module[key]
+        else:
+            raise KeyError(f"Can't find {key} or its not a procedure")
 
     def __contains__(self, key: str) -> bool:
         return key in self.keys()
@@ -268,6 +272,8 @@ class DerivedTypes:
     def __getitem__(self, key: str):
         if key in self:
             return self.module[key]
+        else:
+            raise KeyError(f"Can't find {key} or its not a derived type")
 
     def __contains__(self, key: str) -> bool:
         return key in self.keys()

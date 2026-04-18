@@ -193,6 +193,7 @@ class ExpArray(ExpGeneric):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._value = None
+        self._array_value = None
 
     @property
     def value(self) -> np.ndarray:
@@ -201,12 +202,15 @@ class ExpArray(ExpGeneric):
             for i in self._args[3]:
                 self._value.append(Expression(i[0], version=self.version))
 
-        value = []
+        if self._array_value is None:
+            value = []
 
-        for v in self._value:
-            value.append(v.value)
+            for v in self._value:
+                value.append(v.value)
 
-        return np.array(value, dtype=self.dtype).reshape(self.shape)
+            self._array_value = np.array(value, dtype=self.dtype).reshape(self.shape)
+
+        return self._array_value
 
     @property
     def shape(self) -> tuple[int, ...]:

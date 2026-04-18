@@ -105,6 +105,17 @@ class TestExpressions:
         a3 = self.array["const_logical_arr"].properties.exp_type
         np.testing.assert_equal(a3.value, np.array([True, False, True, False, True]))
 
+    def test_array_value_cached(self):
+        arr = self.array["const_int_arr"].properties.exp_type
+
+        first = arr.value
+        second = arr.value
+
+        assert first is second
+        np.testing.assert_equal(
+            first, np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], dtype=np.int32)
+        )
+
     def test_char_kind_4(self):
         assert self.unicode["uni_param"].properties.exp_type.value == "😀😎😩"
 

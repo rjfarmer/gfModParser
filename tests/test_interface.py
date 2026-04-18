@@ -71,3 +71,13 @@ class TestComponents:
         assert len(comps) == 9
 
         assert comps["a_int"].name == "a_int"
+
+    def test_missing_key_raises(self):
+        with pytest.raises(KeyError):
+            _ = self.p["does_not_exist"]
+
+        with pytest.raises(KeyError):
+            _ = self.proc["does_not_exist"]
+
+        with pytest.raises(KeyError):
+            _ = self.dtypes["does_not_exist"]
