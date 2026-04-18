@@ -11,6 +11,7 @@ OBJS := $(patsubst %.f90,%.o,$(SOURCES))
 all: $(OBJS) 
 
 src/pointers.o : FCOPTS+=-fcray-pointer
+src/cray_pointers.o : FCOPTS+=-fcray-pointer
 
 
 %.o : %.f90
