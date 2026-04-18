@@ -5,7 +5,7 @@ from packaging.version import Version
 from typing import Any, Union
 
 try:
-    import pyquadp as pyq  # type: ignore[import-untyped]
+    import pyquadp as pyq  # type: ignore[import-not-found]
 
     PYQ_IMPORTED = True
 except ImportError:
