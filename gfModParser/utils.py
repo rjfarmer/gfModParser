@@ -70,7 +70,7 @@ def dtype(type, kind, len=-1) -> np.dtype:
         elif kind == 8:
             return np.dtype(np.float64)
         elif kind == 16:
-            return np.dtype(np.float128)
+            return np.dtype((np.void, 16))
     elif type == "INTEGER":
         if kind == 1:
             return np.dtype(np.int8)
@@ -97,7 +97,7 @@ def dtype(type, kind, len=-1) -> np.dtype:
         elif kind == 8:
             return np.dtype(np.complex128)
         elif kind == 16:
-            return np.dtype(np.complex256)
+            return np.dtype((np.void, 16 * 2))
     elif type == "LOGICAL":
         return np.dtype(np.int32)
 
