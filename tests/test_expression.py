@@ -212,3 +212,52 @@ class TestExpressions:
             version=Version("15"),
         )
         assert not t_no_defer.deferred_cl
+
+
+class TestPDT:
+    @pytest.fixture(autouse=True)
+    def load(self):
+        self.pdt = gf.Module(os.path.join("tests", "build", "pdt.mod"))
+
+    def test_pdt_actual_arglist_type(self):
+        aa = self.pdt["pdt_dp_3"].properties.actual_argument
+        assert isinstance(aa, gf.modules.procedures.actual_arglist)
+
+    def test_pdt_actual_arglist_len(self):
+        assert len(self.pdt["pdt_dp_3"].properties.actual_argument) == 2
+        assert len(self.pdt["pdt_qp_2"].properties.actual_argument) == 2
+
+    def test_pdt_actual_arglist_keys(self):
+        aa = self.pdt["pdt_dp_3"].properties.actual_argument
+        assert aa.keys() == ["k", "a"]
+
+    def test_pdt_actual_arglist_values(self):
+        aa = self.pdt["pdt_dp_3"].properties.actual_argument
+        assert aa[0].name == "k"
+        assert aa[0].expression.value == 8
+        assert aa[1].name == "a"
+        assert aa[1].expression.value == 3
+
+    def test_pdt_qp_arglist_values(self):
+        aa = self.pdt["pdt_qp_2"].properties.actual_argument
+        assert aa[0].name == "k"
+        assert aa[0].expression.value == 16
+        assert aa[1].name == "a"
+        assert aa[1].expression.value == 2
+
+    def test_pdt_sp_arglist_values(self):
+        aa = self.pdt["pdt_sp_3"].properties.actual_argument
+        assert aa[0].name == "k"
+        assert aa[0].expression.value == 8
+        assert aa[1].name == "a"
+        assert aa[1].expression.value == 3
+
+    def test_pdt_actual_arglist_iter(self):
+        names = [a.name for a in self.pdt["pdt_dp_3"].properties.actual_argument]
+        assert names == ["k", "a"]
+
+    def test_pdt_empty_actual_argument_is_arglist(self):
+        # Non-PDT symbols still return the regular Arglist
+        aa = self.pdt["dp"].properties.actual_argument
+        assert isinstance(aa, gf.modules.procedures.Arglist)
+        assert len(aa) == 0

@@ -130,10 +130,13 @@ class Properties:
         return namespaces.derived_ns(self._properties[8], version=self.version)
 
     @property
-    def actual_argument(self) -> procedures.Arglist:
+    def actual_argument(self) -> "procedures.Arglist | procedures.actual_arglist":
         if not len(self._properties):
             self._load()
-        return procedures.Arglist(self._properties[9], version=self.version)
+        p = self._properties[9]
+        if len(p) > 0 and isinstance(p[0], list):
+            return procedures.actual_arglist(p, version=self.version)
+        return procedures.Arglist(p, version=self.version)
 
     @property
     def namelist(self) -> namelists.Namelist | None:
