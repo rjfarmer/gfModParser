@@ -28,6 +28,7 @@ classifiers = [
 
 dependencies = [
     "numpy >= 2.0.0",
+    "packaging",
 ]
 
 dynamic = ["version"]

@@ -15,10 +15,10 @@ def pytest_configure(config):
         os.mkdir(os.path.join("tests", "build"))
     except FileExistsError:
         pass
-    subprocess.call(["make", "-f", "Makefile", "all"], cwd="tests")
+    subprocess.check_call(["make", "-f", "Makefile", "all"], cwd="tests")
 
     if gfortran_version().major >= 15:
-        subprocess.call(["make", "-f", "Makefile15", "all"], cwd="tests")
+        subprocess.check_call(["make", "-f", "Makefile15", "all"], cwd="tests")
 
 
 def gfortran_version():

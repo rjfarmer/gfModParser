@@ -45,3 +45,7 @@ class TestInit:
             self.mod["xxxx"]
 
         assert not "xxx" in self.mod._mod.symbols
+
+    def test_empty_key(self):
+        with pytest.raises(KeyError):
+            self.mod[""]

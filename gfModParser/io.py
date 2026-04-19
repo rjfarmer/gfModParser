@@ -1,30 +1,31 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import gzip
+import pathlib
 
 
-def read_compressed(filename: str) -> str:
+def read_compressed(filename: str | pathlib.Path) -> str:
     with gzip.open(filename) as f:
         data = f.read().decode()
 
     return data
 
 
-def read_uncompressed(filename: str) -> str:
+def read_uncompressed(filename: str | pathlib.Path) -> str:
     with open(filename, "r", encoding="utf8") as f:
         data = f.read()
 
     return data
 
 
-def read_compressed_header(filename: str) -> str:
+def read_compressed_header(filename: str | pathlib.Path) -> str:
     with gzip.open(filename) as f:
         data = f.readline().decode()
 
     return data
 
 
-def read_uncompressed_header(filename: str) -> str:
+def read_uncompressed_header(filename: str | pathlib.Path) -> str:
     with open(filename, "r", encoding="utf8") as f:
         data = f.readline()
 

@@ -1,11 +1,10 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 # https://github.com/gcc-mirror/gcc/blob/master/gcc/fortran/module.cc
+import pathlib
 from packaging.version import Version
-from typing import Union
 from functools import cached_property
 
-from .. import utils
 from .. import io
 
 from . import summary
@@ -22,7 +21,7 @@ class module:
     Provides low level interface into the module data
     """
 
-    def __init__(self, filename: str, *, version: Version) -> None:
+    def __init__(self, filename: pathlib.Path, *, version: Version) -> None:
         self.filename = filename
         self.version = version
 
@@ -72,11 +71,13 @@ class module:
         if isinstance(key, int):
             # Lookup by index, used by procedure to find arguments
             return self.symbols[key]
+        if len(key) == 0:
+            raise KeyError("Key must not be empty")
         if key[0].isupper() and key in self.summary:
-            # Derivied type definition starts with a captial letter
+            # Derived type definition starts with a capital letter
             return self.symbols[self.summary[key].id]
         elif key.startswith("__"):
-            # Don't change case on internal gfortran fucntions
+            # Don't change case on internal gfortran functions
             return self.symbols[self.summary[key].id]
         else:
             # Everything else is lower case
