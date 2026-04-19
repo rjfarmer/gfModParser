@@ -13,7 +13,8 @@ authors = [
 description = "Parser for gfortran's Fortran module file format."
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "GPLv2+"}
+license = "GPL-2.0-or-later"
+license-files = ["COPYING.txt"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
@@ -26,7 +27,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "numpy <2.5",
+    "numpy >= 2.0.0",
 ]
 
 dynamic = ["version"]
