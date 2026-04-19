@@ -1,9 +1,10 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import operator
-from packaging.version import Version
-from functools import cache, cached_property
 import abc
+from functools import cache
+
+from packaging.version import Version
 
 from .. import utils
 from . import utils as u
@@ -99,9 +100,18 @@ class Generics(base_interface):
         return res
 
 
-class Operators(Generics):
+class Operators(base_interface):
     """
     Provides custom operators like .my_op.
     """
 
-    pass
+    @cache
+    def extract(self) -> dict[str, u.ListSymbols]:
+        res = {}
+        face = utils.bracket_split(self._raw)[0]
+
+        for value in face:
+            name, _, *num = value
+            name = utils.string_clean(name)
+            res[name] = u.ListSymbols(num, version=self.version)
+        return res
