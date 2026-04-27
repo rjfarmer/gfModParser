@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0+
 from typing import Iterator
+
 from packaging.version import Version
 
 

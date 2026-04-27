@@ -1,9 +1,10 @@
 # SPDX-License-Identifier: GPL-2.0+
 
-import os
-import pytest
 import copy
+import os
 from pprint import pprint
+
+import pytest
 
 import gfModParser as gf
 

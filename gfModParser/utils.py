@@ -1,8 +1,9 @@
 # SPDX-License-Identifier: GPL-2.0+
 
+from typing import Any, Union
+
 import numpy as np
 from packaging.version import Version
-from typing import Any, Union
 
 try:
     import pyquadp as pyq  # type: ignore[import-not-found]

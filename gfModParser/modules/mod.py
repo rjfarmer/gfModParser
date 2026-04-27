@@ -2,14 +2,12 @@
 
 # https://github.com/gcc-mirror/gcc/blob/master/gcc/fortran/module.cc
 import pathlib
-from packaging.version import Version
 from functools import cached_property
 
-from .. import io
+from packaging.version import Version
 
-from . import summary
-from . import symbols
-from . import operators
+from .. import io
+from . import operators, summary, symbols
 
 
 class VersionError(Exception):

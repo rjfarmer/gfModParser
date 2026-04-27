@@ -1,13 +1,10 @@
 # SPDX-License-Identifier: GPL-2.0+
-from packaging.version import Version
-
 from typing import Any
 
+from packaging.version import Version
+
 from .. import utils
-from . import attributes
-from . import expressions
-from . import arrays
-from . import procedures
+from . import arrays, attributes, expressions, procedures
 
 
 class Components:

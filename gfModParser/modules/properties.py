@@ -1,21 +1,21 @@
 # SPDX-License-Identifier: GPL-2.0+
-from packaging.version import Version
 from functools import cached_property
+from typing import Any, Type
 
-
-from typing import Type, Any
-
+from packaging.version import Version
 
 from gfModParser import utils
 
-from . import attributes
-from . import components
-from . import expressions
-from . import simds
-from . import namespaces
-from . import procedures
-from . import arrays
-from . import namelists
+from . import (
+    arrays,
+    attributes,
+    components,
+    expressions,
+    namelists,
+    namespaces,
+    procedures,
+    simds,
+)
 
 
 class Properties:

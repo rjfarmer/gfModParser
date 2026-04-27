@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import numpy as np
-from packaging.version import Version
 import pytest
+from packaging.version import Version
 
 import gfModParser as gf
 

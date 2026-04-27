@@ -2,9 +2,8 @@
 from packaging.version import Version
 
 from .. import utils
-
-from . import utils as u
 from . import expressions
+from . import utils as u
 
 
 class typebound_proc:

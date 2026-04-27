@@ -1,8 +1,9 @@
 # SPDX-License-Identifier: GPL-2.0+
 
+from functools import cached_property
+
 import numpy as np
 from packaging.version import Version
-from functools import cached_property
 
 from . import expressions
 

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
 import re
-from packaging.version import Version
 
+from packaging.version import Version
 
 from .. import utils
 from . import properties

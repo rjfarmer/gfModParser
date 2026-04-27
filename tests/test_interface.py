@@ -1,6 +1,7 @@
 import os
-import pytest
 from pprint import pprint
+
+import pytest
 
 import gfModParser as gf
 

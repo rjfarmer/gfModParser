@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
-from packaging.version import Version
 from functools import cached_property
+
+from packaging.version import Version
 
 from . import procedures
 
