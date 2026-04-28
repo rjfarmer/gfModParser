@@ -13,7 +13,7 @@ all: $(OBJS)
 src/pointers.o : FCOPTS+=-fcray-pointer
 src/cray_pointers.o : FCOPTS+=-fcray-pointer
 src/simd.o : FCOPTS+=-fopenmp
-
+src/coarrays.o : FCOPTS+=-fcoarray=single
 
 %.o : %.f90
 	$(FC) $(FCOPTS) -o $(subst src,build,$@) $<

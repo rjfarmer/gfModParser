@@ -13,6 +13,7 @@ class TestAttributes:
     def load(self):
         self.mod = gf.Module(os.path.join("tests", "build", "basic.mod"))
         self.mod2 = gf.Module(os.path.join("tests", "build", "dt.mod"))
+        self.coarray_mod = gf.Module(os.path.join("tests", "build", "coarrays.mod"))
 
     def test_flavor(self):
         assert self.mod["a_int"].properties.attributes.is_variable
@@ -74,6 +75,10 @@ class TestAttributes:
 
     def test_dir(self):
         assert "dimension" in dir(self.mod2["S_alloc_array"].properties.attributes)
+
+    def test_codimension(self):
+        assert self.coarray_mod["work"].properties.attributes.is_variable
+        assert "CODIMENSION" in self.coarray_mod["work"].properties.attributes
 
 
 class TestAttrElemental:
