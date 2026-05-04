@@ -33,6 +33,9 @@ dependencies = [
 
 dynamic = ["version"]
 
+[tool.setuptools.package-data]
+gfModParser = ["py.typed"]
+
 
 [project.optional-dependencies]
 test = ['pytest','pytest-xdist']
