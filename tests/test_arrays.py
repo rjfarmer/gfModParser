@@ -147,3 +147,9 @@ class TestArrayDummy:
         arg = func.properties.formal_argument[0]
         # Assumed shape array
         assert self.mod[arg].properties.array_spec.is_deferred
+
+    def test_assumed_rank(self):
+        func = self.mod["sub_assumed_rank_int"]
+        arg = func.properties.formal_argument[0]
+        assert self.mod[arg].properties.array_spec.is_assumed_rank
+        assert self.mod[arg].properties.array_spec.rank == 0

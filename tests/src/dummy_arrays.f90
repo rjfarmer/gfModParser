@@ -344,6 +344,9 @@ module dummy_arrays
         yp = [1.0_dp, -42.014_dp]
      end subroutine multi_array_pass
 
+     subroutine sub_assumed_rank_int(x)
+        integer, dimension(..) :: x
+    end subroutine sub_assumed_rank_int
 
 
 end module dummy_arrays

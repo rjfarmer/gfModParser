@@ -60,6 +60,18 @@ class arrayspec:
             return self.type == "EXPLICIT"
         return False
 
+    @property
+    def is_assumed_size(self) -> bool:
+        if self.is_array:
+            return self.type == "ASSUMED_SIZE"
+        return False
+
+    @property
+    def is_assumed_rank(self) -> bool:
+        if self.is_array:
+            return self.type == "ASSUMED_RANK"
+        return False
+
     @cached_property
     def lower(self) -> tuple[expressions.Expression, ...]:
         low = []
