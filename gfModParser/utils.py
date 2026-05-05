@@ -3,14 +3,8 @@
 from typing import Any, Union
 
 import numpy as np
+import pyquadp as pyq  # type: ignore[import-not-found]
 from packaging.version import Version
-
-try:
-    import pyquadp as pyq  # type: ignore[import-not-found]
-
-    PYQ_IMPORTED = True
-except ImportError:
-    PYQ_IMPORTED = False
 
 
 def gfortran_mod_map(version: Version) -> Version:
@@ -54,10 +48,7 @@ def hextofloat(s: str, kind: int = 4) -> Union[float, np.double, "pyq.qfloat"]:
         exp = 0
 
     if kind == 16:
-        if PYQ_IMPORTED:
-            return pyq.qfloat.fromhex(man) * 16**exp
-        else:
-            raise ValueError("Please install pyQuadp to handle quad precision numbers")
+        return pyq.qfloat.fromhex(man) * 16**exp
     elif kind == 8:
         return np.double.fromhex(man) * 16**exp  # type: ignore[attr-defined]
     else:
@@ -71,7 +62,7 @@ def dtype(type, kind, len=-1) -> np.dtype:
         elif kind == 8:
             return np.dtype(np.float64)
         elif kind == 16:
-            return np.dtype((np.void, 16))
+            return pyq.qarray.dtype
     elif type == "INTEGER":
         if kind == 1:
             return np.dtype(np.int8)
@@ -82,7 +73,7 @@ def dtype(type, kind, len=-1) -> np.dtype:
         elif kind == 8:
             return np.dtype(np.int64)
         elif kind == 16:
-            return np.dtype((np.void, 16))
+            return pyq.qiarray.dtype
     elif type == "UNSIGNED":
         if kind == 4:
             return np.dtype(np.uint32)
@@ -98,7 +89,7 @@ def dtype(type, kind, len=-1) -> np.dtype:
         elif kind == 8:
             return np.dtype(np.complex128)
         elif kind == 16:
-            return np.dtype((np.void, 16 * 2))
+            return pyq.qcarray.dtype
     elif type == "LOGICAL":
         return np.dtype(np.int32)
 

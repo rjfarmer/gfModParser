@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0+
 
 import numpy as np
+import pyquadp as pyq
 import pytest
 from packaging.version import Version
 
@@ -217,22 +218,18 @@ class TestUtils:
             gf.utils.gfortran_mod_map(Version("16.0.0"))
 
     def test_hextofloat_kind16(self):
-        if gf.utils.PYQ_IMPORTED:
-            assert gf.utils.hextofloat("0.1@1", kind=16) is not None
-        else:
-            with pytest.raises(ValueError, match="pyQuadp"):
-                gf.utils.hextofloat("0.1@1", kind=16)
+        assert gf.utils.hextofloat("0.1@1", kind=16) is not None
 
     def test_dtype_branches(self):
         assert gf.utils.dtype("REAL", 4) == np.dtype(np.float32)
         assert gf.utils.dtype("REAL", 8) == np.dtype(np.float64)
-        assert gf.utils.dtype("REAL", 16) == np.dtype((np.void, 16))
+        assert gf.utils.dtype("REAL", 16) == pyq.qarray.dtype
 
         assert gf.utils.dtype("INTEGER", 1) == np.dtype(np.int8)
         assert gf.utils.dtype("INTEGER", 2) == np.dtype(np.int16)
         assert gf.utils.dtype("INTEGER", 4) == np.dtype(np.int32)
         assert gf.utils.dtype("INTEGER", 8) == np.dtype(np.int64)
-        assert gf.utils.dtype("INTEGER", 16) == np.dtype((np.void, 16))
+        assert gf.utils.dtype("INTEGER", 16) == pyq.qiarray.dtype
 
         assert gf.utils.dtype("UNSIGNED", 4) == np.dtype(np.uint32)
         assert gf.utils.dtype("UNSIGNED", 8) == np.dtype(np.uint64)
@@ -242,7 +239,7 @@ class TestUtils:
 
         assert gf.utils.dtype("COMPLEX", 4) == np.dtype(np.complex64)
         assert gf.utils.dtype("COMPLEX", 8) == np.dtype(np.complex128)
-        assert gf.utils.dtype("COMPLEX", 16) == np.dtype((np.void, 32))
+        assert gf.utils.dtype("COMPLEX", 16) == pyq.qcarray.dtype
 
         assert gf.utils.dtype("LOGICAL", 4) == np.dtype(np.int32)
 

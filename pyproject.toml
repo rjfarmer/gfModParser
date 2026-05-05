@@ -29,6 +29,7 @@ classifiers = [
 dependencies = [
     "numpy >= 2.0.0",
     "packaging",
+    "pyquadp >= 2.0.0"
 ]
 
 dynamic = ["version"]
@@ -40,7 +41,6 @@ gfModParser = ["py.typed"]
 [project.optional-dependencies]
 test = ['pytest','pytest-xdist']
 coverage = ['pytest', 'pytest-xdist', 'pytest-cov']
-quad = ['pyquadp']
 dev = ['pre-commit','black', 'pytest','pytest-xdist']
 performance = ["pytest", "pytest-codspeed", 'pytest-xdist']
 types = ["mypy", "types-setuptools"]
