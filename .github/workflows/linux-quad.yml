@@ -1,4 +1,4 @@
-name: Linux CI
+name: Linux Quad
 on: [push, pull_request]
 permissions: {}
 
