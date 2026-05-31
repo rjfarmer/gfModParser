@@ -22,8 +22,12 @@ class typebound_proc:
     # Also sho deferred here? see mio_typebound_proc
 
     @property
-    def nopass(self) -> bool:
+    def is_nopass(self) -> bool:
         return self._proc[2] == "NOPASS"
+
+    @property
+    def is_pass(self) -> bool:
+        return self._proc[2] == "PASS"
 
     @property
     def is_generic(self):

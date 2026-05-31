@@ -18,7 +18,8 @@ class TestTypeboundProc:
 
         assert pp.access == "PUBLIC"
         assert pp.overridable == "OVERRIDABLE"
-        assert not pp.nopass
+        assert not pp.is_nopass
+        assert pp.is_pass
         assert pp.is_generic == "SPECIFIC"
         assert pp.ppc == "PPC"
         assert pp.pass_arg == ""
@@ -26,11 +27,13 @@ class TestTypeboundProc:
 
     def test_nopass(self):
         pp = self.mod["Ppptr"].properties.components["p_func_func_run_ptr"].proc_pointer
-        assert pp.nopass
+        assert pp.is_nopass
+        assert not pp.is_pass
         assert pp.pass_arg == ""
         assert pp.pass_arg_num == 0
 
     def test_pass_self(self):
         pp = self.mod["Ppptr"].properties.components["p_func_pass2"].proc_pointer
-        assert not pp.nopass
+        assert not pp.is_nopass
+        assert pp.is_pass
         assert pp.pass_arg_num > 0
