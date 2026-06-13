@@ -17,7 +17,7 @@ jobs:
           - {compiler: gcc, version: 12}
 
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
@@ -32,7 +32,7 @@ jobs:
           pypy3 -m pip install --upgrade pip
           pypy3 -m pip install build wheel
 
-      - uses: fortran-lang/setup-fortran@2a1b9c55897d827a9dfeb114408f3615e53b2b72 # v1
+      - uses: fortran-lang/setup-fortran@2a1b9c55897d827a9dfeb114408f3615e53b2b72 # v1.9.0
         id: setup-fortran
         with:
           compiler: ${{ matrix.toolchain.compiler }}
