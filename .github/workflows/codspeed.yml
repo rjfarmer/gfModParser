@@ -42,7 +42,7 @@ jobs:
         run: python -m pip install .[performance]
 
       - name: Run benchmarks
-        uses: CodSpeedHQ/action@c145068895e045cc725ee76fcd2307624b65c3af # v4.17.5
+        uses: CodSpeedHQ/action@373d6868929f444bc08d901fd0eb0ad52a8875ea # v5.2.1
         with:
           mode: instrumentation
           token: ${{ secrets.CODSPEED_TOKEN }}
